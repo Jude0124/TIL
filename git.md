@@ -140,3 +140,26 @@ $ git remote rm origin
 
 
 
+
+
+## git 활용 예시
+
+### clone
+
+> 원격 저장소를 복제해온다.
+
+```bash
+~/집 (master) $ git clone https://github.com/edutak/TIL--nlp.git
+```
+
+* 복제 하는 경우 원격저장소 이름의 폴더가 생성된다.
+* 해당 폴더로 이동하여 활용을 하면 된다.
+* 이후 작업을 하는 경우 add, commit, push
+
+### pull
+
+> 원격 저장소의 변경사항을 받아온다.
+
+```bash
+$ git pull origin master
+```
