@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A03 List</title>
+</head>
+<body>
+    <h1>List</h1>
+
+    <p>
+        목록을 작성할 목적으로 사용한다.<br>
+        ex] 목차
+    </p>
+
+    <h3>순서가 있는 목록 만들기</h3>
+    <ol >
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ol>
+    <!-- <ol> align = "center" deprecated되었음 가운데 정렬 ol은 순서가 있는 목록을 의미한다. -->
+    <hr color = "orange">
+    <h3 >표시 문자 1, 2를 변경</h3>
+    <ol type= "I">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ol>
+
+    <h3>순서가 없는 목록 만들기</h3>
+    <ul >
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+
+    <hr color = "orange">
+    <h3> 표시 마크 변경. square : 사각형, disk : 원형 , circle : 빈 원형</h3>
+    <ul type= "disk">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+    
+    <ul type= "square">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <ul type= "circle">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+
+    <hr color="orange">
+    <h3> 소 목록 작성</h3>
+    <ol >
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <ol type ="a">
+            <li>jQuery</li>
+            <li>React</li>
+            <li>Vue</li>
+        </ol>
+        <li>Java</li>
+
+    </ol>
+
+    
+    <hr color="orange">
+    <p> HTML은 더블 쿼테이션 자바스크립트는 싱글 쿼테이션을 사용하듯이 나름대로 규칙을 정해줄 수 있다. 둘 다 원래 사용가능하다.</p>
+
+    <hr color="orange">
+
+    <h3>설명할 리스트</h3>
+    <dl> <!-- 리스트의 시작만 알림. -->
+        <p>dl은 리스트가 시작됬다는 것을 알려준다.</p>
+        <dt> <!-- 머릿말-->
+            <b>dt는 리스트의 title을 의미한다.</b>
+        </dt>
+        <dd>
+            dd 는 해당 리스트의 definition 을 의미한다.
+        </dd>
+
+        <dt> <!-- 머릿말-->
+            <b>dt는 리스트의 title을 의미한다.</b>
+        </dt>
+        <dd>
+            dd 는 해당 리스트의 definition 을 의미한다.
+        </dd>
+        
+    </dl>
+
+</body>
+</html>

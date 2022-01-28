@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>A04 Link</h1>
+    
+    <h3>인터넷 상의 다른 웹사이트와 연결 [절대패스]</h3>
+    <p>
+        <a href="https://www.kia.com/kr/vehicles/theallnewkianiro/microsite.html">기아</a> 기아 니로가 6년 만에 풀 체인지 모델로 돌아왔다. 
+        2022년 기아의 첫 출시 차량으로, 사전계약 사흘 만에 1만7000가 팔리는 등 돌풍을 일으키고 있다. 사전계약 고객의 세대별 비중은 각각 20% 수준이다. 
+        전 세대가 골고 예약에 나섰는데, 특히 20·30대 비중이 크게 올랐다. 1세대의 경우 20대 고객층은 12% 수준인 것에 비해 신형 니로에서는 19%로 뛰었고, 30대가 26.7%로 가장 많았다.
+        <br>
+        링크의 주소줄은 ?로 시작하고 &는 구분자로서 구분해주는 역할을 한다
+        <br>
+
+        대한민국 대표호털로는
+        <a href = "http://www.daum.net">다음</a>과
+        <a href = "http://www.naver.com">네이버</a>가 있습니다.<br>
+        파라메터가 있는 상세페이지는 파라메터까지 걸어야한다. 
+        <a href = "https://news.naver.com/main/read.naver?mode=LSD&mid=shm&sid1=101&oid=023&aid=0003669376"></a>
+    </p>
+
+    <h3>절대 패스</h3>
+    <p>
+        어떤 페이지에서 링크를 설정해도 변경되지 않는 고정값<br>
+
+        <a href="http://127.0.0.1:5500/A01HTML.html">A01 HTML</a> 페이지 단락에 대한설명<br>
+        <a href="http://127.0.0.1:5500/company/way.html">오시는 길</a>오시는 길도 참조할 수 있습니다.
+    
+    </p>
+
+    /가 있으면 root경로 기준으로 절대패스
+    없으면 상대패스
+
+    <ul>
+        <li><a href="http://127.0.0.1:5500/A01HTML.html">A01 HTML</a></li>
+        <li><a href="http://127.0.0.1:5500/company/way.html">A04 Link</a></li>
+        <li><a href="/product/phone/iphone.html">iphone</a></li>
+        <li><a href="product/phone/samsung.html">samsung</a></li>
+        <li><a href="/product/tv/lg.html">lg</a></li>
+    </ul>
+
+    <h3>상대 패스</h3>
+    <p>현재 페이지를 기준으로 이동할 페이지의 패스를 설정한다. <br> 
+    현재 페이지는 ./ 생략가능<br>
+    한폴더 상위 페이지는 ../파일명<br>
+    하위 페이즈는 폴더명/파일명 
+    </p>
+
+
+    ./가 있거나 /가 없으면 상대패스이다.
+
+
+    <h3>상대패스</h3>
+
+    <ul>
+        <li><a href="./A01HTML.html">A01 HTML</a></li>
+        <li><a href="./company/way.html">A04 Link</a></li>
+        <li><a href="product/phone/iphone.html">iphone</a></li>
+        <li><a href="product/phone/samsung.html">samsung</a></li>
+        <li><a href="product/tv/lg.html">lg</a></li>
+    </ul>
+
+    <h3>새창 열기</h3>
+    <div>
+        새 창을 띄워 새로운 페이지로 이동하게 한다.<br>
+        <li><a href = "http://www.naver.com" target = "_blank">네이버</a></li>
+        <li><a href = "http://www.daum.net" target = "_blank">다음</a></li>
+    </div>
+    <img src="https://img1.daumcdn.net/thumb/S172x208/?scode=b2_01&amp;x-twg-thumb-fname=http%3A%2F%2Ft1.daumcdn.net%2Fb2%2Fcreative%2F152699%2F19563ecc339e0622ef3f15d1a5c11635.jpg&amp;TWGServiceId=b2&amp;Expires=1643349600&amp;Signature=zJ2Ww9KiWfDou%2Bq03BPUqNera24%3D" width="86" height="104" class="img_thumb">
+    
+
+</body>
+</html>

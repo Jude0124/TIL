@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h1>Form</h1>
+
+    <p>사용자로부터 어떠한 값을 받을 목적으로 기술
+        전달될 데이터는 form 태그에 포함되어야 한다.<br>
+        GET : 256Byte ~ 4096Byte 이내의 크기의 데이터만 전송 가능. <br>
+        주소줄에 address?key=value&key=value......<br>
+
+        POST: 크기 상관없음.<br>
+        body 처음에 붙어서 넘어간다.<br>
+    </p>
+
+    <form method = "GET" actoin = "Result.jsp">
+        <fieldset>
+            <legend>상품 주문</legend>
+            <label>상품 : <input type = "text" name = "product" maxlength="10" placeholder = "상품 목록을 입력해 주세요"></label>
+            <br>
+            <label for = "qty">수량 : </label>
+            <input type= "number" id = "qty" name = "qty" min = "0" max = "10" step = "2">
+        </fieldset>
+
+        <fieldset>
+            size는 필드의 크기(입력할 수 있는 칸의 크기)<br>
+            maxlength 정의한 필드에 입력할 수 있는 크기의 최대 값. 10이면 10자만 입력 가능. size 가 20이면 크기는 20자만 입력이 가능한데
+            입력 할 수 있는 최대 값은 10자만 입력 가능<br>
+            required : 값이 반드시 입력해야한다는 것을 의미한다. 이름이 비어있을 수 없음, 값이 반드시 전송되지않는다.<br>
+            readonly : 읽기전용, 사용자가 값을 입력할 수 없음<br>
+            disabled : 사용하지않음. 사용자가 값을 입력할 수 없음, 지정한 action에 값을 전달하지 않음<br>
+            type을 hidden으로 주면 해당 필드는 사용자 몰래 값을 전송 받을 수 있다. 화면에서 보이지는 않는다. <br>
+             
+            <legend>주문한 사람</legend>
+            <label>이름 : <input type = "text" name = "name" size = "50" required></label><br>
+            <label>주소 : <input type = "text" name = "address" size = "70" value = "서울시" readonly></label><br>
+            <label>이메일 : <input type = "email" name = "email" size = "70" value = "abc@abc.com" disabled></label><br>
+            <br>
+            이 히든 필드는 화면에 표시되지 않음.<br>
+            사용자는 모르게 서버에 어떠한 값을 전송할 목적으로 사용한다.<br>
+             <input type = "hidden" name = "mail" size = "70" value = "abc@abc.com">
+
+            <label>패스워드 : <input type = "password" name = "pw" size = "10"></label><br>
+            
+        </fieldset>
+
+        <fieldset>
+            <legend>배송지</legend>
+            <lable>배송일자: <input type = "date" name = "pw" size = "10" value = "2022-12-25"></lable><br>
+            <lable>배송일자: <input type = "time" name = "pw" size = "10" value = "14:25:30"></lable><br>
+
+            <label>배송일자: <input type = "month" name = "pw" size = "10"></label><br>
+            <label>배송일자: <input type = "week" name = "pw" size = "10"></label><br>
+            <label>배송일자: <input type = "datetime" name = "pw" size = "10"></label><br>
+            
+            <label>단일 선택 : <br>
+                name속성이 동일한 얘들중에서 1개만 선택된다. name 값이 틀리면 다중 선택이 된다.<br>
+                value 속성이 있어야 그 값이 name 변수에 붙어 넘어간다.<br>
+                checked 옵션은 기본선택으로 값을 선택해두는 것을 의미한다.<br>
+
+                 <input type = "radio" name= "Language" value = "Java">자바<br>
+                 <input type = "radio" name= "Language" value = "JavaScript" checked>자바스크립트<br>
+                 <input type = "radio" name= "Language"value = "React">리액트<br>
+
+            </label>
+
+            <label>다중 선택 : <br>
+                name속성이 동일한 얘들중에서 여러개가 선택된다. java에서는 같은 이름의 배열로 넘어간다.<br>
+                value 속성이 있어야 그 값이 name 변수에 붙어 넘어간다.<br>
+
+
+                 <input type = "checkbox" name= "baseball" value = "KT" checked>KT<br>
+                 <input type = "checkbox" name= "baseball" value = "두산">두산<br>
+                 <input type = "checkbox" name= "baseball" value = "엘지" checked>엘지<br>
+                 <input type = "checkbox" name= "baseball" value = "기아">기아<br>
+                 <input type = "checkbox" name= "baseball" value = "삼성">삼성<br>
+                 <input type = "checkbox" name= "baseball" value = "한화">한화<br>
+
+            </label>
+            <br>
+            <br>
+            <label>textarea태그는 입력창을 만들어준다. rows가 줄의 수 , cols가 한줄에 입력 가능한 글자 수 <br>
+                <textarea name = "name" rows="10" cols = "100"></textarea>
+            </label>
+            <br>
+            <br>
+            radio, checkbox를 하나로 묶은 형태(공간을 적게 차지한다.)<br>
+            select value 속성이 없으면 option<br>
+            selected 옵션은 기본적으로 선택되어있는 값을 설정해준다.<br>
+
+            <label>하나만 선택 가능<br>
+                <select name = "Lang">
+                    <option value = "자바">Java</option>
+                    <option value = "자바스크립트" selected>JavaScript</option>
+                    <option value = "리액트">React</option>
+                    <option value = "뷰">Vue</option>
+                    <option value = "제이쿼리">jQuery</option>
+                </select>
+            </label>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            multiple은 다중 선택을 할때 필요한 옵션이다. <br>
+            size는 보여주는 갯수를 의미한다.<br>
+            다중선택 또한 selected 가 가능하다.<br>
+            <label>다중 선택 가능<br>
+                <select name = "multi" multiple size = "5"> 
+                    <option value = "자바">Java</option>
+                    <option value = "자바스크립트" selected>JavaScript</option>
+                    <option value = "리액트">React</option>
+                    <option value = "뷰">Vue</option>
+                    <option value = "제이쿼리">jQuery</option>
+                </select>
+            </label>
+            <br>
+            <br>
+            <br>
+            
+            <label>파일전송<br>
+                <input type = "file" name = "upload">
+            </label>
+
+        </fieldset>
+        
+        <button type = "submit">SEND</button>
+        <button type = "reset">CANCEL</button>
+    </form>
+</body>
+</html>

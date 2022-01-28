@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<body>
+    <h1>표짜기</h1>
+
+    <table width = "800px" border = "1">
+        <caption>표 제목</caption>
+        
+        <tr>
+            <th>아이디 </th> <!-- 중앙정렬에 BOLD가 적용된다.-->
+            <th>이름</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>1</td> <!-- 좌측 정렬에 일반 텍스트-->
+            <td>홍길동</td>
+            <td>부산</td>
+        </tr>
+
+        <tr>
+            <td>2</td> <!-- 좌측 정렬에 일반 텍스트-->
+            <td>놀부</td>
+            <td>서울</td>
+        </tr>
+
+
+        행렬 사이즈가 안맞으면 띄워주긴하지만 빈칸이 있어 깨져보임
+    </table>
+
+    <h3>가로 칸 병합</h3>
+
+    <table width = "800" style = "border: 1px solid black; border-collapse: collapse;"> 
+        <tr style = "border: 1px solid black;">
+            <td colspan="3">A</td>
+            <td colspan="2">B</td>
+        </tr>
+
+        <tr style = "border : 1px solid black;">
+            <td>C</td>
+            <td colspan="2">D</td>
+            <td colspan="2">E</td>
+        </tr>
+
+        <tr style = "border : 1px solid black;"> 
+            <td>F</td>
+            <td>G</td>
+            <td>H</td>
+            <td>I</td>
+            <td>J</td>
+        </tr>
+
+        <tr style = "border : 1px solid black;">
+            <td colspan="2">K</td>
+            <td>L</td>
+            <td width= "200px">Mmmmmmmmm mm</td>
+            <td>N</td>
+
+        </tr>
+    </table>
+
+    <h3>세로칸 병합</h3>
+
+    <table width = "800px" border = "1"> 
+        <tr style = "border: 1px solid black;">
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td colspan = "2">D</td>
+        </tr>
+
+        <tr style = "border : 1px solid black;">
+            <td>E</td>
+            <td>F</td>
+            <td rowspan="3">G</td>
+            <td rowspan="2">H</td>
+            <td rowspan="2">I</td>
+
+        </tr>
+
+        <tr style = "border : 1px solid black;"> 
+            <td rowspan="2">J</td>
+            <td>K</td>
+        </tr>
+
+        <tr style = "border : 1px solid black;">
+            <td>L</td>
+            <td>M</td>
+            <td>N</td>
+        </tr>
+    </table>
+
+    <h3>가로 세로 병합 </h3>
+    
+    <table width = "800px" border = "1">
+        <tr style = "border : 1px solid black;">
+            <td colspan = "2">A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+        </tr>
+
+        <tr style = "border : 1px solid black;">
+            <td>E</td>
+            <td>F</td>
+            <td colspan= "2">G</td>
+            <td>H</td>
+        </tr>
+
+        <tr style = "border : 1px solid black;">
+            <td colspan = "2" rowspan = "3">I</td>
+            <td>J</td>
+            <td colspan = "2">k</td>
+        </tr>
+
+        <tr style = "border : 1px solid black;">
+            <td>L</td>
+            <td colspan = "2" rowspan = "2">M</td>
+        </tr>
+
+        <tr style = "border : 1px solid black;">
+            <td>N</td>
+        </tr>
+
+    </table>
+
+
+
+</body>
+</html>
