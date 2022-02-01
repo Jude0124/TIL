@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Class Selecter</title>
+	<style type="text/css">
+		html { overflow-y:scroll; }
+		body { font-size: 12pt; line-height: 1.5em; color: gray; }
+		em { font-style:normal; }
+		h1, h2, h3, h4, h5, h6 { line-height:1.4em; }
+
+		/* 
+			ID 속성자
+			문서에 동일한 이름이 1개만 존재해야 한다.(중복 이름이 없어야 함. 있어도 에러는 아님)
+			#idName { 명령 : 값; .....}		
+		*/
+		#wrap { margin : 20px auto; border : 1px solid gray; width : 800px; }
+		#photoshop { color : green}
+		#photoshop em { color : red;}
+		#webaccess { color : orange}
+	</style>
+</head>
+
+<body>
+	
+	<div id="wrap">
+		<div id="photoshop">
+			<h3>필요한 코드와 <em>CSS 스타일</em>에 손쉽게 액세스 작업 시간 단축</h3>
+			<p>관련 파일 막대에 있는 파일을 클릭하면 코드 뷰에서 소스를 확인하면서 동시에 디자인 뷰에서 상위 페이지를 볼 수 있습니다.
+			코드 탐색기를 사용하여 현재 선택 영역에 영향을 미치는 모든 CSS 소스 코드에 신속하게 액세스할 수도 있습니다.</p>
+			
+			<h3>향상된 <em>코드 힌트 기능</em>으로 신속하게 스트립트 작성 작업 시간 단축</h3>
+			<p>JavaScript의 주요 객체와 기본 데이터 유형에 대한 지원이 더욱 강화되어 JavaScript를 보다 효과적으로 작성할 수 있습니다.
+			jQuery, Prototype, Spry 등 일반적으로 널리 사용되는 JavaScript 프레임워크를 통합하여 더욱 확장된 Dreamweaver CS4의 
+			코딩 기능을 활용할 수 있습니다.</p>
+			
+			<h3>데이터베이스나 XML 작업 없이 <em class="mRed">동적 데이터 추가 작업</em> 시간 단축</h3>
+			<p>데이터베이스나 XML 코딩 작업의 어려움 없이 웹 페이지에 강력한 동적 데이터를 통합할 수 있습니다.
+			Spry 데이터 세트는 간단한 HTML 표에 포함된 컨텐츠를 인터랙티브한 데이터 소스로 인식합니다.</p>
+			
+			<h4>Photoshop <em>스마트 오브젝트 기능</em>을 통해 신속하게 이미지 업데이트 작업 시간 단축</h4>
+			<p>원본 파일이 변경될 때마다 이미지를 다시 저장하거나 삽입하지 않고도 Adobe Photoshop®(PSD) 파일을 Dreamweaver CS4에 
+			스마트 오브젝트로 삽입한 다음 한 번의 클릭으로 이미지를 업데이트할 수 있습니다. 이미지는 선호하는 HTML용 포맷으로 웹에 
+			맞게 자동으로 최적화됩니다.</p>
+			
+			<h5>손쉽게 CSS 모범 사례 적용 작업 시간 단축</h5>
+			<p>코드를 작성하지 않고 CSS 모범 사례를 구현할 수 있습니다. 
+			속성 패널에서 새로운 CSS 규칙을 만들 수 있고 CSS의 각 속성이 어디에 적용되는지 간단하고 명확하게 파악할 수 있습니다.</p>
+		</div>
+		
+		<div id="webaccess">
+			<h3>웹 접근성</h3>
+			<p>월드 와이드 웹 (World Wide Web)을 창시한 <em class="mRed">팀 버너스 리(Tim Berners-Lee)</em>는 웹이란 '장애에 구애 없이 
+			모든 사람들이 손쉽게 정보를 공유할 수 있는 공간'이라고 정의하였으며, 웹 콘텐츠를 제작할 때에는 장애에 구애됨이 없이 
+			누구나 접근할 수 있도록 제작하여야 한다고 하였다. 이렇듯 웹 창시자가 웹의 기본적 철학에서 웹 접근성 부문을 강조함에도 불구하고, 
+			웹 접근성을 바라보는 입장에 따라 다르게 정의하고 있다.</p>
+			
+			<p>하지만, 접근에 대한 개념의 다양성으로 인한 인식의 부족보다는 접근성에 대한 개념을 잘못 이해하고 있는 것이 더욱 문제이다. 
+			즉, 접근성을 단지 장애인에게 국한된 문제라고 잘못 이해하고 있는 경우가 대부분이라는 것이다. 
+			비록 접근성 준수가 장애인에게 가장 혜택이 많이 돌아가는 것은 사실이지만, 접근성이란 장애인뿐만 아니라 모든 사람이 정보통신 기기나 
+			서비스를 손쉽게 활용할 수 있도록 만드는 것을 말하는 것이다. 
+			예를 들자면 장애인과 노인들을 위해 개발된 리모콘, 전화, 자동문 등의 제품들이 널리 보급되면서 궁극적으로는 모든 사람들이 편리하게 
+			활용하게 된 것을 들 수 있다. <br />
+			이러한 접근성 개념은 정보통신 분야에서 다양한 제품 및 서비스 간의 호환성 문제, 이동 정보통신 기기 등으로 
+			그 필요성 및 중요성이 더욱 증대되고 있다.</p>
+			
+			<p>월드 와이드 웹 컨소시엄(W3C: World Wide Web Consortium) 웹 접근성 이니셔티브(WAI: Web Accessibility Initiative)와 
+			짐 대처 (Jim. Thatcher)는 웹 접근성에 대해 매우 현실적으로 정의하고 있다. 
+			즉, 장애를 가진 사람들이 웹 콘텐츠를 인지하고, 편리하게 사용할 수 있으며, 그 내용이 이해하기 쉬워야 하며, 견고성을 지녀야 
+			웹 접근성이 있다고 보는 관점이다. 
+			인터넷 전자도서관인 Wikipedia는 웹 접근성의 개념을 웹 콘텐츠 뿐만 아니라 인터넷을 통하여 전달될 수 있는 
+			모든 콘텐츠로 확대하고 있다.
+			</p>
+		</div>
+	</div>
+
+</body>
+</html>
