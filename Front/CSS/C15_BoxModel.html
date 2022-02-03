@@ -9,7 +9,49 @@
 		body { font-size: 12pt; line-height: 1.5em; color: gray; }
 		h1, h2, h3, h4, h5, h6 { font-size:1.2em; }
 
+		/* overflow기능은 해당 너비안에 들어가야할 내용이 넘칠경우 auto로 설정해주면 스크롤을 생성하여
+			해당 칸에서 볼 수 있게 해주며, auto대신 hidden으로 바꾸면 해당 칸에 표현할 수 있는 범위까지만
+			보여주고 나머지는 짤라버린다. */
+
+		.bottom { width: 500px; height: 70px; overflow: auto; }
+		.bottom2 { width: 500px; height: 70px; overflow: hidden; }
+		.two { width: 500px; height: 70px; overflow: auto; 
+			/* left , right , top, bottom */
+			border-bottom-width: 2px;
+			/* double dashed  dotted solid groove inset outset ... etc*/
+			border-bottom-style: dotted; 
+			border-bottom-color: orange;
+		}
+
+		.three {
+			width : 500px;  height : 100px; overflow: auto;
+			border-bottom: 1px solid orange; /* bottom 하나로 통합 기술 */
+		}
 		
+		.four {
+			width : 500px;  height : 100px; overflow: auto;
+			border: 10px groove orange; /* left top right bottom 하나로 통합 기술 */
+			box-shadow: 5px 5px 10px 5px black;
+			margin-bottom:  50px;
+		}
+
+		.five { 
+			width: 500px; height: 100px; overflow: auto;
+			border : 1px solid orange;
+			border-radius: 40px;
+			margin-bottom:  50;
+		}
+
+
+		
+		.six { 
+			width: 250px; height: 150px; overflow: hidden;
+			border : 1px solid orange;
+			/* border-radius: 10px; */
+			border-top-left-radius: 10px;
+			border-top-right-radius : 10px;
+			/* padding : 10px */
+		}
 	</style>
 </head>
 <body>
@@ -18,7 +60,7 @@
 	
 	<div class="one">
 		<h1>필요한 코드와 <em>CSS 스타일</em>에 손쉽게 액세스 작업 시간 단축</h1>
-		<p>관련 파일 막대에 있는 파일을 클릭하면 코드 뷰에서 소스를 확인하면서 동시에 디자인 뷰에서 상위 페이지를 볼 수 있습니다. 코드 탐색기를 사용하여 현재 선택 영역에 영향을 미치는 모든 CSS 소스 코드에 신속하게 액세스할 수도 있습니다.</p>
+		<p class = "bottom">관련 파일 막대에 있는 파일을 클릭하면 코드 뷰에서 소스를 확인하면서 동시에 디자인 뷰에서 상위 페이지를 볼 수 있습니다. 코드 탐색기를 사용하여 현재 선택 영역에 영향을 미치는 모든 CSS 소스 코드에 신속하게 액세스할 수도 있습니다.</p>
 	</div>
 	
 	<div class="two">
@@ -41,6 +83,9 @@
 		<p>코드를 작성하지 않고 CSS 모범 사례를 구현할 수 있습니다. 속성 패널에서 새로운 CSS 규칙을 만들 수 있고 CSS의 각 속성이 어디에 적용되는지 간단하고 명확하게 파악할 수 있습니다.</p>
 	</div>
 	
+	<div class = "six">
+		<img src= "./images/tree.jpeg" alt="tree">
+	</div>
 </div>
 
 </body>

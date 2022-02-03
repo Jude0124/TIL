@@ -7,8 +7,84 @@
 	<title>Position</title>
 	<style type="text/css">
 		body { font-size: 12pt; line-height: 1.5em; color: gray; }
-		body, h1, h2, h3, h4, h5, h6 { margin:0; padding:0 }
-		h1, h2, h3, h4, h5, h6 { font-size:1.2em; }
+		body, h1, h2, h3, h4, h5, h6 { margin:0; padding:0 } 
+		 /* ul, li, ol, dt, dl, dd { margin:0; padding:0 } */
+		h1, h2, h3, h4, h5, h6 { line-height:1.3em; }
+
+		#wrapper {
+			width : 800px;
+			margin : 10px auto;
+			
+		}
+		.one ul {
+			list-style : none;
+			padding-left : 0;
+		}
+
+		.one ul li {  
+				/* block은 개행이 되어있음
+				inline-block 개행이 되자 않는 inline요소와 동일하지만 width/height 변경 가능. 
+				padding, margin 또한 적용 가능 */
+
+				display : inline-block;
+				width : 100px;
+				text-align: center;
+				font-weight : bold;
+				border : 1px solid gray;
+				padding-top : 5px;
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+				margin-right : 20px;
+				background-color: orange;
+				color : white;
+		} 
+
+
+		.one ul li:first-child {  
+				margin-left :10px;
+		} 
+
+		.two ul {
+			list-style : none;
+			padding-left : 0;
+		}
+
+		.two ul li {
+			float : left;
+			width : 100px;
+			text-align: center;
+			font-weight : bold;
+			border : 1px solid gray;
+			border-left-width: 0; /*좌측 선만 없애버린다..*/
+			padding-top : 5px;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			background-color: orange;
+			color : white;
+			cursor : pointer; /*커서가 해당 위치에 올라왔을때 커서의 바뀌는 모양 제시*/
+
+		}
+		
+		
+		.two ul li:first-child {  
+				margin-left :10px;
+				border-left-width: 1px
+		} 
+
+		/* 가상 컨텐츠 선택자 */
+		.two::after{
+			content: "";
+			display: block;
+			clear : both;
+
+
+		}
+		#three img {
+			border :  1px solid orange;
+			float : right;
+		}
+
+		.four { clear: both;}
 	</style>
 </head>
 <body>
@@ -38,7 +114,7 @@
 			</ul>
 		</div>
 		
-		<div class="three">
+		<div id="three">
 			<h3>데이터베이스나 XML 작업 없이 동적 데이터 추가 작업 시간 단축</h3>
 			<img src="./images/tree.jpeg">
 			<p>데이터베이스나 XML 코딩 작업의 어려움 없이 웹 페이지에 강력한 동적 데이터를 통합할 수 있습니다. Spry 데이터 세트는 간단한 HTML 표에 포함된 컨텐츠를 인터랙티브한 데이터 소스로 인식합니다.</p>

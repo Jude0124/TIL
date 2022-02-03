@@ -10,12 +10,35 @@
 		body { font-size: 12pt; line-height: 1.5em; color: gray; }
 		h1, h2, h3, h4, h5, h6 { font-size:1.2em; }
 		
-		#wrapper  { width:600px; background-color:#FF0000; margin: 20px auto;}
-		#wrapper .one { width:300px; height:150px; background-color:#FFFF99; float:left;}
-		#wrapper .two { width:300px; height:150px; background-color:#66FFFF; float:left;}
+		#wrapper  { 
+			width:600px; background-color:#FF0000; margin: 20px auto;
+			position : relative;
+		}
 		
-		#wrapper .three { width:300px; height:150px; background-color:#CCFFFF; float:left;}
-		#wrapper .four { width:300px; height:150px; background-color:#99FFFF; float:left;}
+		/* absolute : 상위 요소가 position을 갖고있으면 상위 요소의 좌, 상단 기준으로 배치가 된다.
+			상위요소가 position을 가지고 있지 않으면 브라우저 좌, 상단을 기준으로 배치된다.
+			relative : 상위요소가 position이 있든 없든 무조건 상위요소의 좌, 상단 기준으로 배치가 된다.
+			상위요소가 없을경우 좌, 상단 기준으로 배치한다. 
+			fixed : 항상 브라우저 기준으로 배치한다.
+			*/
+		
+		#wrapper .one { 
+			width:300px; height:150px; background-color:#FFFF99; float:left;
+			position : absolute; left: 100px; top: 400px;
+		}
+		#wrapper .two { 
+			width:300px; height:150px; background-color:#66FFFF; float:left;
+			position : relative; left : 100px; top: 200px;
+		}
+		
+		#wrapper .three { 
+			width:300px; height:150px; background-color:#CCFFFF; float:left;
+			position :fixed; left :  200px; bottom : 10px;
+		}
+		#wrapper .four { 
+			width:300px; height:150px; background-color:#99FFFF; float:left;
+			position : ; left : ; 
+		}
 		
 		#wrapper:after { content:""; clear:both; display:block;}
 	</style>
@@ -25,23 +48,23 @@
 <div id="wrapper">
 	
 	<div class="one">
-		<h1>필요한 코드와 <em>CSS 스타일</em>에 손쉽게 액세스 작업 시간 단축</h1>
+		<h1>1.필요한 코드와 <em>CSS 스타일</em>에 손쉽게 액세스 작업 시간 단축</h1>
 		<p>관련 파일 막대에 있는 파일을 클릭하면 코드 뷰에서 소스를 확인하면서 동시에 디자인 뷰에서 상위 페이지를 볼 수 있습니다. 코드 탐색기를 사용하여 현재 선택 영역에 영향을 미치는 모든 CSS 소스 코드에 신속하게 액세스할 수도 있습니다.</p>
 	</div>
 	
 	<div class="two">
-		<h2>향상된 코드 힌트 기능으로 신속하게 스트립트 작성 작업 시간 단축</h2>
+		<h2>2.향상된 코드 힌트 기능으로 신속하게 스트립트 작성 작업 시간 단축</h2>
 		<p>JavaScript의 주요 객체와 기본 데이터 유형에 대한 지원이 더욱 강화되어 JavaScript를 보다 효과적으로 작성할 수 있습니다. jQuery, Prototype, Spry 등 일반적으로 널리 사용되는 JavaScript 프레임워크를 통합하여 더욱 확장된 Dreamweaver CS4의 코딩 기능을 활용할 수 있습니다.</p>
 	</div>
 	
 	<div class="three">
-		<h3>데이터베이스나 XML 작업 없이 동적 데이터 추가 작업 시간 단축</h3>
+		<h3>3.데이터베이스나 XML 작업 없이 동적 데이터 추가 작업 시간 단축</h3>
 		<p>데이터베이스나 XML 코딩 작업의 어려움 없이 웹 페이지에 강력한 동적 데이터를 통합할 수 있습니다. Spry 데이터 세트는 간단한 HTML 표에 포함된 컨텐츠를 인터랙티브한 데이터 소스로 인식합니다.</p>
 	</div>
 
 	
 	<div class="four">
-		<h4>Photoshop 스마트 오브젝트 기능을 통해 신속하게 이미지 업데이트 작업 시간 단축</h4>
+		<h4>4.Photoshop 스마트 오브젝트 기능을 통해 신속하게 이미지 업데이트 작업 시간 단축</h4>
 		<p>원본 파일이 변경될 때마다 이미지를 다시 저장하거나 삽입하지 않고도 Adobe Photoshop®(PSD) 파일을 Dreamweaver CS4에 스마트 오브젝트로 삽입한 다음 한 번의 클릭으로 이미지를 업데이트할 수 있습니다. 이미지는 선호하는 HTML용 포맷으로 웹에 맞게 자동으로 최적화됩니다.</p>
 	</div>
 

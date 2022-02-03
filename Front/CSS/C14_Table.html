@@ -8,7 +8,50 @@
   <style type="text/css">
 		body { font-size: 12pt; line-height: 1.5em; color: gray; }
 		
+
+    /*  border-collapse : collapse => 1줄 , seperate => 2줄 */
+    .table-one { width : 750px; border: 1px solid gray; caption-side: bottom;
+                 border-collapse: separate; border-spacing: 10px;              
+    }
     
+    .table-one th, .table-one td { border  : 1px solid gray;}    
+
+    /* 구조 가상 클래스를 이용 */
+    .table-two { width : 750px; border: 1px solid gray; caption-side: bottom;
+                  border-collapse : collapse; 
+    }
+    
+    .table-two th, .table-two td { border  : 1px solid gray;}
+    /* .table-two td:first-child { background-color : lightgray; color : gray;} */
+    .table-two td :nth-child(1) {background-color:  lightgray; color : gray;}
+    
+    
+    
+    
+    .table-three { width : 750px; border: 1px solid gray; caption-side: bottom;
+                  border-collapse : collapse; 
+    }
+    
+    .table-three th, .talbe-three td { border : 1px solid gray;}
+
+    /* 첫번째 줄 */
+
+    .table-three thead tr:first-child {background-color: black; color : white;}
+
+    .table-three tfoot tr:last-child {background-color: orange !important; color : white;}
+    
+    /* nth-child(num) => num은 1부터 시작, 연산자 => 2n
+      2n = > 1 % 2 == 0 , 2 % 2 == 0 , 3 % 2 == 0 과같은 식으로 true가 되는 칸에 적용  
+
+      나머지 값이 1 이면 2n +1
+      1번째 칸 1 % 2 == 1, 2 % 2  == 1 , 3 % 2 == 1
+
+      td:nth-child(odd) => 홀수 칸만 적용
+      td:nth-child(even) => 짝수 칸만 적용 
+
+    */
+
+    .table-three tbody td:nth-child(2n) {background-color: lightgray; color : white}
     
 	</style>
 </head>
@@ -19,7 +62,27 @@
 	<h2>향상된 코드 힌트 기능으로 신속하게 스트립트 작성 작업 시간 단축</h2>
 	<p>JavaScript의 주요 객체와 기본 데이터 유형에 대한 지원이 더욱 강화되어 JavaScript를 보다 효과적으로 작성할 수 있습니다. jQuery, Prototype, Spry 등 일반적으로 널리 사용되는 JavaScript 프레임워크를 통합하여 더욱 확장된 Dreamweaver CS4의 코딩 기능을 활용할 수 있습니다.</p>
 
-  <table>
+  <table class = "table-one">
+    <caption>학생 점수</caption>
+    <thead>
+      <tr>
+        <th>이름</th><th>국어</th><th>영어</th><th>총점</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>홍길동</td><td>100</td><td>90</td><td>190</td>
+      </tr>
+      <tr>
+        <td>놀부</td><td>90</td><td>90</td><td>180</td>
+      </tr>
+      <tr>
+        <td>흥부</td><td>80</td><td>90</td><td>170</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class = "table-two">
     <caption>학생 점수</caption>
     <thead>
       <tr>
@@ -39,11 +102,31 @@
     </tbody>
   </table>
 	
-  <h3>데이터베이스나 XML 작업 없이 동적 데이터 추가 작업 시간 단축</h3>
-	<p>데이터베이스나 XML 코딩 작업의 어려움 없이 웹 페이지에 강력한 동적 데이터를 통합할 수 있습니다. Spry 데이터 세트는 간단한 HTML 표에 포함된 컨텐츠를 인터랙티브한 데이터 소스로 인식합니다.</p>
+  <table class = "table-three">
+    <caption>학생 점수</caption>
+    <thead>
+      <tr>
+        <th>이름</th><th>국어</th><th>영어</th><th>총점</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>홍길동</td><td>100</td><td>90</td><td>190</td>
+      </tr>
+      <tr>
+        <td>놀부</td><td>90</td><td>90</td><td>180</td>
+      </tr>
+      <tr>
+        <td>흥부</td><td>80</td><td>90</td><td>170</td>
+      </tr>
+    </tbody>
+  
+    <tfoot>
+      <td>합계</td><td>80</td><td>90</td><td>170</td>
+    </tfoot>
 
-	<h4>Photoshop 스마트 오브젝트 기능을 통해 신속하게 이미지 업데이트 작업 시간 단축</h4>
-	<p>원본 파일이 변경될 때마다 이미지를 다시 저장하거나 삽입하지 않고도 Adobe Photoshop®(PSD) 파일을 Dreamweaver CS4에 스마트 오브젝트로 삽입한 다음 한 번의 클릭으로 이미지를 업데이트할 수 있습니다. 이미지는 선호하는 HTML용 포맷으로 웹에 맞게 자동으로 최적화됩니다.</p>
+  </table>
+
 
 	<h5>손쉽게 CSS 모범 사례 적용 작업 시간 단축</h5>
 	<p>코드를 작성하지 않고 CSS 모범 사례를 구현할 수 있습니다. 속성 패널에서 새로운 CSS 규칙을 만들 수 있고 CSS의 각 속성이 어디에 적용되는지 간단하고 명확하게 파악할 수 있습니다.</p>

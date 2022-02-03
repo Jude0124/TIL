@@ -1,0 +1,7 @@
+/* C04_Style2.css */
+@charset "UTF-8";
+
+p {
+    color : lightgray;
+    line-height : 1.5em;
+}

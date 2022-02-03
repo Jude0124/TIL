@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <style>
+        #modal { position : absolute; left: 0; top : 0; width : 100%; height : 100%;
+                background-color: rgba(0,0,0,0.3);
+                display : none;
+            }
+        form { background-color: white; width : 400px; padding: 10px; border : 1px solid orange;
+            position : absolute; top : 20%; left : 50%;
+            transform : translateX(-50%);
+        }
+        form h3 {background-color: gray; color : white; padding : 5px;}
+        form div { margin-top: 10px; }
+        form label { font-weight : bold;}
+        form input { width : 100%; border : 1px solid #CCCCCC; padding :5px;
+            border-radius: 3px; box-sizing: border-box;
+        }
+        form button { border : none; padding : 5px ; font-weight: bold; color : gray;}
+
+        form button:hover{ background-color: gray; color : white}
+
+
+    </style>
+
+</head>
+<body>
+    <button id="show">LOGIN</button>
+
+    <div id="modal">
+        <form>
+            <h3>로그인</h3>
+
+            <div>
+                <label>ID</label>
+                <input type="text">
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password">
+            </div>
+            <div>
+                <button type="submit">LOGIN</button>
+                <button type="reset" id="hide">CANCEL</button>
+            </div>
+            
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        var btn = document.getElementById("show");
+        btn.addEventListener('click', function(evt) {
+            document.getElementById("modal").style.display = 'block'
+        });
+
+        var btnHide = document.getElementById("hide");
+        btnHide.addEventListener('click', function(evt) {
+            document.getElementById("modal").style.display = 'none'
+        });
+    </script>
+</body>
+</html>

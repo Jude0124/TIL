@@ -7,34 +7,79 @@
   <title>Table</title>
   <style type="text/css">
 		body { font-size: 12pt; line-height: 1.5em; color: gray; }
+		/* 다른 블록과 해당 블록사이의 간격은 margin, 
+			해당블록 안의 elements들이 블록과의 간격을 설정할때는 padding으로 설정해준다. */
+		.box1 { border : 1px solid orange;
+			padding-top : 20px;
+			padding-right : 15px;
+			padding-bottom : 30px;
+			padding-left : 50px;
+
+			
+		}
 		
+		.box2 { border : 1px solid orange;
+
+			/* margin은 적용하려고 하는 공간이 이미 확보되어 있으면 중복 적용 되지 않는다.(적용 안됨) */
+			margin-top : 20px;
+			margin-right : 15px;
+			margin-bottom : 30px;
+			margin-left : 50px;
+		}
+
+		.box3 { border : 1px solid orange;
+			padding : 20px;  /* 상하좌우 모두 20px 공백 적용*/
+			margin : 30px; 
+		}
+
+		.box4 { border : 1px solid orange;
+		/* top, bottom이 한쌍. left, right 가 한쌍
+			순서는 top부터 시계 방향으로 돌면서 적용한다.
+			20px 50ㅔㅌ; => top: 20px, right : 50px , bottom :20px left : 50px */
+
+			padding :20px 50px;
+			margin : 10px 20px 30px;
+		}
+
+		.box5 { border : 1px solid green; width: 800px; padding :20px;
+			/*padding border 포함한 width */
+			/* content-box => 실절적인 텍스트의 width가 800px + padding(20 + 20) + border(1 + 1) 해서 
+						전체 크기는 800px로 지정했지만 842픽셀로 늘어나게 된다.
+			*/
+
+			box-sizing: border-box;  
+ 		}
+
+
 	</style>
 </head>
 <body>
   
   <div class="one">
 		<h1>필요한 코드와 <em>CSS 스타일</em>에 손쉽게 액세스 작업 시간 단축</h1>
-		<p>관련 파일 막대에 있는 파일을 클릭하면 코드 뷰에서 소스를 확인하면서 동시에 디자인 뷰에서 상위 페이지를 볼 수 있습니다. 코드 탐색기를 사용하여 현재 선택 영역에 영향을 미치는 모든 CSS 소스 코드에 신속하게 액세스할 수도 있습니다.</p>
+		<p class = "box1">관련 파일 막대에 있는 파일을 클릭하면 코드 뷰에서 소스를 확인하면서 동시에 디자인 뷰에서 상위 페이지를 볼 수 있습니다. 코드 탐색기를 사용하여 현재 선택 영역에 영향을 미치는 모든 CSS 소스 코드에 신속하게 액세스할 수도 있습니다.</p>
 	</div>
 	
 	<div class="two">
 		<h2>향상된 코드 힌트 기능으로 신속하게 스트립트 작성 작업 시간 단축</h2>
-		<p>JavaScript의 주요 객체와 기본 데이터 유형에 대한 지원이 더욱 강화되어 JavaScript를 보다 효과적으로 작성할 수 있습니다. jQuery, Prototype, Spry 등 일반적으로 널리 사용되는 JavaScript 프레임워크를 통합하여 더욱 확장된 Dreamweaver CS4의 코딩 기능을 활용할 수 있습니다.</p>
+		<p class = "box2">JavaScript의 주요 객체와 기본 데이터 유형에 대한 지원이 더욱 강화되어 JavaScript를 보다 효과적으로 작성할 수 있습니다. jQuery, Prototype, Spry 등 일반적으로 널리 사용되는 JavaScript 프레임워크를 통합하여 더욱 확장된 Dreamweaver CS4의 코딩 기능을 활용할 수 있습니다.</p>
+		<!-- margin은 적용하려고 하는 공간이 이미 확보되어 있으면 중복 적용 되지 않는다.(적용 안됨) */ -->
+		<p class = "box2">JavaScript의 주요 객체와 기본 데이터 유형에 대한 지원이 더욱 강화되어 JavaScript를 보다 효과적으로 작성할 수 있습니다. jQuery, Prototype, Spry 등 일반적으로 널리 사용되는 JavaScript 프레임워크를 통합하여 더욱 확장된 Dreamweaver CS4의 코딩 기능을 활용할 수 있습니다.</p>
 	</div>
 	
 	<div class="three">
 		<h3>데이터베이스나 XML 작업 없이 동적 데이터 추가 작업 시간 단축</h3>
-		<p>데이터베이스나 XML 코딩 작업의 어려움 없이 웹 페이지에 강력한 동적 데이터를 통합할 수 있습니다. Spry 데이터 세트는 간단한 HTML 표에 포함된 컨텐츠를 인터랙티브한 데이터 소스로 인식합니다.</p>
+		<p class = "box3">데이터베이스나 XML 코딩 작업의 어려움 없이 웹 페이지에 강력한 동적 데이터를 통합할 수 있습니다. Spry 데이터 세트는 간단한 HTML 표에 포함된 컨텐츠를 인터랙티브한 데이터 소스로 인식합니다.</p>
 	</div>
 	
 	<div class="four">
 		<h4>Photoshop 스마트 오브젝트 기능을 통해 신속하게 이미지 업데이트 작업 시간 단축</h4>
-		<p>원본 파일이 변경될 때마다 이미지를 다시 저장하거나 삽입하지 않고도 Adobe Photoshop®(PSD) 파일을 Dreamweaver CS4에 스마트 오브젝트로 삽입한 다음 한 번의 클릭으로 이미지를 업데이트할 수 있습니다. 이미지는 선호하는 HTML용 포맷으로 웹에 맞게 자동으로 최적화됩니다.</p>
+		<p class = "box4">원본 파일이 변경될 때마다 이미지를 다시 저장하거나 삽입하지 않고도 Adobe Photoshop®(PSD) 파일을 Dreamweaver CS4에 스마트 오브젝트로 삽입한 다음 한 번의 클릭으로 이미지를 업데이트할 수 있습니다. 이미지는 선호하는 HTML용 포맷으로 웹에 맞게 자동으로 최적화됩니다.</p>
 	</div>
 	
 	<div class="five">
 		<h5>손쉽게 CSS 모범 사례 적용 작업 시간 단축</h5>
-		<p>코드를 작성하지 않고 CSS 모범 사례를 구현할 수 있습니다. 속성 패널에서 새로운 CSS 규칙을 만들 수 있고 CSS의 각 속성이 어디에 적용되는지 간단하고 명확하게 파악할 수 있습니다.</p>
+		<p class = "box5">코드를 작성하지 않고 CSS 모범 사례를 구현할 수 있습니다. 속성 패널에서 새로운 CSS 규칙을 만들 수 있고 CSS의 각 속성이 어디에 적용되는지 간단하고 명확하게 파악할 수 있습니다.</p>
 	</div>
   
 </body>

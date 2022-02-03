@@ -1,7 +1,7 @@
 /* C04_Style.css */
 @charset "utf-8";
 
-p {
-    color : lightgray;
-    
+* {color: gray;}
+h3 {
+    color : orange;
 }
