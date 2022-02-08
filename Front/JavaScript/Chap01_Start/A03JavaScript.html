@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A03 JavaScript</title>
+     <!-- 외부에 분리하고 그 파일을 가져와서 사용하는 방법 -->
+    <script type = "text/javascript" src ="./A02Header.js">
+        // src가 정의된 script 내부의 명령은 무시된다.
+        // 필요하다면 별도로 src 없이 정의 할 필요가 있음
+        console.log('Hello World')
+    </script>
+    
+    <script type = "text/javascript">
+        console.log('Hi~ World')
+    </script>
+</head>
+<body>
+    <div>
+        <h1>A03 JavaScript</h1>
+
+        <div id="result"></div>
+    <script type = "text/JavaScript" src = "./A02Body.js"></script>
+
+    </div>
+    <script type = "text/JavaScript" src = "./A02Footer.js"></script>
+</body>
+</html>

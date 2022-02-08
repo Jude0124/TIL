@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A01 JavaScript</title>
+    <!-- 먼저 실행되어야 할 구문이 있는 경우 -->
+    <script type="text/JavaScript">
+        var x = 10;
+        var y = 20;
+        console.log("Head 영역에 정의된 구문");
+    </script>
+</head>
+<body>
+    <div>
+        <h1>A01 JavaScript</h1>
+
+        <div id="result"></div>
+
+        <!--Document Object Model DOM  -->
+        <!--상위 html 요소에 적합한 값을 변경 등의 작업이 필요한 경우 -->
+    <script type = "text/JavaScript">
+        console.log("Body 영역에 정의된 구문" + x);
+        document.write('Hello World');
+    </script>
+
+    </div>
+    <!-- 문서의 마지막 BODY 태그 위에 기술 
+        html 요소가 모두 읽어지고 난 후에 어떠한 작업이 필요한 경우 -->
+    <script type = "text/JavaScript">
+        console.log("Body 마지막 영역에 정의된 구문" + y);
+        var result = x + y;
+        document.getElementById('result').innerHTML = result;
+    </script>
+</body>
+</html>
