@@ -8,8 +8,30 @@
   <style type="text/css">
     * { box-sizing: border-box; }
     body { background-color: #EEE; font-size: 12pt; }
+    h3 {margin: 0; padding : 0;}
+    #wrapper {
+      display : grid;
+      grid-template-columns : repeat(auto-fit, minmax(256px,1fr));
+      /* column-gap : 1rem;
+      row-gap: 1rem; */
+      gap : 1rem;
+    }
+    .card {
+      background-color: white;
+      box-shadow : 3px 5px 5px gray;
+    }
 
-    
+    .card header {
+
+      font-size: 1.5rem;
+      padding : 0.5em;
+      margin-top: 0.5rem;
+      
+    }
+    .card p { 
+      padding: 0.5rem;
+      line-height: 1.5rem;
+    }
   </style>
 </head>
 <body>

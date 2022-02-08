@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <title>A07 Form</title>
+    <script type="text/javascript">
+
+        (function(){
+            
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="card-body">
+        <h2>Form</h2>
+
+        <form>
+            Name: <input type="text" name="name" class="form-control"/>
+            Age: <input type="text" name="age" class="form-control"/>
+            Date: <input type="date" name="date" class="form-control" />
+            <br>
+
+            RadioButton: <br />
+                <div class="form-check">
+                    <input type="radio" name="sports" value="baseball" id="baseball" class="form-check-input" checked/>
+                    <label htmlFor="baseball" class="form-check-label">야구</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="sports" value="soccer" id="soccer" class="form-check-input" />
+                    <label htmlFor="soccer" class="form-check-label">축구</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="sports" value="basketball" id="basketball" class="form-check-input" />
+                    <label htmlFor="basketball" class="form-check-label">농구</label>
+                </div>
+                <br>
+
+            CheckBox One: <div id="agree"></div><br />
+                <div class="form-check">
+                    <input type="checkbox" name="isChecked" class="form-check-input" />
+                    <label htmlFor="check" class="form-check-label">동의</label>
+                </div>
+                <br>
+            CheckBox:  <br />
+                <div class="form-check">
+                    <input type="checkbox" name="language" value="Angular" id="angular" class="form-check-input" />
+                    <label htmlFor="baseball" class="form-check-label">앵귤러</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="language" value="React" id="react" class="form-check-input" />
+                    <label htmlFor="react" class="form-check-label">리엑트</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="language" value="Vue" id="vue" class="form-check-input"/>
+                    <label htmlFor="vue" class="form-check-label">뷰</label>
+                </div>
+                <br>
+
+            SelectBox: <br/>
+                <select name="baseball" class="form-control">
+                    <option>NC</option>
+                    <option>두산</option>
+                    <option>엘지</option>
+                </select>
+                <br>
+        
+            SelectBox Multi: <br />
+                <select name="four" multiple size="3" class="form-control">
+                    <option selected>NC</option>
+                    <option>두산</option>
+                    <option>엘지</option>
+                </select>
+                <br>
+
+
+            <button type="submit" class="btn btn-primary btn-sm">SEND</button>
+            <button type="reset" class="btn btn-primary btn-sm">RESET</button>
+        </form>
+        
+
+    </div>
+</body>
+</html>

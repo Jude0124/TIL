@@ -6,8 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Media</title>
   <style type="text/css">
-    body { background: url("./images//tree.jpeg") no-repeat fixed; background-size: cover;}
+    body { 
+			background: url("./images//tree.jpeg") no-repeat fixed;
+			background-size: cover;
+
+	}
+
+	@media screen and (max-width: 800px) {
+		body {
+			background: url("./images/back.jpeg") no-repeat fixed;
+			background-size: cover;
+		}
+		
+	}
     
+	@media screen and (max-width: 400px) {
+		body {
+				background: url("./images/blueIcon.gif") no-repeat fixed;
+				background-size: cover;
+		}
+		
+	}
+	
   </style>
 </head>
 <body>

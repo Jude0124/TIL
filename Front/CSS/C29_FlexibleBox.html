@@ -7,14 +7,47 @@
   <title>Flexible Box</title>
   <style type="text/css">
     .box    { border: 1px solid orange; width: 100px; height: 100px;}
+    /* 
+      display: flex => 바깥 #one을 위에서 아래 형태로 배치
+      display: inline-flex => 바깥 #one을 좌, 우 형태로 배치
 
-    #one    { border: 1px solid gray; width: 500px; }
+      flex-direction: row or column or  row-reverse or column-reverse => 내부 요소를 어떻게 배치할 것인가를 결정
+      flex-wrap : wrap or nowrap => 넓이 값에 내부 요소 배치크기에 따른 개행여부
 
-    #two    { border: 1px solid gray; width: 500px; }
+    */
+    #one    { border: 1px solid gray; width: 500px;
+      display: flex; flex-direction: row; flex-wrap: nowrap;
+    }
 
-    #three  { border: 1px solid gray; width: 500px; height: 300px; }
+    /* flex-flow: row nowrap => flex-direction와 flex-wrap을 동시에 지정
+      justify-content => 주 축의 아이템의 정렬
+        flex-start, flex-end, center, space-between(최초 좌측, 마지막 우측을 기준으로 공평하게 공간 분할)
+        space-around, space-evenly
+    */
 
-    #four   { border: 1px solid gray; width: 500px; height: 300px; }
+    #two    { border: 1px solid gray; width: 500px;
+      display: flex; flex-flow: row nowrap; justify-content: space-around;
+    }
+
+    /*  
+        align-content => 교차축에 대한 아이템 정렬
+        flex-start, flex-end, center, space-between, space-around, space-evenly(코드힌트에 안나옴)
+        , stretch(높이값이 지정되지 않으면 자동으로 딱 맞게 해줌. .box의 height을 삭제하고 확인) 
+    */
+    #three  { border: 1px solid gray; width: 500px; height: 300px;
+      display : flex; flex-flow: row wrap; justify-content: space-evenly; 
+      align-content: center;
+    }
+    /* 
+      align-items => 교차축에 대한 아이템 정렬. align-content: stretch으로 지정되어야 적용된다.
+        줄 별 분기축을 갖는다. 그 축을 기준으로 정렬이 된다.
+        flex-start, flex-end, center, space-between, space-evenly, space-around
+    */
+    #four   { border: 1px solid gray; width: 500px; height: 300px;
+      display : flex; flex-flow: row wrap; justify-content : space-evenly;
+      align-content : stretch; align-items:  center;
+
+    }
   </style>
 </head>
 <body>
@@ -28,9 +61,9 @@
   </div>
 
   <div id="two">
-    <div class="box">B</div>
-    <div class="box">B</div>
-    <div class="box">B</div>
+    <div class="box">B1</div>
+    <div class="box">B2</div>
+    <div class="box">B3</div>
   </div>
 
   <div id="three">

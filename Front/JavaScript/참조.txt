@@ -1,0 +1,39 @@
+강사
+    신성진
+    pxp13716@gmail.com
+
+설치 프로그램
+    VSCode
+        https://code.visualstudio.com/
+    Chrome
+        https://www.google.co.kr/chrome/
+    Node
+        https://nodejs.org/ko/
+
+
+VSCode Plugins
+    JavaScript (ES6) code snippets
+    Live Server
+    Bracket Pair Colorizer
+
+    Material Icon Theme
+    Korean(사용법) Language Pack for Visual Studio Code
+
+
+참조 사이트
+    JavaScript 지원 현황
+        http://kangax.github.io/compat-table/es6/
+
+    브라우저 점유율
+        https://gs.statcounter.com/
+
+    JavaScript Doc
+        https://developer.mozilla.org/ko/docs/Web/JavaScript
+        https://www.w3schools.com/js/default.asp
+
+    JavaScript CDN
+        https://cdnjs.com/
+        https://www.jsdelivr.com/
+
+    Babel
+        https://babeljs.io/

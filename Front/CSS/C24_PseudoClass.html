@@ -7,8 +7,43 @@
   <title>Document</title>
   <style type="text/css">
     body { font-size: 12pt; line-height: 1.5em; color: gray; }
-
+    table {
+      width : 80%;
+      border : 1px solid gray;
+    }
     
+    table td, table th {
+      border : 1px solid gray;
+      border-collapse: collapse;
+    }
+
+    /* table > tr > td, table th {
+      border : 1px solid gray;
+      padding : 3px;
+
+    } */
+    
+    /* body 전체 줄에 대해 적용 */
+    /* table tbody tr { background-color : gray ; color : oragne;} */
+    table tbody tr:first-child { background-color : gray; color : orange;}
+    table tbody tr:last-child { background-color : gray; color: orange;}
+
+    /* 순서를 지정할 수도 있다. CSS의 순서는 항상 1부터 시작한다. */
+    /* table tbody tr:nth-child(3) { backgorund-color : lightgray; color:orange;} */
+
+    /* 순서의 번호에 n을 붙이면 반복이다 */
+    /* table tbody tr:nth-child(3n) { background-color : lightgray; color : orange;} */
+
+    /* 순서의 번호에 "n+숫자"을 붙이면 "순서 % n == 숫자"가 해당하는 순서에 반복 적용이다 
+      첫줄부터
+    */
+    table tbody tr:nth-child(3n+1) {background-color : lightgray; color : orange;}
+
+    /* ul li:nth-child(2n+1) { color : orange;} */
+    ul li:nth-child(even) { color : orange;} /* odd => 홀수 , even => 짝수 */
+
+    /* focus */
+    input[type="text"]:focus { background-color : orange;}
   </style>
 </head>
 <body>
@@ -72,5 +107,14 @@
       </tr>
     </tbody>
   </table>
+  
+  <ul>
+    <li>list 01</li>
+    <li>list 02</li>
+    <li>list 03</li>
+    <li>list 04</li>
+    <li>list 05</li>
+  </ul>
+
 </body>
 </html>

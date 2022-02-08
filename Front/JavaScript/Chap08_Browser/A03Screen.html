@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <title>A03 Screen</title>
+</head>
+<body>
+    <div class="card-body">
+        <h1>Screen</h1>
+
+        <div>
+            사용할 수 있는 화면의 높이: <span id="availHeight"></span><br>
+            사용할 수 있는 화면의 너비: <span id="availWidth"></span><br>
+            화면의 색상 심도: <span id="colorDepth"></span><br>
+            화면의 비트 심도: <span id="pixelDepth"></span><br>
+            화면 높이: <span id="height"></span><br>
+            화면 너비: <span id="width"></span><br>
+        </div>
+        <br>
+
+    </div>
+
+    <script type="text/javascript">
+        var availHeight = window.screen.availHeight
+        var availWidth = screen.availWidth
+        var colorDepth = screen.colorDepth;
+        var pixelDepth = screen.pixelDepth;
+        var height = screen.height;
+        var width = screen.width;
+    
+
+        document.getElementById('availHeight').innerHTML = availHeight;
+        document.getElementById('availWidth').innerHTML = availWidth;
+        document.getElementById('colorDepth').innerHTML = colorDepth;
+        document.getElementById('pixelDepth').innerHTML = pixelDepth;
+        document.getElementById('height').innerHTML = height;
+        document.getElementById('width').innerHTML = width;
+    </script>
+</body>
+</html>

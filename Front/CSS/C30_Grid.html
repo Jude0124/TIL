@@ -9,11 +9,38 @@
 
     .box { border: 1px solid orange; padding: 10px; }
 
-    #one { border: 1px solid gray; width: 600px; }
-    #two { border: 1px solid gray; width: 600px; }
-    #three { border: 1px solid gray; width: 600px; }
-    #four { border: 1px solid gray; width: 600px; }
-    #five { border: 1px solid gray; }
+    #one { border: 1px solid gray; width: 600px;
+          display: grid;
+          /* grid-template-columns: 200px 200px 200px; */
+          /* grid-template-columns : 1fr 2fr 1fr; */
+          /* grid-template-columns: 100px 2fr 1fr; */
+          grid-template-columns : minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
+      }
+    #two { border: 1px solid gray; width: 100%; 
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+    }
+    #three { border: 1px solid gray; width: 100%; 
+      display: grid;
+      grid-template-columns: repeat(3, minmax(100px, auto))
+    }
+    #four { border: 1px solid gray; width: 100%; 
+      display: grid;
+      grid-template-columns : repeat(auto-fit, minmax(100px, auto));
+    }
+    
+    /*
+
+     auto-fill => 공간이 남으면 안 채움 
+      auto-fit => 공간이 남으면 늘려 채움    
+    */
+    
+    #five { border: 1px solid gray; width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+
+  
+    }
   </style>
 </head>
 <body>

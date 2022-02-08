@@ -1,0 +1,60 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A01 Grid</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap-grid.min.css" integrity="sha512-q0LpKnEKG/pAf1qi1SAyX0lCNnrlJDjAvsyaygu07x8OF4CEOpQhBnYiFW6YDUnOOcyAEiEYlV4S9vEc6akTEw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style type = "text/css">
+     /* 중단점 : 576(540), sm 768(720), lg 992(960), xl 1200(1140), xxl 1400(1320) */
+    .box { border: 1px solid orange;}
+  </style>
+</head>
+<body>
+  <div class = "container border">
+
+    <!-- 좌, 우 배치(row => 12개 컬럼). 상, 하 배치가 column -->
+    <div class = "row">
+      <!-- 내부를 block 요소로 묶고 몇개의 컬럼으로 구성할 것인지를 결정 -->
+      <div class = "box col">Box 1</div>
+      <div class = "box col">Box 1</div>
+      <div class = "box col">Box 1</div>
+    </div>
+
+    <div class="row">
+      <div class="box col-6">Box 1</div>
+      <div class="box col-6">Box 1</div>
+    </div>
+  
+    <!-- 12개의 칸 수가 맞지 않으면 우측 빈 공간이 생기거나 개행된다.(많은 경우) -->
+    <div class="row">
+      <div class="box col-2">Box 1</div>
+      <div class="box col-2">Box 1</div>
+      <div class="box col-6">Box 1</div>
+      <div class="box col-2">Box 1</div>
+    </div>
+
+    <!-- 컬럼 내부에 다시 12 단위로 컬럼 설정이 가능하다. -->
+    <div class="row">
+      <div class="box col-6">
+        <div class="row">
+          <div class="box col-2">Box 2</div>
+          <div class="box col-2">Box 2</div>
+          <div class="box col-6">Box 2</div>
+          <div class="box col-2">Box 2</div>
+
+        </div>
+      </div>
+      <div class="box col-6">Box 1</div>
+    </div>
+  
+  
+
+  </div>
+
+  
+</body>
+</html>

@@ -10,6 +10,47 @@
 		body { font-size: 12pt; line-height: 1.5em; color: gray; }
 		em { font-style:normal; }
 		h1, h2, h3, h4, h5, h6 { line-height:1.5em; }
+
+		/* 가상 클래스
+			:link => 사이트 방문 전 링크 요소에 적용
+			:visited => 사이트 방문 후 링크 요소에 적용 
+			:hover => link위에 커서를 올리고 있는 경우
+			:active => link를 클릭하고 있는 경우
+		 */
+
+		 a:link {text-decoration: none;}
+		 a:visited {color:rgb(77,2,33)}
+		 a:active {color : red;}
+
+		 #web a { text-decoration: none; color: lightblue; }
+		 #web a:hover { text-decoration : underline; color : olivedrab;}
+
+		nav ul {
+			list-style : none; padding : 0;
+		}
+
+		/* float를 사용했으므로 ul아래에 배치된 요소의 흐름을 정상 흐름으로 복구 */
+		nav ul::after{
+			display: block; content: ""; clear: both;
+		}
+		nav ul > li {
+			float : left;
+		}
+
+		nav .js > li > a:link, nav .js > li > a:visited {
+			font-size : 16pt;
+			text-decoration : none;
+			font-weight : bold;
+			color : black;
+			border : 1px solid gray;
+			padding : 10px;
+		}
+
+		nav .jx > li > a:hover {
+			background-color : gray;
+			color : white;
+		}
+
 	</style>
 </head>
 <body>
@@ -45,6 +86,10 @@
 				<li><a href="">React</a></li>
 			</ul>
 		</nav>
+
+		<div class = "hello">Hello World</div>
+		<label><input type = 'radio' id = "js">  JavaScript</label>
+		<label><input type = 'radio' checked><span>jQuery</span></label>
 	</div>
 	
 	</body>

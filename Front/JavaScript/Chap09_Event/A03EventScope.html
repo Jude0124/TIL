@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <title>A03 Event. DOM 요소의 프로퍼티로 정의</title>
+</head>
+<body>
+    <div class="card-body">
+        <h2>3. Scope의 오염 문제</h1>
+    </div>
+
+    <script>
+        // 2. DOM 요소의 프로퍼티로 정의
+        function alert() {
+            console.log('My Alert')
+        }
+
+        
+        console.dir(window.document);
+        console.dir(window);
+
+        alert('Hello World');               // 팝업이 활성화가 안되고 내가 정의한 alert 함수로 덮어쓰기가 된다.
+    </script>
+</body>
+</html>
+

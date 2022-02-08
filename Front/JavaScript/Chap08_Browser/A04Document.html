@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <title>A04 Document</title>
+</head>
+<body>
+    <div class="card-body">
+        <h1>Document</h1>
+
+        <div>
+            문서에 적용된 문자 인코딩(읽기 전용): <span id="characterSet"></span><br>
+            문서의 도메인(읽기 전용): <span id="domain"></span><br>
+            마지막 수정일(읽기 전용): <span id="lastModified"></span><br>
+            문서 상태(읽기 전용): <span id="readyState"></span><br>
+            문서에 링크된 페이지(읽기 전용): <span id="referrer"></span><br>
+            문서 제목: <span id="title"></span><br>
+            URL(읽기 전용): <span id="url"></span><br>
+            Cookie: <span id="cookie"></span><br>
+        </div>
+        <br>
+
+        <div>
+            <button>Open</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var characterSet = window.document.characterSet
+        var domain = document.domain
+        var lastModified = document.lastModified;
+        var readyState = document.readyState;
+        var referrer = document.referrer;
+        var title = document.title;
+        var URL = document.URL;
+        var cookie = document.cookie;
+    
+
+        document.getElementById('characterSet').innerHTML = characterSet;
+        document.getElementById('domain').innerHTML = domain;
+        document.getElementById('lastModified').innerHTML = lastModified;
+        document.getElementById('readyState').innerHTML = readyState;
+        document.getElementById('referrer').innerHTML = referrer;
+        document.getElementById('title').innerHTML = title;
+        document.getElementById('url').innerHTML = URL;
+        document.getElementById('cookie').innerHTML = cookie;
+    </script>
+</body>
+</html>

@@ -8,13 +8,37 @@
   <style type="text/css">
     #container { width: 600px; margin: 20px auto;}
 
-    #wrapper { width: 100%; }
+    #wrapper { width: 100%; 
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 100px);
+    }
     
-    .box { padding: 10px; }
-    .box1 { background-color: lightgreen; }
-    .box2 { background-color: coral; }
-    .box3 { background-color: darkgreen; }
-    .box4 { background-color: darksalmon; }
+    .box { padding: 50px; }
+    /* grid-column => table의 colspan과 동일하게 합치는 명령
+      시작축 번호 / 합쳐질 마지막 축 번호
+    */
+    .box1 { background-color: lightgreen;
+        display: grid;
+        grid-column: 1/4;
+       }
+    .box2 { background-color: coral; 
+      grid-column-start: 1;
+      grid-row-start: 2;
+      grid-row:2/4;
+        
+    }
+    .box3 { background-color: darkgreen;
+      grid-column-start: 2;
+      grid-column-end: 4;
+      grid-row-start:2;
+      grid-row: 2/4
+    }
+    .box4 { background-color: darksalmon; 
+      grid-column-start: 2;
+      grid-row-start: 3;
+      grid-column: 2/4;
+    }
   </style>
 </head>
 <body>

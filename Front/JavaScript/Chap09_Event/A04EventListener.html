@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <title>A04 EventListener</title>
+</head>
+<body>
+    <div class="card-body">
+        <h2>4. AddEventListener</h2>
+
+        <button id="btnOne">ONE</button>
+        <button id="btnTwo">TWO</button>
+    </div>
+
+    <script>
+        var one = document.getElementById('btnOne');
+        var two = document.getElementById('btnTwo');
+
+        // 고전 이벤트
+        one.onclick = function(evt){
+            console.log('One Button Clicked', evt)
+        };
+
+        // 표준 이벤트 방식
+        if( addEventListener ) {
+            two.addEventListener('click', function(evt){
+                console.log('표준 이벤트 호출')
+            })
+        } else {
+            two.attachEvent('click', function(evt){         // IE 8 이하 또는 이전 오페라
+                console.log('익스플러어 전용 이벤트 호출 방식')
+            })
+        }
+    </script>
+</body>
+</html>

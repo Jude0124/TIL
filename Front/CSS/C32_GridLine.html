@@ -6,15 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grid Line</title>
   <style type="text/css">
-    #container { width: 600px; margin: 20px auto;}
+    #container { width: 80%; margin: 20px auto;}
 
-    #wrapper { width: 600px; }
+    #wrapper { width: 100%; 
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows : repeat(3, 100px);
+      grid-template-areas:
+        "box1 box1 box1"
+        "box2 box3 box3"
+        "box2 box4 box4"
+      ;
+    }
 
-    .box { border: 1px solid orange; }
-    .box1 { background-color: darksalmon; }
-    .box2 { background-color: darkseagreen; }
-    .box3 { background-color: deeppink; }
-    .box4 { background-color: lightsalmon; }
+    .box { border: 1px solid orange;}
+    .box1 { background-color: darksalmon;   grid-area: box1;}
+    .box2 { background-color: darkseagreen; grid-area: box2;}
+    .box3 { background-color: deeppink;     grid-area: box3;}
+    .box4 { background-color: lightsalmon;  grid-area: box4;}
   </style>
 </head>
 <body>

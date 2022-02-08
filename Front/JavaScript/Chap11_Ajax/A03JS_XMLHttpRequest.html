@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <title>XMLHttpRequest</title>
+    <script type="text/javascript">
+
+        var baseURL = 'http://localhost:8080/contacts/'
+
+        var myLib = (function(){
+            // 전체 리스트 출력
+            function getContactList() {
+
+            }
+
+            // 게시물 1개 출력
+            function getContact() {
+                var modal = new bootstrap.Modal(document.querySelector('#getContactM'), {});
+                modal.show();
+
+            }
+
+            // 게시물 입력 Modal 표시
+            function showAddModal(evt) {
+                var modal = new bootstrap.Modal(document.querySelector('#addContactM'), {});
+                modal.show();
+            }
+
+            // 게시물 입력
+            function addContact(evt) {
+                var name = document.querySelector('#addContactM input[name="name"]').value;
+                var tel = document.querySelector('#addContactM input[name="tel"]').value;
+                var address = document.querySelector('#addContactM input[name="address"]').value;
+
+            }
+
+            // 게시물 삭제
+            function deleteContact(evt) {
+
+            }
+
+            // 전체 목록 출력
+            getContactList();
+
+            return {
+                getContactList: getContactList,
+                showAddModal: showAddModal,
+                addContact: addContact,
+                deleteContact: deleteContact
+            }
+        })(this);
+
+        function onLoad() {
+            document.querySelector('#addBtn').addEventListener('click', myLib.showAddModal)
+            document.querySelector('#saveBtn').addEventListener('click', myLib.addContact);
+            document.querySelector('#deleteBtn').addEventListener('click', myLib.deleteContact);
+        }
+        
+        window.addEventListener('load', onLoad);
+    </script>
+</head>
+
+<body>
+    <div class="card-body">
+        <h2>3. 연락처 서비스</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Tel</th>
+                    <th>Address</th>
+                    <th>Img</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colSpan="4">
+                        <button class="btn btn-primary" id="addBtn">ADD</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+
+    <div class="modal fade" id="addContactM" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Contact</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                <div class="modal-body">
+                    Name: <input type="text" class="form-control" name="name" />
+                    Tel: <input type="text" class="form-control" name="tel" />
+                    Address: <input type="text" class="form-control" name="address" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" id="saveBtn">Save</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="getContactM" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Get Contact</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Name: <input type="text" class="form-control" name="name" />
+                    Tel: <input type="text" class="form-control" name="tel" />
+                    Address: <input type="text" class="form-control" name="address" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"  data-dismiss="modal" id="deleteBtn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
