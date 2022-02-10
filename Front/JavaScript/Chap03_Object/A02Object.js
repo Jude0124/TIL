@@ -40,6 +40,14 @@ obj.display()
 
 delete obj.display;
 console.log(obj);
+console.log('');
+
+
+// 열거 가능한 속성으로 지정된 요소만 출력 가능
+for(let key in obj) {
+    // console.log(typeof(key)); //string
+    console.log(key, obj[key]); //obj.'name'(X) => obj['name']
+}
 
 
 

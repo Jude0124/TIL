@@ -84,3 +84,28 @@ console.log(hong);
 console.log(hong.total());
 console.log(hong.avg(2));
 console.log('');
+
+
+
+
+
+const three = new Object();
+three.name ='three';
+three['t-kor']
+
+
+const four = {
+    name : 'TWO',
+    'f-kor' : 80,
+    'f-eng' : 70,
+    that : this,
+    info : function(){
+        console.log(this);
+    }
+    total : function(){
+        return this['f-kor'] + this['f-eng']
+    }
+}
+
+
+console.log(object);

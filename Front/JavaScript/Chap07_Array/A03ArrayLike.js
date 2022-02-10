@@ -7,3 +7,15 @@
     HTML DOM의 li 등이 Array Like Object이다.
 */
 
+let obj = {
+    0: 'NolBu',
+    1: 'HungBu',
+    length: 2,
+
+    push : function(value){
+        this.length++;
+        this[this.length] = value;
+        return this.length;
+    }
+}
+

@@ -15,6 +15,26 @@
 	<h1 id="title" class="c">익명 함수 사용 예제</h1>
 	<h2 class="c">콜백 함수 사용 예제</h2>
 	<button id="btn" class="mybtn">클릭</button>
+
+	<script>
+		const btn = document.getElementById('btn');
+		// console.log(btn);
+		// function addEventListener(eventName, fn){}
+		// fn()
+		// };
+
+		// function myClickEvent(){
+		// 	console.log('Button Clicked');
+		// 	alert('Hello World');
+		// }
+
+		btn.addEventListener('click', function(){
+			console.log('Button Clicked');
+			alert('Hello World');
+		})
+
+		// btn.addEventListener('click',myClickEvent);
+	</script>
 </body>
 
 </html>

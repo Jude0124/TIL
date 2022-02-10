@@ -1,7 +1,3 @@
-강사
-    신성진
-    pxp13716@gmail.com
-
 설치 프로그램
     VSCode
         https://code.visualstudio.com/

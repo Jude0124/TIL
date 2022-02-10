@@ -12,3 +12,14 @@ Person.prototype.display = function() {
 
 var nolbu = new Person('NolBu', 30);
 nolbu.display();
+
+console.log(nolbu);
+
+
+nolbu.display = function() {
+    console.log(`My name is ${this.name}`);
+}
+
+console.log(nolbu);
+
+nolbu.display();
