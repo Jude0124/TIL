@@ -5,16 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-    <title>A09 StopPropagation / page 779</title>
+    <title>A09 StopPropagation </title>
     <style>
-		div#outer { border:solid 1px black; width:350px; height:200px; padding: 10px 10px 10px 10px; position:absolute; top: 200px; left:50px; }
+        /* div 태그에서만 사용할 수 있는 orange class */
+        /* ex] <div class="orange">...</div> */
+        /* ex] <p class="orange"> 이건 적용 안됨</p> */
+        /* div.orange { color :orange;} */
+		div#outer { border:solid 1px black; width:350px; height:200px; 
+            padding: 10px 10px 10px 10px; position:absolute; top: 200px; left:50px; }
 		div#one { border:solid 1px black; background-color: orange; width:100px; height:100px; position:absolute; top:50px; left:50px; }
         div#two { border:solid 1px black; background-color: orange; width:100px; height:100px; position:absolute; top:50px; left:200px; }
 	</style>
 
     <script type="text/javascript">
         (function(){
-            
+            window.addEventListener('load', function(){
+                // document.getElementById('one') // ID가 너무 남발되면 문제가 생길 수 있으므로 querySelector를 쓴다.
+                document.querySelector('#outer').addEventListener('click', function(evt){
+                    // target => 이벤트가 발생된 요소 , currentTarget => 누구의 이벤트가 발생되었는지 그 요소를 지칭
+                    console.log(evt.target, evt.currentTarget);
+                });
+
+                document.querySelector('#one').addEventListener('click', function(evt){
+                    console.log(evt.target, evt.currentTarget);
+                    if(true){ //어떤 조건을 만족한다면
+                        evt.stopPropagation();  // 상위 bubbling 단계의 모든 이벤트는 취소
+                    }
+                });
+
+                document.querySelector('#two').addEventListener('click', function(evt){
+                    console.log(evt.target, evt.currentTarget);
+                    if(true){ //어떤 조건을 만족한다면
+                        evt.stopImmediatePropagation();  // 상위 bubbling 단계의 모든 이벤트는 취소
+                    }
+                });
+
+            });
         })();
     </script>
 </head>

@@ -15,6 +15,12 @@
     </div>
 
     <script>
+        function myEvent(evt){
+            console.log('My Event');
+            console.log(evt);
+            console.log(evt.target);
+            console.log(evt.target.innerText);
+        }
         function clickEvent(evt) {
             console.log('Button Clicked: ', this, evt);
         };

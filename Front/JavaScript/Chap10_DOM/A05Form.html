@@ -9,7 +9,58 @@
     <script type="text/javascript">
 
         (function(){
-            
+            function loadEvent() {
+                const btn = document.querySelector('form');
+
+                btn.addEventListener('click', function(evt){
+                    // form이 전송하는 기능 자체를 막아버린다. Ajax등을 이용해 값을 전송해 주는 경우
+                    // evt.preventDefault();
+
+                    const name = document.querySelector('input[name="name"]');
+                    // alert(name);
+                    if(!name.value || name.value.length < 10 ) {
+                        alert('이름을 입력해주세요');
+                        name.focus;
+                        name.value = '';
+                        return;
+                    }
+
+                    const age = document.querySelector('input[age="age"]');
+
+                    if(!age.value ) {
+                        alert('나이을 입력해주세요');
+                        age.focus;
+                        age.value = '';
+                        return;
+                    }
+
+                    // radio button, map 순환은 안된다.
+                    let sports = '';
+                    document.querySelectorAll('name="sports"').forEach((item, index) => {
+                       if (item.checked) sports = item.value;
+
+                    });
+                    if(!sports) {
+                        alert('1개는 선택되어야 합니다.');
+                        evt.preventDefault();
+                        return;
+                    }
+                    console.log( documetn.querySelector('input[name="isChecked"]').value);
+                    const isChecked = document.querySelector('input[name="isChecked"]');
+                    if(isChecked.checked){
+                        isChecked.value = 'YES';
+                    } else {
+                        isChecked.value = 'NO'
+                    }
+                    // console.log(isChecked.value);
+
+
+                    //checkbox(다중 선택)
+                    
+                });
+            };
+
+            window.addEventListener('load', loadEvent);
         })();
 
     </script>

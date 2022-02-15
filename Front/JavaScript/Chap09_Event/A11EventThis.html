@@ -14,9 +14,25 @@
                 {name: 'HungBu', kor: 90, eng: 90},
                 {name: 'BangJa', kor: 80, eng: 90},
             ];
+        
+            function btn02Event(evt, color){
+                console.log(evt.target);
+                evt.target.style.color = color;
+            }
             
+            document.querySelector('#btn2').addEventListener('click', function(evt){
+                btn02Event(evt, 'orange');
+            })
+
+            
+
+
         })();
         
+
+
+
+
     </script>
 </head>
 <body>

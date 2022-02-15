@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>A03 Timeout</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<style type="text/css">
+		.wrap-loading {position: fixed; left: 0; right: 0; top: 0; bottom: 0; background: rgba(0, 0, 0, 0.2);
+			filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');
+		}
+		.wrap-loading div { position: fixed; top: 50%; left: 50%; margin-left: -21px; margin-top: -21px; }
+		.display-none {display: none;}
+	</style>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+	
+		$(document).ready(function () {
+			$.ajax({
+				type: "GET",
+				url: "http://sample.bmaster.kro.kr/contacts_long",		// 2초 지연후 결과 전달.
+				data: { pageno: 2, pagesize: 5},
+
+				beforeSend: function(xhr, setting){
+					
+				},
+				success: function(data){
+					
+					console.log("success")
+					
+					$.each(data.contacts, function(i, item){
+						var temp = "<tr>";
+						temp += "<td>" + item.no + "</td>";
+						temp += "<td>" + item.name + "</td>";
+						temp += "<td>" + item.tel + "</td>";
+						temp += "<td>" + item.address + "</td>";
+						temp += "</tr>";
+						
+						$("#container").append(temp)
+					})
+				},
+				error: function(error){
+					console.log(error.statusText);
+				},
+				complete: function(xhr, status){
+					
+				}
+			})
+			
+		});
+		
+	</script>
+</head>
+
+<body>
+	<h2>console을 확인합니다.</h2>
+	
+	<div class="wrap-loading display-none">
+		<div><img src="./images/loading.gif" /></div>
+	</div>
+	
+	<div class="card-body">
+		<table class="table">
+			<thead>
+				<tr><td>ID</td><td>Name</td><td>TEL</td><td>Address</td></tr>
+			</thead>
+
+			<tbody id="container"></tbody>
+		</table>
+	</div>
+	
+</body>
+
+</html>

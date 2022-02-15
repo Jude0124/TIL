@@ -14,20 +14,66 @@
         <div>
             Name: <span id="name"></span><br>
             Age: <span id="age"></span>
+            Address: <span id="address"></span>
         </div>
 
     </div>
 
     <script type="text/javascript">
         // Not Escaped => A-Z a-z 0-9 - _ . ! ~ * ' ( )
-        var str = encodeURIComponent('ab123@#$%^&+=!*()_-');        
+        var str = encodeURIComponent('ab123@#$%^&+=!*()_-한');        
         console.log(str);
 
         // Not Escaped => A-Z a-z 0-9 ; , / ? : @ & = + $ - _ . ! ~ * ' ( ) #
         str = encodeURI('ab123%^&!@#$*()_-+=');        
         console.log(str)
 
-        
+        /*
+        // key=value. 기본적으로는 브라우저를 닫으면 쿠키는 삭제된다
+        let name = 'name=NolBu; max-age=20';
+        document.cookie = name;
+        let age = 'age=20';
+        document.cookie = age;
+        console.log(document.cookie);
+        */
+
+        function addCookie(name, value, expires, path, domain, sec) {
+            let ck = '';
+            ck += encodeURIComponent(name) + '=' + encodeURIComponent(value) + '; '
+            // if(expires) ck += 'expires=' + expires + '; ';
+            // if(path) ck += 'path=' + path + '; ';
+            // if(domain) ck += 'domain=' + domain + '; ';
+            // if(sec) ck += 'secure=' + sec + '; ';
+            console.log(ck);
+            document.cookie = ck;
+        }
+
+        addCookie('name', '홍길동', 20, '/', 'localhost:5501', false);
+        addCookie('Age', '30', 20, '/', 'localhost:5501', false);
+        addCookie('Address', 'Seoul', 20, '/', 'localhost:5501', false);
+
+        function getCookie(name) {
+            let ck = document.cookie.split('; ');
+            
+            for(let i = 0; i < ck.length; i++) {    // name=Hungbu; ex..=20;
+                let value = ck[i].split('=');
+                let key = decodeURIComponent(value[0]);
+                if(key === name) {
+                    let result = decodeURIComponent(value[1]);
+                    return result;
+                }
+            }
+            return null;
+        }
+
+        // console.log(document.cookie);
+        let name = getCookie('name');
+        let age = getCookie('Age');
+        let address = getCookie('address');
+
+        document.getElementById('name').innerText = name;
+        document.getElementById('age').innerText = age;
+        document.getElementById('address').innerText = address;
     </script>
 </body>
 </html>

@@ -19,7 +19,46 @@
     </div>
 
     <script type="text/javascript">
+        console.log(document.childNodes);
+        console.log(document.parentNode);
+        console.log(document.childNodes[1]);
+        console.log(document.childNodes[1].parentNode);
 
+        let list = document.getElementById('list');
+        console.log(list.childNodes);
+        console.log(list.parentNode);
+
+        console.log(list.childNodes[0].nodeType);
+        console.log(list.childNodes[0].nodeName);
+
+        console.log(list.childNodes[1].nodeType);
+        console.log(list.childNodes[1].nodeName);
+        console.log('');
+
+        console.log(list.firstChild);
+        console.log(list.firstChild.nextSibling);
+        console.log(list.firstChild.nextSibling.nextSibling);
+        console.log(list.firstChild.nextSibling.nextSibling.nextSibling);
+
+        console.log(list.lastChild);
+        console.log(list.lastChild.previousSibling);
+        console.log(list.lastChild.previousSibling.previousSibling);
+        console.log(list.lastChild.previousSibling.previousSibling.previousSibling);
+
+        console.log(list.firstChild.nextSibling.nodeType);
+        console.log(list.firstChild.nextSibling.nodeName);
+
+        // Element만 검색하는 명령
+        console.log(list.children);
+        console.log(list.firstElementChild);
+        console.log(list.lastElementChild);
+
+        console.log(list.firstElementChild.nextElementSibling);
+        console.log(list.firstElementChild.previousElementSibling);
+
+        list.firstElementChild.innerHTML = 'Hello World';
+
+        //정규표현식은 query selector로 내용기준으로 접근할 수 있다.
     </script>
 </body>
 </html>

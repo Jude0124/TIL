@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>A02 Filter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+           $(document).ready(function () {
+            $('#content > div').css('color','lightgray')
+
+            .filter('.test').css('color', 'orange')
+            .filter('.main').css('fontSize', '20pt')
+
+
+            // var x = [].filter((item, index)=> { return true/false })
+            var x = $('#one > div').css('color', 'lightgray')
+            .filter(function(index, elem){              // elem => 각 배열에 들어있는 요소              
+                return $(elem).is('.test')                     // elem안에 'test'속성이 있는지 체크
+            }).css('color', 'orange')
+            console.log(x);
+
+
+            var y = $('#two > div').css('color', 'lightgray')
+                .not('.test').css('color', 'orange');
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="card-body" id="content">
+        <div id="a">김수한무</div>
+        <div>거북이와 두루미</div>
+        <div class="test">삼천갑자 동방삭</div>
+        <div class="test  main">치치카포 사리사리센타</div>
+        <div>워리워리 세브리깡</div>
+        <div>무두셀라 구름이</div>
+        <div id="b">허리케인에 담벼락</div>
+        <div class="main">담벼락에 서생원</div>
+        <div class="test">서생원에 고양이</div>
+        <div id="a">고양이에 바둑이</div>
+        <div>바둑이는 돌돌이</div>
+    </div>
+
+    <div class="card-body" id="one">
+        <div id="a">김수한무</div>
+        <div>거북이와 두루미</div>
+        <div class="test">삼천갑자 동방삭</div>
+        <div class="test  main">치치카포 사리사리센타</div>
+        <div>워리워리 세브리깡</div>
+        <div>무두셀라 구름이</div>
+        <div id="b">허리케인에 담벼락</div>
+        <div class="main">담벼락에 서생원</div>
+        <div class="test">서생원에 고양이</div>
+        <div id="a">고양이에 바둑이</div>
+        <div>바둑이는 돌돌이</div>
+    </div>
+
+    <div class="card-body" id="two">
+        <div id="a">김수한무</div>
+        <div>거북이와 두루미</div>
+        <div class="test">삼천갑자 동방삭</div>
+        <div class="test  main">치치카포 사리사리센타</div>
+        <div>워리워리 세브리깡</div>
+        <div>무두셀라 구름이</div>
+        <div id="b">허리케인에 담벼락</div>
+        <div class="main">담벼락에 서생원</div>
+        <div class="test">서생원에 고양이</div>
+        <div id="a">고양이에 바둑이</div>
+        <div>바둑이는 돌돌이</div>
+    </div>
+
+    <div class="card-body" id="three">
+        <div id="a">김수한무</div>
+        <div>거북이와 두루미</div>
+        <div class="test">삼천갑자 동방삭</div>
+        <div class="test  main">치치카포 사리사리센타</div>
+        <div>워리워리 세브리깡</div>
+        <div>무두셀라 구름이</div>
+        <div id="b">허리케인에 담벼락</div>
+        <div class="main">담벼락에 서생원</div>
+        <div class="test">서생원에 고양이</div>
+        <div id="a">고양이에 바둑이</div>
+        <div>바둑이는 돌돌이</div>
+    </div>
+
+</body>
+
+</html>

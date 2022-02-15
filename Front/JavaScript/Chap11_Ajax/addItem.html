@@ -1,0 +1,55 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
+  </head>
+  <body>
+    <div class="card-body">
+      
+      <h3>게시물 추가</h3>
+      
+      Name: <input type="text" class="form-control" name="name" /> 
+      Tel: <input type="text" class="form-control" name="tel" /> 
+      Address: <input type="text" class="form-control" name="address" />
+      <br />
+      
+      <button class="btn btn-primary" id="send">ADD</button>
+    </div>
+
+    <script type="text/javascript">
+      
+      document.querySelector('#send').addEventListener('click', function(){
+
+        const name = document.querySelector('input[name="name"]').value;
+        const tel = document.querySelector('input[name="tel"]').value;
+        const address = document.querySelector('input[name="address"]').value;
+
+        const sendData = {
+          name: name,
+          tel: tel,
+          address: address
+        }
+
+        const baseURL = 'http://sample.bmaster.kro.kr/contacts/';
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', baseURL);            // 연결 준비
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send( JSON.stringify(sendData) );     // 전달할 데이터를 JSON 타입으로 변경해서 전달
+
+        xhr.addEventListener('load', function(){
+          const data = JSON.parse(xhr.responseText);
+          console.log(data);
+          location.href = './contactList.html';
+        });
+      })
+    </script>
+  </body>
+</html>
+
+    </script>
+  </body>
+</html>

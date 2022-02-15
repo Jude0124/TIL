@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>
+		
+	</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			$('#btn').click(function(evt){
+				// HTML 요소에 지정한 속성을 추가
+				// HTML 요소에 추가 => DOM 요소에 추가 => 변경된 DOM요소 기반으로 리 랜더링
+				// $('#txt').attr('value', 'ABC');
+
+				// HTML에서 삭제
+				// $('#txt').removeAttr('value')
+
+				// DOM Tree가 만들어질때 생성되는 DOM 객체의 속성 값에 추가 
+				// DOM 요소에 추가 => 변경된 DOM요소 기반으로 리 랜더링
+				// prop는 기본 DOM 속성은 삭제할 수 없다. (없는 속성은 만들고 삭제 가능)
+				$('#txt').prop('value', 'ABC');
+				$('#txt').removeProp('value'); // 삭제 안됨. 값이 그대로표시됨
+
+				// 값을 참조할 목적으로 사용한다.
+				// 값을 지정하지 않으면 GETTER, 값을 지정하면 SETTER로 동작한다.
+				// attr은 HTML 요소에 속성이 기술되어 있지 않으면 값을 참조할 수 없다. 
+				// 
+				// jQuery가 모든 속성을 정의해 놓지는 않음.
+				console.log($('div').attr('scrollHeight'));			// undefined
+				console.log($('div').prop('scrollHeight'));			// 108
+
+
+				var div = $('div')
+
+				
+				// console.log( $('#txt').prop('value', 'ABC'));
+				// console.log($('#txt').attr('value', 'ABC'));
+
+			})
+			
+		});
+	</script>
+</head>
+
+<body>
+	<!-- <div class="card-body" scrollHeight = "100"> -->
+	<div class="card-body">
+		
+		<input class="form-control" id="txt" type="text"  />
+		<button id="btn">Click</button>
+	</div>
+</body>
+
+</html>

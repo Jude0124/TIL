@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>A01 Event</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("input:disabled").css("border", "dashed 2px gray");
+			
+		});
+	</script>
+</head>
+
+<body>
+	<div class="card-body">
+		음식분류: 
+		<div class="input-group">
+			<select class="custom-select" id="food">
+				<option value="" selected>-----음식 분류를 선택하세요-----</option>
+				<option value="1">한식</option>
+				<option value="2">중식</option>
+				<option value="3">양식</option>
+				<option value="4">일식</option>
+				<option value="5">분식</option>
+			</select>
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="button" id="inquery">조회</button>
+			</div>
+		</div>
+
+		<hr>
+		
+		선택 결과 : <input class="form-control" type="text" id="result" value="" disabled />
+	</div>
+	
+</body>
+
+</html>

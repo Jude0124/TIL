@@ -7,9 +7,44 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <title>A05 Callback / page 772</title>
     <script type="text/javascript">
+        // 여기에 바로 적으면 아직 DOM을 읽기 전이라 HTML 요소에 접근 안됨
         (function(){
             
         })();
+
+        
+        /*
+        window.addEventListener('load', function(){
+            // 문서가 다 읽어지고 난 후라 DOM이 생성되어 있음
+            let one = document.getElementById('btnOne');
+            one.addEventListener('click', function(evt){
+                alert(evt.target.innerText);
+            });
+
+            document.getElementById('btnTwo').addEventListener('click', function(evt){
+                alert(evt.target.innerText);
+            });
+
+            // 이벤트 핸드러는 묵시적으로 함수로써 호출하던지 첫번째 매개변수에 event 객체를 전달
+            document.getElementById('btnThree').addEventListener('click', threeEvent);
+
+        });
+        */
+       function loadEvent() {
+        console.log(arguments[0]);
+
+        let one = document.getElementById('btnOne');
+        one.addEventListener('click', function(evt){
+                alert(evt.target.innerText);
+            });
+
+            document.getElementById('btnTwo').addEventListener('click', function(evt){
+                alert(evt.target.innerText);
+            });
+
+            document.getElementById('btnThree').addEventListener('click', threeEvent);
+
+       }
     </script>
 </head>
 <body>
@@ -18,6 +53,7 @@
 
         <button id="btnOne">ONE</button>
         <button id="btnTwo">TWO</button>
+        <button id="btnTwo">THREE</button>
     </div>
 </body>
 </html>

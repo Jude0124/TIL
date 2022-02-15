@@ -8,7 +8,37 @@
     <title>A07 Event Properties / page 773</title>
     <script type="text/javascript">
         (function(){
+            let boxX, boxY;
             
+            function onLoadEvent() {
+                let box = document.createElement('div') //createElement는 돔을 만들 목적으로 사용됨
+                let boxText = document.createTextNode('JavaScript');
+                
+                box.appendChild(boxText);
+                
+                box.style.width = '100px';
+                box.style.height = '100px';
+                box.style.backgroundColor = 'lightgray';
+                box.style.position = 'absolute'; //absolute 상위요소가 relative를 가졌다면 그 기준의 좌상단에 위치
+                box.style.left = '50px';
+                box.style.cursor = 'pointer';
+                box.style.display = 'block'
+
+                box.addEventListener('mousedown', function(evt){
+                    boxX = evt.offsetX;
+                    boxY = evt.offsetY;
+
+                    document.addEventListener('mousemove',function(evt){
+                        // console.log(evt);
+                        box.style.left = evt.pageX + 'px';
+                        box.style.top = evt.pageY + 'px';
+
+                    })
+                })
+
+                document.body.appendChild(box)
+            }
+            window.addEventListener('load', onLoadEvent);
         })();
     </script>
 </head>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>A02 Post</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+		});
+	</script>
+</head>
+
+<body>
+	<div class="card-body" id="content">
+		<h2>CRUD</h2>
+		<br>
+		Name: <input type="text" name="name" class="form-control"><br>
+		Tel: <input type="text" name="tel" class="form-control"><br>
+		Address: <input type="text" name="address" class="form-control"><br>
+		<button name="send" class="btn btn-outline-primary btn-sm">SEND</button>
+		<br>
+		<br>
+		<div class="view"></div>
+		<br>
+
+		<div>
+			<table class="table">
+				<thead>
+					<tr>
+						<td>ID</td>
+						<td>Name</td>
+						<td>TEL</td>
+						<td>Address</td>
+						<td>&nbsp;</td>
+					</tr>
+				</thead>
+
+				<tbody id="container"></tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>

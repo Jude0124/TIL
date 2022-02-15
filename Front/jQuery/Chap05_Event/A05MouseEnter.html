@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>A05 MouseEvent</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        .sel { background-color : lightgray; }
+    </style>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#nations > tbody > tr").on("mouseenter", function(evt){
+                $(this).addClass("sel");
+            }).on("mouseleave", function(){
+                $(this).removeClass("sel");
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div class="card-body">
+        <table class="table" id="nations">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>국가명</th>
+                    <th>수도</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>미국</td>
+                    <td>워싱턴DC</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>프랑스</td>
+                    <td>파리</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>영국</td>
+                    <td>런던</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>중국</td>
+                    <td>베이징</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>태국</td>
+                    <td>방콕</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>모로코</td>
+                    <td>라바트</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>라오스</td>
+                    <td>비엔티안</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

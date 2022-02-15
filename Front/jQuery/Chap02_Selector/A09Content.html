@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>A09 Content</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        body { font-size: 0.9em; }
+    </style>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+           // 컨텐츠 필터 선택자
+           $(document).ready(function () {
+            // table 안에 table이 있는 경우 하위 테이블 td까지 모두 선택됨
+            // $('#nations td')
+            
+            // 태그에 컨텐츠의 값을 검색
+            $('#nations > tbody td:contains("국")').css('backgroundColor', 'orange');
+
+            // 태그 안에 태그를 검색
+            $('#nations > tbody > tr > td:has("b")').css('backgroundColor', 'lightgray');
+
+            // 태그에 컨텐츠가 존재하지 않니?
+            $('#nations > tbody > tr > td:empty()').css('backgroundColor', 'lightblue');
+
+            // 지정한 태그의 부모 => 따로 명령이 존재한다
+            $('#nations > thead > tr > th:parent()').css('backgroundColor', 'lightblue');
+
+            // b 태그의 부모 태그는 td가 된다 
+            $('#nations > tbody > tr > td:has("b"):parent').css('color', 'orange');
+
+            $('input[name="keyword"]').keyup(function(evt){
+                $('#nations > tbody > tr').hide();
+
+                var value = $(this).val();
+                var x = $('#nations > tbody td:contains("' + value + '")').parent().show();
+                console.log(x);
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    
+    <div class="card-body">
+        <h3>국가별 수도</h3>
+
+        <div style="width:460px;">
+            국가명 : <input type="text" name="keyword" class="form-control"/><br />
+        </div>
+        
+        <table class="table" id="nations">
+            <thead>
+                <tr><th>번호</th><th>국가명</th><th>수도</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>미국</td><td>워싱턴DC</td></tr>
+                <tr><td>2</td><td>프랑스</td><td>파리</td></tr>
+                <tr><td>3</td><td>영국</td><td>런던</td></tr>
+                <tr><td>4</td><td>중국</td><td></td></tr>
+                <tr><td>5</td><td>태국</td><td>방콕</td></tr>
+                <tr><td>6</td><td>모로코</td><td>라바트</td></tr>
+                <tr><td>7</td><td>라오스</td><td><b>비엔티안</b></td></tr>
+                <tr><td>8</td><td>베트남</td><td>하노이</td></tr>
+                <tr><td>9</td><td>피지</td><td>수바</td></tr>
+                <tr><td>10</td><td>솔로몬 제도</td><td>호니아라</td></tr>
+                <tr><td>11</td><td>자메이카</td><td>킹스턴</td></tr>
+                <tr><td>12</td><td>나미비아</td><td>빈트후크</td></tr>
+                <tr><td>13</td><td>동티모르</td><td>딜리</td></tr>
+                <tr><td>14</td><td>멕시코</td><td>멕시코시티</td></tr>
+                <tr><td>15</td><td>베네수엘라</td><td>카라카스</td></tr>
+                <tr><td>16</td><td>서사모아</td><td>아피아</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

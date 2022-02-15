@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>A08 Children</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<style>
+		div { width:300px; }
+	</style>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+
+			$('#toBold').click(function(evt){
+				var x = $('#content').contents();
+				console.log(x);
+
+				// DOM요소의 변수.each() => DOM 요소의 배열만 순환
+				// $.each() => JavaScript forEach
+
+
+
+				$.each( [10, 11 , 100], function(index, item){
+					console.log(item);
+				})
+
+				// x.each()
+			})
+		});
+	</script>
+</head>
+
+<body>
+	<div class="card-body">
+		<div id="a">
+			김수한무
+			<div>거북이와 두루미</div>
+			<div class="test">삼천갑자 동방삭</div>
+		</div>
+		
+		<div id="b">
+			<div>치치카프 사리사리센타</div>
+			<div class="test">워리워리 세브리깡</div>
+			<div class="test">무두셀라 구름이</div>
+		</div>
+	</div>
+</body>
+
+</html>

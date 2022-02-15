@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>A08 Offset</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<style>
+		div.bg { width:800px; height:300px; background-color:aqua; margin: 5px 5px 5px 5px; }
+		div#outer { border:solid 1px black; background-color: yellow; width:600px; height:400px; padding: 10px 10px 10px 10px;
+			position:absolute; top: 100px; left:50px; }
+		div#inner { border:solid 1px black; background-color: orange; width:100px; height:100px; position:absolute; top:100px; left:50px; }
+	</style>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			$('#inner').click(function(evt){
+				var offset = $(this).offset();				//document로부터 좌 상단 떨어진 위치
+				var position = $(this).position();			// 부모요소로부터 좌 상단 떨어진 위치
+				console.log(offset, position);
+
+				// $(this).offset({left : 0, top : 0});
+				$(this).offset($(this).position());
+
+				$('#changePos').click(function(){
+					// var w = $(this).width();			//content의 순수 width
+					// var w = $(this).innerWidth();
+					var w = $(this).outerWidth();
+					
+					// var h = $(this).height();
+					var left = $(this).offset().left;
+					var right = $(this).offset().top;
+
+					// $('#inner').offset
+
+				})
+			})
+
+		});
+	</script>
+</head>
+
+<body>
+	<div class="card-body">
+		<button id="changePos">#inner를 이 버튼의 bottom,right로 위치하게 함</button>
+		<div class="bg"></div>
+		<div class="bg"></div>
+		<div class="bg"></div>
+		<div class="bg"></div>
+		<div id="outer">
+			<div id="inner"></div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>A05 Find</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			// filter => 검색된 베열에서 찾는다.
+			// find => 지정한 컨텐츠의 하위(자식)요소에서 검색한다.
+			// var x  = $('#foods td').css('color', 'gray')
+			// 	.find('.test').css('backgroundColor', 'orange');
+			// console.log(x);
+
+			var x = $('#foods').css('color', 'lightgray')
+				.find('tr:nth-child(3n+1)').css('backgroundColor', 'gray')
+				.first().css('backgroundColor', 'black')
+				.end()
+				.last().css('backgroundColor', 'orange')
+				// .last()
+				// .eq() //그 배열에서 몇번째꺼 쓸껀지
+
+			console.log(x);
+
+			var y = $('#one').css('color', 'lightgray');
+			var td = y.find('tr:nth-child(3n+1)').css('backgroundColor', 'gray')
+			td.first().css('backgroundColor', 'black')
+			td.last().css('backgroundColor', 'orange')
+		});
+	</script>
+</head>
+
+<body>
+	<div class="card-body">
+		<h3 class="card-title">음식 목록</h3>
+
+		<table class="table" id="foods">
+			<tr>
+				<th>ID</th><th>먹을거리</th><th>분류</th>
+			</tr>
+			<tr class = "test">
+				<td>F001</td><td>짜장면</td><td>중식</td>
+			</tr>
+			<tr>
+				<td>F002</td><td><span class = 'test'>라면</span></td><td>분식,한식</td>
+			</tr>
+			<tr class = "test">
+				<td>F003</td><td>김치찌개</td><td>한식</td>
+			</tr>
+			<tr>
+				<td>F004</td><td>돈까스</td><td>일식</td>
+			</tr>
+			<tr>
+				<td>F005</td><td>초밥</td><td>일식</td>
+			</tr>
+			<tr>
+				<td>F006</td><td>한우암소안심스테이크</td><td>양식</td>
+			</tr>
+			<tr>
+				<td>F006</td><td>한우암소안심스테이크</td><td>양식</td>
+			</tr>
+		</table>
+
+		<table class="table" id="one">
+			<tr>
+				<th>ID</th><th>먹을거리</th><th>분류</th>
+			</tr>
+			<tr class = "test">
+				<td>F001</td><td>짜장면</td><td>중식</td>
+			</tr>
+			<tr>
+				<td>F002</td><td><span class = 'test'>라면</span></td><td>분식,한식</td>
+			</tr>
+			<tr class = "test">
+				<td>F003</td><td>김치찌개</td><td>한식</td>
+			</tr>
+			<tr>
+				<td>F004</td><td>돈까스</td><td>일식</td>
+			</tr>
+			<tr>
+				<td>F005</td><td>초밥</td><td>일식</td>
+			</tr>
+			<tr>
+				<td>F006</td><td>한우암소안심스테이크</td><td>양식</td>
+			</tr>
+			<tr>
+				<td>F006</td><td>한우암소안심스테이크</td><td>양식</td>
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>

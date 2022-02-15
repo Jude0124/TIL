@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>A10 For</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script type="text/javascript">
+        window.onload = function () {
+            var list = document.getElementsByTagName("input");
+            console.log(list);
+
+            for (var i = 0; i < list.length; i++) {
+                setIndex(i);
+                /*
+                list[i].onclick = function () {
+                    alert((i + 1) + "번째 버튼 클릭!");
+                    setIndex(i);
+                }
+                */
+                // list[i].onclick = function () {
+                //     alert((i + 1) + "번째 버튼 클릭!")
+                // }
+
+
+            }
+
+            function setIndex(index){
+                list[index].onclick = function () {
+                    console.log( (index + 1) + "번째 버튼 클릭!" );
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="card-body">
+        <input id="b1" class="test" type="button" value="1번째 버튼" />
+        <input id="b2" class="test" type="button" value="2번째 버튼" />
+        <input id="b3" class="test" type="button" value="3번째 버튼" />
+    </div>
+</body>
+
+</html>

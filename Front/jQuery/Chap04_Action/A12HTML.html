@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>A12 HTML</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<style>
+		.test { font-size:20pt; width:400px; height:50px; background-color:gray; margin:5px 5px 5px 5px; }
+	</style>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var result = '<div class = "test">Hello World</div>';
+			result += '<div class = "test" >Hey~ Jude</div>';
+			
+			var dom = $(result);
+			// console.log(result);
+			dom.last().css('color', 'white')
+			var content = $('#content').html(dom);
+	
+			// var content = $('#content').html(result);
+			// console.log(content);
+			// content.find('div').last().css('color', 'white');
+
+		});
+	</script>
+</head>
+
+<body>
+	<div class="card-body" id="content"></div>
+</body>
+
+</html>

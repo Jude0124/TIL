@@ -8,6 +8,32 @@
     <title>A08 Keyboard Event / page 779</title>
     <script type="text/javascript">
         (function(){
+            function loadEvent(){
+
+                let name = document.getElementById('name');
+                name.focus();
+                name. addEventListener('keyup', function(evt){
+                    console.log('keyCode: ', evt.keyCode);
+                    console.log('key: ', evt.key);
+                    console.log('code: ', evt.code);
+                    console.log('Alt, Ctrl, Shift', evt.altKey,evt.ctrlKey,evt.shiftKey );
+
+                    if(evt.keyCode === 65 && evt.shiftKey){
+                        location.assign('http://www.daum.net')
+                    }
+                    if(evt.keyCode === 13){
+                        console.log('서버에 전송하는 로직....');
+                        evt.target.value = '';
+                        evt.target.focus();
+                    }
+                });
+
+                document.getElementById('btn').addEventListener('click', function(evt){
+
+                });
+            }
+
+            window.addEventListener('load', loadEvent);
             
         })();
     </script>
@@ -16,7 +42,8 @@
     <div class="card-body">
         <h2>8. KeyBoard Event</h2>
 
-        <input type="text" name="name" class="form-control">
+        <input type="text" name="name" id = "name" class="form-control"
+            placeholder = "입력해주세요">
         <button>CLICK</button>
         <br>
         <div id="result"></div>

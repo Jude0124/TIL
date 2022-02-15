@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <title>A07 Form</title>
+    <script type="text/javascript">
+
+        (function(){
+            
+            const sendData = {};
+
+            function loadEvent() {
+                const form = document.querySelector('form');
+                
+                form.addEventListener('submit', function(evt){
+                    // form이 전송하는 기능 자체를 막아버린다. Ajax 등을 이용해 값을 전송하는 경우
+                    // evt.preventDefault();
+
+                    const name = document.querySelector('input[name="name"]');
+                    if(!name.value || name.value.length < 5) {
+                        alert('이름을 입력해주세요');
+                        name.focus();
+                        name.value = '';
+                        evt.preventDefault();           // 제약 조건에 만족하지 않으면 전송 기능을 OFF
+                        return;                         // 다음 체크로 넘어가는 걸 방지
+                    }
+
+                    const age = document.querySelector('input[name="age"]');
+                    if(!age.value) {
+                        alert('나이를 입력해주세요');
+                        age.focus();
+                        age.value = '';
+                        evt.preventDefault();
+                        return;
+                    }
+
+                    // radio button. map 순환은 안된다
+                    let sports = '';
+                    document.querySelectorAll('input[name="sports"]').forEach((item, index) => {
+                        if(item.checked) sports = item.value;
+                    });
+                    // console.log(sports)
+                    if(!sports) {
+                        alert('1개는 선택되어야 합니다.');
+                        evt.preventDefault();
+                        return;
+                    }
+
+                    // console.log( document.querySelector('input[name="isChecked"]').value );
+                    // check 여부와 상관없이 on이라는 값이 출력되므로 사용자의 체크 여부에 따라 동적으로 value 값을 할당.
+                    const isChecked = document.querySelector('input[name="isChecked"]');
+                    if(isChecked.checked) {
+                        isChecked.value = 'YES'
+                    } else {
+                        isChecked.value = 'NO';
+                    }
+                    // console.log(isChecked.value);
+
+
+                    // checkbox(다중 선택)
+                    const language = [];
+                    document.querySelectorAll('input[name="language"]:checked').forEach((item, index) => {
+                        language.push(item.value);
+                    });
+                    // console.log(language)
+                    if(language.length === 0) {
+                        alert('언어의 1개 이상은 선택해야 합니다.');
+                        evt.preventDefault();
+                        return;
+                    }
+
+
+                    // 단일 선택. 값은 option의 값이 선택된다
+                    const baseball = document.querySelector('select[name="baseball"] option:checked').value;
+                    // baseball의 값이 없으면 에러처리
+
+                    const four = [];
+                    document.querySelectorAll('select[name="four"] option:checked').forEach( (item, index) => {
+                        four.push(item.value);
+                    });
+                    // 배열의 length값이 0이면 경고창 처리
+
+                    sendData.name = name.value;
+                    sendData.age = age.value;
+                    sendData.sports = sports;
+                    sendData.isChecked = isChecked.value;
+                    sendData.language = language;
+                    sendData.baseball = baseball;
+                    sendData.four = four;
+
+                    console.log(sendData)
+
+                });
+            };
+
+            window.addEventListener('load', loadEvent)
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="card-body">
+        <h2>Form</h2>
+
+        <form method="GET" method="param.jsp">
+            Name: <input type="text" name="name" class="form-control"/>
+            Age: <input type="text" name="age" class="form-control"/>
+            Date: <input type="date" name="date" class="form-control" />
+            <br>
+
+            RadioButton: <br />
+                <div class="form-check">
+                    <input type="radio" name="sports" value="baseball" id="baseball" class="form-check-input"/>
+                    <label htmlFor="baseball" class="form-check-label">야구</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="sports" value="soccer" id="soccer" class="form-check-input" />
+                    <label htmlFor="soccer" class="form-check-label">축구</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="sports" value="basketball" id="basketball" class="form-check-input" />
+                    <label htmlFor="basketball" class="form-check-label">농구</label>
+                </div>
+                <br>
+
+            CheckBox One: <div id="agree"></div><br />
+                <div class="form-check">
+                    <input type="checkbox" name="isChecked" class="form-check-input" />
+                    <label htmlFor="check" class="form-check-label">동의</label>
+                </div>
+                <br>
+
+            CheckBox:  <br />
+                <div class="form-check">
+                    <input type="checkbox" name="language" value="Angular" id="angular" class="form-check-input" />
+                    <label htmlFor="baseball" class="form-check-label">앵귤러</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="language" value="React" id="react" class="form-check-input" />
+                    <label htmlFor="react" class="form-check-label">리엑트</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="language" value="Vue" id="vue" class="form-check-input"/>
+                    <label htmlFor="vue" class="form-check-label">뷰</label>
+                </div>
+                <br>
+
+            SelectBox: <br/>
+                <select name="baseball" class="form-control">
+                    <option>NC</option>
+                    <option>두산</option>
+                    <option>엘지</option>
+                </select>
+                <br>
+        
+            SelectBox Multi: <br />
+                <select name="four" multiple size="3" class="form-control">
+                    <option selected>NC</option>
+                    <option>두산</option>
+                    <option>엘지</option>
+                </select>
+                <br>
+
+
+            <button type="submit" class="btn btn-primary btn-sm">SEND</button>
+            <button type="reset" class="btn btn-primary btn-sm">RESET</button>
+        </form>
+        
+
+    </div>
+</body>
+</html>

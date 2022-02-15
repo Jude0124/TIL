@@ -8,7 +8,78 @@
     <title>A04 Shopping</title>
     <script type="text/javascript">
         (function(){
-            
+            function loadEvent(){
+                // let btns = document.getElementsByTagName('button');
+                // let btns = document.querySelectorAll('button');
+                let btns = document.querySelector('button');
+                let btnTwo = btns.nextElementSibling;
+                let btnThree = btnTwo.nextElementSibling;
+                let btnFour = btnThree.nextElementSibling
+                // console.log(btns);
+
+                btns.addEventListener('click', function(evt){
+                    const movies = document.querySelector('#movies');
+                    const firstElem = movies.firstElementChild;
+                    if( firstElem && firstElem.nextElementSibling) {
+                        let two = firstElem.nextElementSibling;
+                        console.log(two, two.innerText);
+                    }
+                });
+                btnTwo.addEventListener('click', function(evt){
+                    const liElem = document.createElement('li');
+                    // 속성이 필요하다면
+                    liElem.setAttribute('title', '동적 속성 추가');
+
+                    const linkElem = document.createElement('a');
+                    linkElem.setAttribute('href', 'http://www.daum.net');
+                    liElem.appendChild(linkElem);       // <li><a href="..."></a></li>
+                    const liText = document.createTextNode('우유');
+                    liElem.appendChild(liText);      // <li><a href="...">우유</a></li>
+
+
+                    const purchases = document.querySelector('#purchases');
+                    // purchases.appendChild(liElem);
+
+                    // console.log(purchases.cildren);
+                    purchases.insertBefore(liElem, purchases.children[1])
+
+                });
+
+                btnThree.addEventListener('click', function(evt){
+                    const purchases = document.querySelector('#purchases');
+                    const firstElem = purchases.firstElementChild;
+                    if(firstElem) {
+                        // firstElem.remove();
+                        purchases.removeChild(firstElem);
+                    }
+                });
+                btnFour.addEventListener('click', function(evt){
+                    const divElem = makeDOM('div',{title: 'DIV'}, '생성한 DIV 요소');
+                    document.body.appendChild(divElem);
+                    
+                    const inputElem = makeDOM('input', {type: 'text', class : 'form-control'});
+                    document.body.appendChild(inputElem);
+                })
+            }
+
+            // makeDom('div', {title : 'ABC', name : 'name'} )
+            function makeDOM(tagName, attrs, text){
+                // const elem = document.createElement('div');
+                const elem = document.createElement(tagName);
+                if(attrs){      //값이 있으면 true, 없으면 false
+                    for(let item in attrs){
+                        elem.setAttribute(item,attrs[item]);
+                    }
+                }
+                if(text){
+                    let textNode = document.createTextNode(text);
+                    elem.appendChild(textNode)
+                }
+
+                return elem
+            }
+
+            addEventListener('load', loadEvent)
 
         })();
     </script>

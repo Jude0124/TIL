@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>A04 Form Value</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("input:disabled").css("border", "dashed 2px gray");
+
+			$('#content button').click(function(){
+
+				// val() => 지정한 폼 요소의 값을 가져올 때
+				// val(value) => 지정한 폼 요소의 값을 설정할 때
+				
+				
+			})
+		});
+	</script>
+</head>
+
+<body>
+	<div class="card-body" id="content">
+		
+		Input:
+		<input type="text" name="name" class="form-control" placeholder="Name...">
+		<span title="nameValue"></span>
+		<br>
+		<br>
+		<input type="password" name="password" class="form-control">
+		<span title="passwordValue"></span>
+		<br>
+		<br>
+		<textarea name="comment" value="test" class="form-control"></textarea>
+		<span title="commentValue"></span>
+		<br>
+		<br>
+		Radio Button<br>
+		<input type="radio" name="baseball" value="엔씨" checked> NC &nbsp; &nbsp; 
+		<input type="radio" name="baseball" value="두산"> Doosan &nbsp; &nbsp; 
+		<input type="radio" name="baseball" value="KT"> KT &nbsp; &nbsp; 
+		<input type="radio" name="baseball" value="엘지"> LG &nbsp; &nbsp; 
+		<input type="radio" name="baseball" value="키움"> Kiwoom
+		<br>
+		<span title="baseballValue"></span>
+		<br>
+		<br>
+
+		CheckBox<br>
+		<input type="checkbox" name="five" value="엔씨" checked> NC &nbsp; &nbsp; 
+		<input type="checkbox" name="five" value="두산"> Doosan &nbsp; &nbsp; 
+		<input type="checkbox" name="five" value="KT"> KT &nbsp; &nbsp; 
+		<input type="checkbox" name="five" value="엘지"> LG &nbsp; &nbsp; 
+		<input type="checkbox" name="five" value="키움"> Kiwoom
+		<br>
+		<span title="fiveValue"></span>
+		<br>
+		<br>
+
+		음식분류: 
+		<div class="input-group">
+			<select class="custom-select" name="food">
+				<option value="" selected>-----음식 분류를 선택하세요-----</option>
+				<option value="1">한식</option>
+				<option value="2">중식</option>
+				<option value="3">양식</option>
+				<option value="4">일식</option>
+				<option value="5">분식</option>
+			</select>
+		</div>
+		<br>
+		선택 결과 : <input class="form-control" type="text" name="foodInput" value="" disabled />
+		<div>선택 결과: <span title="foodSpan"></span></div>
+		<br>
+		<br>
+		음식분류 Multi: 
+		<div>
+			<select class="custom-select" multiple size="5" name="foods">
+				<option value="1" selected>한식</option>
+				<option value="2">중식</option>
+				<option value="3">양식</option>
+				<option value="4">일식</option>
+				<option value="5">분식</option>
+			</select>
+		</div>
+		<br>
+		<div>선택 결과: <span title="foods"></span></div>
+		<br>
+		<div class="input-group-append">
+			<button class="btn btn-outline-secondary" type="button" name="inquery">조회</button>
+		</div>
+	</div>
+	
+</body>
+
+</html>

@@ -8,8 +8,12 @@
     <title>A06 Immediately Invoked Function</title>
     <script type="text/javascript">
         (function(){
+            function threeEvent(evt) {
+                alert(evt.target.innerText);
+            }
             
         })();
+
     </script>
 </head>
 <body>

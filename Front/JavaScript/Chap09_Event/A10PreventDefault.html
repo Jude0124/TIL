@@ -9,7 +9,18 @@
     <script type="text/javascript">
         
         window.addEventListener('load', function(){
+            document.querySelector('a[href^= "http"').addEventListener('click',function(evt){
+                console.log('Google');
+                // HTML 요소에 포함된 내장 자바스크립트 명령을 취소(적용 안함)
+                evt.preventDefault();
+            });
 
+            document.querySelector('input[type="text"]').addEventListener('keydown', function(evt))
+
+            document.querySelector('button[type="text"]').addEventListener('keydown', function(evt))
+                evt.preventDefault();
+
+                //여기서 Ajax를 이용하여 서버에 직접 전송 로직 구현
         });
         
     </script>
