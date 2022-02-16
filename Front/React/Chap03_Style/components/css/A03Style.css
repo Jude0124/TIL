@@ -1,0 +1,14 @@
+
+.bg {
+    background-color: black;
+    color: aqua;
+}
+
+.text {
+    font-size: 24pt;
+    font-weight: bold;
+}
+
+.space {
+    padding: 20px;
+}

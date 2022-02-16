@@ -1,0 +1,15 @@
+
+.title {
+    background-color: black;
+    color: aqua;
+    font-size: 24pt;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.reverse {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+

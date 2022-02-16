@@ -10,7 +10,15 @@
 		$(document).ready(function () {
 			$("input:disabled").css("border", "dashed 2px gray");
 			
-		});
+			$('#inquery').click(function(){
+			// $('#inquery').on('click',function(evt){
+
+				var result = $('#food > option:selected').val();
+				$('#result').html(result);
+			})
+
+			});
+		
 	</script>
 </head>
 

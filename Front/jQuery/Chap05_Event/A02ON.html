@@ -20,8 +20,14 @@
 				$(this).removeClass('hover')
 			});
 
+			$('#b button').on( 'mouseenter' , function(){
+				$(this).addClass('hover')
+			}).on('mouseleave',(function(){
+				$(this).on('removeClass',('hover'))
 			
 		});
+	});
+
 	</script>
 </head>
 

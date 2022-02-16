@@ -1,0 +1,12 @@
+
+.title {
+    background-color: gray;
+    color: aqua;
+    font-size: 24pt;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.innerColor {
+    color: orange;
+}

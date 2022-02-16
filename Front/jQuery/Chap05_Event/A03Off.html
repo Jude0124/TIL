@@ -13,6 +13,33 @@
 	<script type="text/javascript">
 		$(document).ready(function () {
 			
+			$('#test1').on('click', function(evt){
+				console.log('Click 01');
+			});
+
+			$('#test2').on('click', function(evt){
+				console.log('Click 02');
+				$(this).off();	//removeEventListener
+						
+			});
+			// on -> one 으로 변경하면 1번만 실행되는 이벤트가 만들어진다.
+			$('#test3').one('click', function(evt){
+				console.log('Click 03');
+			});
+
+			$('#test4').attr('disabled', 'disabled')
+			$('input[name="isChecked"]').on('click', function(evt){
+				$('#test')
+				if( $(this).is(':checked')){
+					$('#test4').on('click', function(){
+						console.log('Click 04');
+					})
+				}else{
+					$('#test4').off('click');
+				}
+
+			})
+
 		});
 	</script>
 </head>
@@ -22,6 +49,8 @@
 		<button id="test1">one 메서드</button>
 		<button id="test2">two 메서드</button>
 		<button id="test3">three 메서드</button>
+		<br>
+		<input type="checkbox" name = "isChecked">
 		<button id="test4">four 메서드</button>
 
 	</div>

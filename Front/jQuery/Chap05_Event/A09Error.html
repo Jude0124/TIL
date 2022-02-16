@@ -15,7 +15,13 @@
 
 			$('img.travel').attr('src', function(i, old){
 				return 'images/' + images[i];
+			});
+			$('img.travel').on('error', function(){
+				$(this).attr('src', 'images/noimage.jpg')
+			}).on('load',function(){
+				console.log('정상적으로 로드됨');
 			})
+			
 			
 		});
 	</script>

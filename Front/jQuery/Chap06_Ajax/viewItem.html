@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+  // http://127.0.0.1:5501/Chap11_Ajax/viewItem.html?no=1592030163193
+  int no = Integer.parseInt(request.getParamter('no'))
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
+    <script type= "text/javascript">
+      $(function(){
+        $('button')
+      })
+    </script>
+  </head>
+  <body>
+    <div class="card-body">
+      
+      <h3>게시물 상세보기</h3>
+      
+      Name: <input type="text" class="form-control" name="name" readonly/> 
+      Tel: <input type="text" class="form-control" name="tel"  readonly/> 
+      Address: <input type="text" class="form-control" name="address"  readonly/>
+      <br />
+      
+      <button class="btn btn-primary">LIST</button>
+    </div>
+
+    <script type="text/javascript">
+      const baseURL = 'http://sample.bmaster.kro.kr/contacts/';
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', baseURL + '1592030163193');            // 연결 준비
+      xhr.send();                                           // 요청
+
+      xhr.addEventListener('load', function(){
+        const data = JSON.parse(xhr.responseText);
+        console.log(data)
+
+        document.querySelector('input[name="name"]').value = data.name;
+        document.querySelector('input[name="tel"]').value = data.tel;
+        document.querySelector('input[name="address"]').value = data.address;
+      });
+
+
+      document.querySelector('button').addEventListener('click', function(){
+        location.assign('./contactList.html')
+      });
+      
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+

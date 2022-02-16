@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Position</title>
+	<style type="text/css">
+		body, p, h1, h2, h3, h4, h5, h6 { margin:0; padding:0 }
+		body { font-size: 12pt; line-height: 1.5em; color: gray; }
+		h1, h2, h3, h4, h5, h6 { font-size:1.2em; }
+		
+		#wrapper  { width:600px; height: 500px;
+			background-color:#FF0000; margin: 20px auto;
+			position : relative;
+		}
+		
+		/* 상위 요소의 크기가 정해져 있어야 한다. 상위 요소의 크기가 %면 적용 안됨
+			sticky를 지정할때 기준점(top, left)이 있어야 적용된다.
+			상위 요소가 다 보일때는 기본 배치와 동일하지만
+			스크롤이 생기면 같이 움직이지 않고 고정되어 항상 표시된다.
+			top과 left 등에 지정하는 값을 스크롤도리대 유지할 간격이 된다.
+			*/
+		
+		#wrapper .one { 
+			width:300px; height:150px; background-color:#FFFF99; 
+			position : sticky; top: 20px; left: 10px;
+		}
+		
+	</style>
+</head>
+<body>
+
+<div id="wrapper">
+	
+	<div class="one">
+		<h1>1.필요한 코드와 <em>CSS 스타일</em>에 손쉽게 액세스 작업 시간 단축</h1>
+		<p>관련 파일 막대에 있는 파일을 클릭하면 코드 뷰에서 소스를 확인하면서 동시에 디자인 뷰에서 상위 페이지를 볼 수 있습니다. 코드 탐색기를 사용하여 현재 선택 영역에 영향을 미치는 모든 CSS 소스 코드에 신속하게 액세스할 수도 있습니다.</p>
+	</div>
+	
+	
+</div>
+
+</body>
+</html>
