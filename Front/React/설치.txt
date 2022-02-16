@@ -1,10 +1,4 @@
 
-모든 자료
-https://github.com/pxp13716/React_20211025
-
-신성진
-pxp13716@gmail.com
-
 
 리엑트 라이브러리 설치
     -g는 이 컴퓨터 어느 위치에서든지 사용할 수 있도록 Global 영역에 설치된다.
