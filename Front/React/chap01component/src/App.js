@@ -5,6 +5,7 @@ import A01Props from './components/A01Props';
 import A02State from './components/A02State';
 import A04CreateDOM from './components/A04CreateDOM';
 import A05Hook from './components/A05Hook';
+import A06Currency from './components/A06Currency';
 
 function App() {
   //  useState로 정의된 변수는 값이 변경되면 변경된 값으로 화면 갱신을 한다.
@@ -26,32 +27,40 @@ function App() {
   const changeName = () => setName('놀부');
 
   return (
+    
     <div className ='container'>
       <div className = 'col-12'>
         <h1>Component</h1>
       </div>
 
       <div className = 'col-12'>
-        <A05Hook.js />
+        <A06Currency />
       </div>
 
-      <div className ='col-12'>
-        <A04CreateDOM />
-      </div> 
+      <div className='col-12'>
+        <A05Hook />
+      </div>
       <br />
 
       <div className='col-12'>
-          <A02State name = {name} age = {age} />
+        <A04CreateDOM />
       </div>
-      
+      <br />
+
       <div className='col-12'>
-        
-        {/* 전달 값은 속성 형식으로 전달한다. {}를 ""로 묶지 않는다. */}
-        <A01Props comp="A01 Props"
-         name = {name} age = {age} ary = {arr} obj = {obj}
-          onAdd = {onAdd} changeName = {changeName} changeAge = {changeAge} ></A01Props>
+        <A02State name={name} age={age} />
       </div>
-    
+
+      <br />
+
+      <div className='col-12'>
+        {/* 전달 값은 속성 형식으로 전달한다. {}를 "" 묶지 않는다 */}
+        <A01Props comp="A01 Props" 
+          name={name} age={age} ary={arr} obj={obj} 
+          onAdd={onAdd} changeName={changeName} changeAge={changeAge}></A01Props>
+      </div>
+
+      
     
     </div>
   );
