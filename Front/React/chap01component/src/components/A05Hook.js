@@ -1,19 +1,37 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 
 const A05Hook = () => {
+  
+    const [data, setData] = useState({
+        num : 0,
+        str : ''
+    });
+    
+    const changeData = (evt) => setData({...data, [evt.target.name]: evt.target.num})
+
+    const [today, setToday] = useState(new Date());
+
+    setTimeout ( () => {
+        setToday(new Date());
+
+    }, 3000);
+
 
     return (
         <div>
             <h3>A05. useState, useEffect</h3>
 
             <div>
-                Num: 
-                    <input type="text" name="num" className="form-control" /><br />
-                Str: 
-                    <input type="text" name="str" className="form-control" /><br />
+                Num: {data.num}
+                    <input type="text" name="num" className="form-control" 
+                        defaultValue ={data.num} onChange={changeData} /><br />
 
-                Today: <br />
+                Str: {data.str}
+                    <input type="text" name="str" className="form-control" 
+                        defaultValue={data.str} onchange={changeData}/><br />
+
+                Today: {today.toLocaleTimeString}<br />
                 <br />
 
                 Avg: 
