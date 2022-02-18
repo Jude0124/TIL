@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <title>A02 Component Props</title>
+</head>
+<body>
+
+    <div class="card-body" id="app">
+        <h3>A04 Component Props</h3>
+
+        
+    </div>
+    
+    <script type="text/javascript">
+        Vue.config.devtools = true
+        var app = new Vue({
+            el: '#app',
+            data: {
+                address: 'Seoul',
+                user: {name: 'Hong', age: 20},
+                ary: [10, 20, 30],
+            },
+            methods: {
+                onPlus: function(x, y) {
+                    return `${x} + ${y} = ${x + y}`
+                }
+            }
+        });
+    </script>
+</body>
+</html>

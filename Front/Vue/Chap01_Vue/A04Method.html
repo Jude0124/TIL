@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <title>A04 Method</title>
+</head>
+<body>
+    <div class="card-body" id="app">
+        <h3>A04 Method</h3>
+
+        <div>
+            <h5>1. Method</h5>
+            onPlus: <br>
+            <br>
+            Name: {{name}}
+            <input type="text" name="name" class="form-control" v-model="name">
+            Num: {{num}}
+            <input type="text" name="num" class="form-control" :value = "num" @input = "changeNum">
+            <div style = "color:red;" v-show="numCheck">숫자 형식으로 입력해 주세요..</div>
+        </div>
+        <br>
+
+        <div>
+            <h5>2. Computed</h5>
+            computed의 메서드는 정의는 함수지만 사용은 프로퍼티처럼 한다.<br>
+            Computed: {{totalComputed}} <br>
+            Methods: {{totalMethod()}}<br>
+            <br>
+            Computed Params: 
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'NolBu',
+                num: 10,
+                numCheck: false
+            }, 
+            methods: {
+                changeNum: function(evt) {
+                    var value = Number(evt.target.value);
+                    // console.log(value);
+                    if(isNaN(value)) {
+                        // alert('숫자 형식으로 입력해 주세요');
+                        this.numCheck = true;
+                    } else {
+                        this.numCheck = false;
+                        this.num = value;
+                    }
+                },
+                totalMethod: function(){
+                    console.log('Method 계산중....')
+                    let total = 0;
+                    for(let i = 1; i<= this.num; i++){
+                        total += i;
+                    }
+                    return total;
+                }
+            },
+            // 계산된 속성
+            computed: {
+                totalComputed: function() {
+                    console.log('Computed 계산중...');
+                    let total = 0;
+                    for(let i = 1 ; i <= this.num; i++){
+                        total += 1;
+                    }
+                    return total;
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <title>A05 Computed</title>
+</head>
+<body>
+    <div class="card-body" id="app">
+        <h3>A05 Computed</h3>
+
+        <div class="input-group">
+            <input type="text" name="search" class="form-control" ref="inputElem">
+            <div class="input-group-append" ref="divElem">
+                <button class="btn btn-primary" type = "submit" @click="changeName">SEARCH</button>
+            </div>
+        </div>
+
+        <br>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>번호</th><th>국가명</th><th>수도</th><th>지역</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in searchCountry">
+                    <td>{{item.no}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.capital}}</td>
+                    <td>{{item.region}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        let model = {
+            countryname : "",
+            countries : [
+                { no:1,  name : "미국", capital : "워싱턴DC", region:"america" },
+                { no:2,  name : "프랑스", capital : "파리", region:"europe" },
+                { no:3,  name : "영국", capital : "런던", region:"europe" },
+                { no:4,  name : "중국", capital : "베이징", region:"asia" },
+                { no:5,  name : "태국", capital : "방콕", region:"asia" },
+                { no:6,  name : "모로코", capital : "라바트", region:"africa" },
+                { no:7,  name : "라오스", capital : "비엔티안", region:"asia" },
+                { no:8,  name : "베트남", capital : "하노이", region:"asia" },
+                { no:9,  name : "피지", capital : "수바", region:"oceania" },
+                { no:10,  name : "솔로몬 제도", capital : "호니아라", region:"oceania" },
+                { no:11,  name : "자메이카", capital : "킹스턴", region:"america" },
+                { no:12,  name : "나미비아", capital : "빈트후크", region:"africa" },
+                { no:13,  name : "동티모르", capital : "딜리", region:"asia" },
+                { no:14,  name : "멕시코", capital : "멕시코시티", region:"america" },
+                { no:15,  name : "베네수엘라", capital : "카라카스", region:"america" },
+                { no:16,  name : "서사모아", capital : "아피아", region:"oceania" }
+            ]
+        }
+
+        new Vue({
+            el: '#app',
+            data: model,
+            methods: {          // {countryname: ..., countries: []}
+               changeName: function(evt) {
+                   evt.preventDefault();
+                //    console.log(this.$refs);
+
+                this.countryname = this.$refs.inputElem.value;;
+
+                this.$refs.inputElem.value = '';
+                this.$refs.inputElem.focus();
+               } 
+            },
+            computed: {
+                searchCountry: function() {
+                    let data = [];
+                    for(let i = 0; i < this.countries.length; i++) {
+                        let country = this.countries[i];
+                        if(country.name.indexOf(this.countryname) !== -1) {
+                            data.push(country);
+                        }
+                    }
+                    return data;
+                }
+            },
+            
+        })
+    </script>
+</body>
+</html>

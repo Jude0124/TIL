@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <style rel="stylesheet" type="text/css">
+        #container { width: 300px; height: 150px; border: 1px solid gray; display: flex; justify-content: center; align-items: center;}
+        #inner { width: 100px; height: 100px; background: orange; padding: 10px; margin: 10px; text-align: center; display: flex; justify-content: center; align-items: center;}
+    </style>
+    <title>A07 Event</title>
+</head>
+<body>
+    <div id="app" class="card-body">
+        <h3>A07 Event</h3>
+        <br>
+
+        Num: {{num}}<br>
+        <button v-on:click="num += 2">+1</button>
+        <button @click="decrease">-1</button>
+        <button @click.once="decrease">once</button>    <!-- once가 붙으면 1번만 실행됨 -->
+
+
+        <!-- shift, alt, ctrl, meta(window, mac) /left, right, middle -->
+        <button @click.meta="decrease">Key</button>
+
+        <button @click="increase">Event</button>   
+        <button>Event</button>
+        <br>
+        <br>
+        
+        <div id="container"         @click="outer">
+        <div id="inner"             @click="inner">ONE</div>
+        <div id="inner">TWO</div>
+        </div>
+        <br>
+        <br>
+
+        <div>
+            <a href="http://www.daum.net">DAUM</a> |
+            <a href="http://www.naver.com">NAVER</a> |
+        </div>
+        <br>
+
+        <input type="text" class="form-control"><br>
+        esc: <input type="text" class="form-control" v-model="name"/><br>
+        Enter: <input type="text" class="form-control" v-model="msg"/><br>
+        Esc OR Enter<input type="text" class="form-control"/><br>
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                num: 0,
+                name: 'Guest',
+                msg: ''
+            },
+            methods: {
+                innerOne : function(evt){
+                    // evt.stopP
+                }    
+            },
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <title>A08 Form</title>
+</head>
+<body>
+    <div id="app" class="card-body">
+        <h3>A08 Vue Form Element</h3>
+        <br>
+
+        <form>
+            Text Field: <span class="orange">{{data.name}}</span>
+            <input type="text" class="form-control"><br>
+
+            Number Field: <span class="orange">{{data.age + 10}}</span>
+            <input type="text" class="form-control"><br>
+
+            Lazy Field: <span class="orange">{{data.address}}</span>
+            <input type="text" class="form-control"><br>
+
+
+            Radio Button: <span class="orange">{{data.gender}}</span><br>
+            <input type="radio" name="gender" value="남자">Male
+            <input type="radio" name="gender" value="여자">Female
+            <input type="radio" name="gender" value="어린이">Children <br>
+            <br>
+
+            Single Check: <span class="orange">{{data.check}}</span><br>
+            <input type="checkbox" name="check">Agree<br>
+            <br>
+
+            CheckBox: <span class="orange">{{data.fruit}}</span><br>
+            <input type="checkbox" value="apple">사과,
+            <input type="checkbox" value="banana">바나나,
+            <input type="checkbox" value="melon">멜론<br>
+            <br>
+
+            SelectBox: <span class="orange">{{data.inCurr}}</span><br>
+            <select class="form-control">
+                
+            </select>
+            <br>
+
+            SelectBox Multi: <span class="orange">{{data.lang}}</span><br>
+            <select class="form-control" multiple>
+                
+            </select>
+            <br>
+
+            TextArea: <span class="orange">{{data.comment}}</span>
+            <textarea cols="50" rows="5" class="form-control"></textarea>
+            <br>
+
+
+            Radio Button Object Value: <span class="orange">{{data.person}}</span><br>
+            <input type="radio" name="person">놀부
+            <input type="radio" name="person">흥부
+            <input type="radio" name="person">방자 <br>
+            <br>
+
+
+            Text Field: <span class="orange">{{data.name}}</span>
+            <input type="text" class="form-control"><br>
+            <br>
+
+            <button type="submit">SEND</button>
+        </form>
+
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                data: {
+                    name: ' NolBu',
+                    age: '',
+                    address: '',
+                    gender: '남자',
+                    check: true,
+                    fruit: ['apple'],
+                    inCurr: 'EUR',
+                    currencies: ['USD', 'EUR', 'CNY'],
+                    lang: ['한국어'],
+                    language: ['한국어', '영어', '프랑스어', '독일어', '스페인어'],
+                    comment: '',
+                    person: {}
+                }
+            },
+            methods: {
+                
+            }
+        })
+    </script>
+</body>
+</html>

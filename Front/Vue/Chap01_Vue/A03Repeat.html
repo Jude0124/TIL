@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <title>A03 Repeat</title>
+</head>
+<body>
+    <div class="card-body" id="app">
+        <h3>A03 Vue Component Repeat</h3>
+        <br>
+
+        <h5>1. v-show</h5>
+        <div v-show = "check">
+            v-show가 있는 엘리먼트는 항상 렌더링 되고 DOM에 남아있다는 점입니다. v-show는 단순히 엘리먼트에 display CSS 속성을 토글합니다.
+        </div>
+        <br />
+
+        <h5>2. v-if</h5>
+        <div v-if="name === 'nolbu'">
+            Vue에서는 v-if 디렉티브를 사용하여 조건부 블럭을 작성할 수 있습니다.
+        </div>
+        <div v-else-if ="name === 'heungbu'">
+            v-else-if는 이름에서 알 수 있듯, v-if에 대한 “else if 블록” 역할을 합니다. 또한 여러 개를 사용할 수 있습니다.
+        </div>
+        <div v-else>
+            v-else 디렉티브를 사용하여 v-if에 대한 “else 블록”을 나타낼 수 있습니다
+        </div> 
+        <br>
+
+        <h5>3. v-for</h5>
+        <table class="table">
+            <thead>
+                <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Kor</th>
+                <th>Eng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item, i) in students" :key = "i">
+                    <td>{{i + 1}}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.age }}</td>
+                    <td>{{ item.kor }}</td>
+                    <td>{{ item.eng }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+
+        <div>
+            <button class="btn btn-outline-primary btn-sm" @click="changeCheck" >Check</button>
+            <button class="btn btn-outline-primary btn-sm" @click="changeName('nolbu')">IF</button>
+            <button class="btn btn-outline-primary btn-sm" @click="changeName('heungbu')">Else IF</button>
+            <button class="btn btn-outline-primary btn-sm" @click="changeName('abc')">Else</button><br>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let model = {
+            students: [
+                { name: 'HongGilDong', age: 20, kor: 100, eng: 80 },
+                { name: 'NolBu', age: 50, kor: 90, eng: 90 },
+                { name: 'HeungBu', age: 40, kor: 70, eng: 60 },
+            ]
+        }
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                check: true,
+                name: 'nolbu',
+                students: model.students            // [ {..}, {..}, ..]
+            },
+            methods: {
+                changeCheck : function() {
+                    this.check = !this.check;
+                },
+                changeName: function(str){
+                    this.name = str;
+                }
+            },
+        })
+    </script>
+</body>
+</html>

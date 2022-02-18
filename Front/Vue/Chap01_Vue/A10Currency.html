@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <title>A10 Currency</title>
+</head>
+<body>
+    <div class="card-body" id="app">
+        <h3>A10 Currency</h3>
+
+        Qty: <input type="text" class="form-control" v-model ="qty">
+        Cost: <input type="text" class="form-control" v-model="cost">
+        Country: 
+            <select class="form-control">
+                <option v-for="item in currencies" :key="item">{{item}}</option>
+            </select>
+        <br>
+        <div>Total: {{qty * cost}}</div>
+        <div>Total: <span v-for="item in []">{{item.key}}: {{item.value}} &nbsp; </span></div>
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                qty: 3,
+                cost: 5,
+                inCurr: 'USD',
+                currencies: ['USD', 'EUR', 'CNY'],
+                rate: {'USD': 1, 'EUR': 1.35, "CNY": 6.57}
+
+            },
+            computed: {
+                currencies: function(){
+                    return ['USD', 'EUR', 'CNY'];
+                },
+                rate : function(){
+                    return {'USD': 1, 'EUR': 1.35, 'CNY': 6.57}
+                },
+                total : function(){
+                    let data = [];
+                    for(let i = 0; i < this.currencies.length; i++) {
+                        let country = this.currencies[i];
+                        let coun
+                    }
+                }
+            },
+            methods: {
+                
+            }
+        })
+    </script>
+</body>
+</html>

@@ -11,7 +11,7 @@ function A02FunctionState() {
         address: 'Seoul',
     });
 
-    const changeName = () => setName('HungBu');
+    const changeName = () => setName('HeungBu');
     const changeAge = (num) => setAge(num);
 
     // const addArray = (value) => setAry(ary.push(value));         // Error

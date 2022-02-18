@@ -3,6 +3,8 @@ import React from 'react';
 
 const A03ParamComponent = () => {
 
+    // const {match} = 
+
     const data = [
         { "id": 1, "name": "Apples", "category": "Fruit", "price": 1.20, "expiry": 10 },
         { "id": 2, "name": "Bananas", "category": "Fruit", "price": 2.42, "expiry": 7 },
@@ -24,6 +26,11 @@ const A03ParamComponent = () => {
                 Location: 
             </div>
             <br />
+{/* 
+            <div>
+                Id: {data.id}<br />
+                Name : {product.name}
+            </div> */}
 
         </div>
     )
