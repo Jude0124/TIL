@@ -13,14 +13,14 @@
     <div class="card-body" id="app">
         <h3>A03 Component Props</h3>
 
-        <comp-one></comp-one>
+        <comp-one name = "NolBu" v-bind:age="'30'"></comp-one>
     </div>
 
     <template id="tempOne">
         <div>
-            Name: <br>
-            Age: <br>
-            User: <br>
+            Name: {{name}} <br>
+            Age: {{age + 100}} <br>
+            User: {{add}} <br>
             Array: <br>
             onPlus: <br>
             isChecked: <br>

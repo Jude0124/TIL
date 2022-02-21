@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <style type="text/css">
+        .done { text-decoration: line-through; }
+    </style>
+    <title>A08 TodoList</title>
+</head>
+<body>
+    <div class="card-body" id="app">
+        <h3>A08 TodoList</h3>
+
+        <template-comp></template-comp>
+    </div>
+
+    <!-- EventBus Component -->
+    <script type="text/javascript">
+        const EventBus = new Vue();
+    </script>
+
+    <!-- Todo Form Component -->
+    <template id="todoForm">
+        <form>
+            <div class="input-group">
+                <input type="text" class="form-control"/>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary mr-1">Submit</button>
+                </div>
+            </div>  
+        </form>
+    </template>
+    <script type="text/javascript">
+        Vue.component('formComp', {
+            template: '#todoForm',
+            
+        });
+    </script>
+
+    <!-- Todo List Component -->
+    <template id="todoList">
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="width: 10%">ID</th>
+                        <th>Todo</th>
+                        <th style="width: 10%">Complete</th>
+                        <th style="width: 10%">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in todoList" :key="item.id">
+                        <td>{{item.id}}</td>
+                        <td><span :class="{done: item.done}">{{item.text}}</span></td>
+                        <td><button class="btn btn-primary" @click="updateTodo(item.id)">Complete</button></td>
+                        <td><button class="btn btn-danger"  @click="deleteTodo(item.id)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
+    <script type="text/javascript">
+        Vue.component('listComp', {
+            template: '#todoList',
+            data: function() {
+                return {
+                    todoList: [
+                        { id: 1, text: '첫 번째 할 일', done: true },
+                        { id: 2, text: '두 번째 할 일', done: false },
+                        { id: 3, text: '세 번째 할 일', done: false },
+                    ],
+                    id: 4,
+                }
+            },
+            created: function(){
+                EventBus.$on('sendtext', this.addTodo);
+            },
+            methods: {
+                updateTodo: function(id) {
+                    // this.todoList[id].done = !this.todoList[id].done;
+                    const todo = this.todoList.find( (item,index) => item.id === id );
+                    // console.log(todo);
+                    todo.done = !todo.done;
+                },
+                deleteTodo: function(id) {
+                    // delete는 splice를 이용
+                    const index = this.todoList.findIndex( (item, index) => item.id === id );
+                    this.todoList.splice(index, 1);
+                },
+                addTodo: function(text) {
+                    const todo = {id: this.id++, text: text, done: false};
+                    this.todoList.push(todo);
+                }
+            }
+        });
+    </script>
+
+
+    <!-- Todo Combine Component -->
+    <template id="todoTemplate">
+        <div>
+            <form-comp></form-comp>
+            <br>
+            <list-comp></list-comp>
+        </div>
+    </template>
+    <script type="text/javascript">
+        Vue.component('templateComp', {
+            template: '#todoTemplate'
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+</html>
