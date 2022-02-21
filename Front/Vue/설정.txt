@@ -1,0 +1,55 @@
+설치 프로그램.
+
+VSCode
+
+참조 할 사이트
+    MDN - JavaScript
+        https://developer.mozilla.org/ko/
+    
+    JavaScript Library 검색
+        https://www.npmjs.com/
+
+    Vue 공식 홈페이지
+        https://kr.vuejs.org/index.html
+
+
+
+Vue 설치 및 프로젝트 생성
+Global로 설치한다. 프로젝트를 어느 위치에 만들지 모름. 어느 위치에서라도 만들 수 있도록 글로벌로 설치
+    npm i -g @vue/cli
+
+버전 확인
+    vue --version
+
+프로젝트 생성
+    vue create projectName
+    ex) vue create template
+
+    vue create chap03_comp
+        Default Vue 2 선택
+    vue create chap04_todolist
+        Default Vue 2 선택
+    vue create chap05_router
+    vue create chap06_axios
+
+    cd template
+    npm i bootstrap@4       sample이 bootstrap을 이용해서 만들어짐.
+
+
+프로젝트 시작
+    cd projectName
+    npm run serve
+
+프로젝트 종료
+    ctrl + c
+    
+
+프로젝트 빌드
+    npm run build
+
+빌드 결과 확인
+    npm i -g serve          설치는 최초 1번만 합니다.
+
+    serve -s dist
+
+    ctr + c 로 종료
