@@ -15,13 +15,14 @@
         주소줄에 address?key=value&key=value......<br>
 
         POST: 크기 상관없음.<br>
-        body 처음에 붙어서 넘어간다.<br>
+        body 처음에 붙어서 넘어간다.(내용을 볼 수 없음)<br>
     </p>
 
-    <form method = "GET" actoin = "Result.jsp">
+    <form method = "post" actoin = "Result.jsp">
         <fieldset>
             <legend>상품 주문</legend>
-            <label>상품 : <input type = "text" name = "product" maxlength="10" placeholder = "상품 목록을 입력해 주세요"></label>
+            <label>상품 : 
+                <input type = "text" name = "product" maxlength="10" placeholder = "상품 목록을 입력해 주세요"></label>
             <br>
             <label for = "qty">수량 : </label>
             <input type= "number" id = "qty" name = "qty" min = "0" max = "10" step = "2">
@@ -85,7 +86,7 @@
             <br>
             <br>
             <label>textarea태그는 입력창을 만들어준다. rows가 줄의 수 , cols가 한줄에 입력 가능한 글자 수 <br>
-                <textarea name = "name" rows="10" cols = "100"></textarea>
+                <textarea name = "commant" rows="10" cols = "100"></textarea>
             </label>
             <br>
             <br>
@@ -98,7 +99,7 @@
                     <option value = "자바">Java</option>
                     <option value = "자바스크립트" selected>JavaScript</option>
                     <option value = "리액트">React</option>
-                    <option value = "뷰">Vue</option>
+                    <option value = "뷰" selected>Vue</option>
                     <option value = "제이쿼리">jQuery</option>
                 </select>
             </label>
