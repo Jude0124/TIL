@@ -29,7 +29,10 @@
                 });
 
                 document.getElementById('btn').addEventListener('click', function(evt){
-
+                    console.log(evt);
+                    if(evt.shiftKey) {
+                        location.assign('http://www.daum.net')
+                    }
                 });
             }
 

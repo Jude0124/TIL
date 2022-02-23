@@ -29,6 +29,15 @@ export default {
         return {
             todoList: todos
         }
+    },
+    methods: {
+        updateTodo: function(id){
+            // console.log(id);
+            // this.todoList[id].done = !this.todoList[id].done;
+            const todo = this.todoList.find( item => item.id === id);
+            todo.done = !todo.done;
+        },
+        deletetod
     }
 }
 </script>

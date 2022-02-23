@@ -1,28 +1,37 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="card-body">
+      <h1>Vue Router</h1>
+
+      <div>
+          <router-link></router-link>
+      </div>
+
+      <hr>
+
+      <div>
+          <!-- Link로 선택된 Component가 표시되는 위치 -->
+          <router-view></router-view>
+      </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import VueRouter from 'vue-router'
+import A01Bind from './components/A01Bind.vue'
+
+const router = new VueRouter({
+    routes: [
+      { path: "/",            component: A01Bind}
+    ]
+
+})
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  router
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
