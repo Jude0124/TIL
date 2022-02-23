@@ -18,8 +18,9 @@
 			:active => link를 클릭하고 있는 경우
 		 */
 
-		 a:link {text-decoration: none;}
+		 a:link {text-decoration: none; color: rgb(19, 22, 190)}
 		 a:visited {color:rgb(77,2,33)}
+		 a:hover {text-decoration: underline; color: orange;}
 		 a:active {color : red;}
 
 		 #web a { text-decoration: none; color: lightblue; }
@@ -33,23 +34,33 @@
 		nav ul::after{
 			display: block; content: ""; clear: both;
 		}
+		/* .hello { clear: both; } */
+
 		nav ul > li {
 			float : left;
+			width : 150px;
+			/* border: 1px solid orange; */
 		}
 
+		/* a tab는 inline 요소 width / height 등이 적용되지 않는다 */
 		nav .js > li > a:link, nav .js > li > a:visited {
-			font-size : 16pt;
+			display: block;
+			text-align: center; 
+
+			font-size : 14pt;
 			text-decoration : none;
 			font-weight : bold;
 			color : black;
-			border : 1px solid gray;
+			/* border : 1px solid gray; */
 			padding : 10px;
 		}
 
-		nav .jx > li > a:hover {
+		nav .js > li > a:hover {
 			background-color : gray;
 			color : white;
 		}
+
+		input[type="radio"]:checked + span { color: orange}
 
 	</style>
 </head>
@@ -78,7 +89,7 @@
 		</div>
 
 		<nav>
-			<ul>
+			<ul class = "js">
 				<li><a href="">HTML</a></li>
 				<li><a href="">CSS</a></li>
 				<li><a href="">JavaScript</a></li>

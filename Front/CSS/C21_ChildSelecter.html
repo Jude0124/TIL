@@ -8,10 +8,16 @@
 	<style type="text/css">
 		body { font-size: 12pt; line-height: 1.5em; color: gray; }
 
+		/*  ul > li => ul에 포함된 li 중 바로 자식에 해당하는 li 요소에만 적용
+			ul li => ul에 포함된 li 모두에 적용 (깊이는 상관 없다.)
+		*/
+
 		ul > li { color : orange;}
 
-		#content > p { color : lightblue;}
-		/* 인접, 형제 선택자 h1 다음에 배치된 요소가 p요소면 적용, 아니면 적용 안됨 */
+		#content > p { color : lightblue;}		/* 자식 요소 선택자 */
+		/* 인접, 형제 선택자 
+		앞에 지정요소 h1은 적용 안됨
+		h1 다음에 배치된 요소가 p요소면 적용, 아니면 적용 안됨 */
 		#content h1 + p { color : orange}
 
 		/* 형제선택자. h4 요소와 같은 계층에 있는 모든 p요소에 적용 */

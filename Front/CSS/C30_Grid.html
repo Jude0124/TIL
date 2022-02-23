@@ -9,12 +9,13 @@
 
     .box { border: 1px solid orange; padding: 10px; }
 
-    #one { border: 1px solid gray; width: 600px;
+    #one { border: 1px solid gray; width: 100%;
           display: grid;
           /* grid-template-columns: 200px 200px 200px; */
           /* grid-template-columns : 1fr 2fr 1fr; */
           /* grid-template-columns: 100px 2fr 1fr; */
           grid-template-columns : minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
+          grid-template-rows: 100px;
       }
     #two { border: 1px solid gray; width: 100%; 
       display: grid;
