@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>login</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+		$('#submit').click(function() {
+		   var id = $("#userid").val();	
+		   var pw = $("#userpwd").val();
+		   
+		   if(id.length ==0 || pw.length ==0 ){
+			   $('#result').text("아이디와 비번 입력해").css("color","black");
+		   }else{			   
+			       $.getJSON('loginjson.jsp',$("#logFrm").serialize(), function(data){
+			    	   alert(data);
+			    	    $.each(data, function(key,value){
+			    	             if(value =="ok"){
+			    	            	 $('#result').text("로그인 성공!!!").css("color","blue");
+			    	             }else{			    	            	 
+			    	            	 $('#result').text("로그인 실패!!!").css("color","red");
+			    	            	 $("#loginf").each(function(){
+ 	 									this.reset();
+ 	 									$("#userid").focus();
+ 	 							     });	
+			    	             }
+			    	    });	   			    	 							
+			   	});
+		}
+	});
+}	
+</script>
+</head>
+<body>
+	<div id="outer">
+		<h1>로그인</h1>
+		<hr />
+		<form id="logFrm">
+			<ul>
+				<li>아이디 :</li>
+				<li><input type="text" name="userid" id="userid" /></li>
+				<li>비밀번호 :</li>
+				<li><input type="password" name="userpwd" id="userpwd" /></li>
+				<li><input type="button" id="submit" name="submit" value="로그인" />
+					<input type="reset" value="취  소" /></li>
+			</ul>
+		</form>
+	</div>
+	<div id="result" class="color" font-size: 1.5em"></div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id = "favoriteFood" class = "sample09.Food">
+		<property name="foodName" value = "봉골레" />
+		<property name="foodPrice" value = "23000" />
+	</bean>
+
+	<!-- <bean id = "unFavoriteFood" class = "sample9.Food">
+		<property name="foodName" value = "곱창" />
+		<property name="foodPrice" value = "22000" />	
+	</bean> 
+	<bean id ="myFood" class = "sample9.MyFoodMgr" autowire="byName"/> -->
+	
+	<bean id ="myFood" class = "sample09.MyFoodMgr" autowire="byType"/>
+	
+</beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="customer">       
+
+	<insert id="insertCustomer" parameterType="customer" >
+		insert into tb_customer(id,password,name)
+		values(#{id},#{password},#{name})
+	</insert>
+
+	<select id="selectCustomer" resultType="customer">
+		select * from tb_customer
+	</select>
+	
+	<select id="searchCustomer" parameterType="java.lang.String" resultType="customer">
+		select * 
+		from tb_customer
+		where id=#{id}
+	</select>
+	
+</mapper>
+
+

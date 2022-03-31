@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd" updateCheck="false">
+    <diskStore path="~/temp/cache" />
+    
+    <defaultCache eternal="false" 
+            overflowToDisk="false"
+            maxElementsInMemory="50000" 
+            timeToIdleSeconds="30" 
+            timeToLiveSeconds="6000"
+            memoryStoreEvictionPolicy="LRU"
+    />
+
+	<cache
+	    name="socialUser"	
+	    maxElementsInMemory="1000"
+	    eternal="false"
+	    timeToIdleSeconds="3600"
+	    timeToLiveSeconds="3600"
+	    overflowToDisk="false"
+	/>
+
+	<cache
+	    name="tag"	
+	    maxElementsInMemory="1000"
+	    eternal="false"
+	    timeToIdleSeconds="300"
+	    timeToLiveSeconds="300"
+	    overflowToDisk="false"
+	/>
+	
+	<cache
+	    name="question"	
+	    maxElementsInMemory="1000"
+	    eternal="false"
+	    timeToIdleSeconds="300"
+	    timeToLiveSeconds="300"
+	    overflowToDisk="false"
+	/>
+	
+	<cache
+	    name="latestTags"	
+	    maxElementsInMemory="50"
+	    eternal="false"
+	    timeToIdleSeconds="300"
+	    timeToLiveSeconds="300"
+	    overflowToDisk="false"
+	/>
+	
+	<cache
+	    name="fbgroups"	
+	    maxElementsInMemory="1000"
+	    eternal="false"
+	    timeToIdleSeconds="3600"
+	    timeToLiveSeconds="3600"
+	    overflowToDisk="false"
+	/>
+	
+	<cache name="smallTalkCache" 
+		maxElementsInMemory="1000" 
+		eternal="false"
+		overflowToDisk="true" 
+		timeToIdleSeconds="300" 
+		timeToLiveSeconds="600"
+		diskPersistent="true" 
+		diskExpiryThreadIntervalSeconds="1"
+		memoryStoreEvictionPolicy="LFU" />
+	
+	<cache
+	    name="blogPages"	
+	    maxElementsInMemory="10"
+	    eternal="false"
+	    timeToIdleSeconds="300"
+	    timeToLiveSeconds="300"
+	    overflowToDisk="false"
+	/>	
+</ehcache>

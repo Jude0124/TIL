@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>score</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+$(function(){
+	$("#process").click(function(){
+		var url = "resultScore.jsp";
+		
+		$.ajax({
+			type:"GET",
+			url: url + "?" + getParameterValues(),
+			dataType:"html",
+			success:function(data){
+				$("#result").html(decodeURIComponent(data));
+			}
+		});
+	});
+	
+	function getParameterValues(){
+		var name = "name=" + encodeURIComponent($("#name").val());
+		var kor = "kor=" + $("#kor").val();
+		var eng = "eng=" + $("#eng").val();
+		var mat = "mat=" + $("#mat").val();
+		   
+		return name + "&" + kor + "&" + eng + "&" + mat;
+	}
+});
+
+</script>
+</head>
+
+<body style="font-size: 1.5em;">
+<h1>* 성적 처리 프로그램 *</h1>
+이름 : <input type="text" id="name"><br>
+국어 : <input type="text" id="kor"><br>
+영어 : <input type="text" id="eng"><br>
+수학 : <input type="text" id="mat"><br>
+<input type="button" id="process" value="성적처리"><br><br>
+
+<div id="result" style="font-size: 1.5em;">
+</div>
+</body>
+</html>
+
+<!-- post를 읽어서 resultScore.jsp에서 처리한후 studentScore.html로 반영하시오 -->

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex04</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#submit').click(function() {
+			var id = $(".id").val();
+			var pw = $(".pw").val();
+			$.ajax({
+				type : "POST",
+				url : "/Work02/test01/ex04.do",//1.값을 요청한다.
+				data : {myid : id, mypw :pw},// username = 홍길동
+				dataType : "json", //응답받을 타입 
+				error : function(data) {
+					alert("login fail")
+				},
+				success : function(data) {//2. 리턴받는다. data = ex01.jsp
+					if(data.myuser.id==abcd && data.myuser.pw==1234){
+					alert("login ok")}
+					//내가 원하는 시점으로 받고 싶다.  
+					//var res = '';
+					//res += '<form>';
+					//res += '<input type="text" value=' + data.myuser.id +"> <br/> </form>";
+					//res += data.myuser.pw +",";
+					
+					//$('#result').html(res)//html(태그) or text(문자열)로 인식 
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+<form class="myForm">
+			<div>
+				<label for="id">아이디</label> 
+				<input type="text" name="id" class="id" autofocus>
+			</div>
+
+			<div>
+				<label for="id">비밀번호</label> 
+				<input type="password" name="pw" class="pw">
+			</div>
+
+			<div>
+            <button type="submit" id="submit" value="입력" >로그인</button>
+            <button type="reset" class="buttons">취소</button>
+        </div>  
+		</form>
+</body>
+</html>

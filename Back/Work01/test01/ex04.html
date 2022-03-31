@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>ex04</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#submit').click(function() {
+		   var id  =$(".id").val();	
+		   var pw  =$(".pw").val();
+			$.ajax({
+				type : "POST",
+				url : "/Work01/test01/ex04.do",//1.값을 요청한다.
+				data: {myid : id, mypw :pw},// username = 홍길동
+				dataType : "json", //응답받을 타입 
+				error : function(data) {
+					alert("실패" +data)
+				},
+				success : function(data) {//2. 리턴받는다. data = ex01.jsp
+					//alert("통신데이터값 : " + data)
+					//내가 원하는 시점으로 받고 싶다.  
+				
+					$('#result').html(data.user.id)//html(태그)   or text(문자열)로 인식 
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<form>
+		<label> input name</label> 
+		<input type="text" name="id" 		class="id">
+		<input type="text" name="pw" 		class="pw">
+		 <input type="button" id="submit" value="입력">
+	</form>
+	<h1>Ajax랑 통신하기</h1>
+	<div id="result" style="font-size: 1.5em"></div>
+</body>
+</html>

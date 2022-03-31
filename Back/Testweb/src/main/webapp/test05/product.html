@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Product</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+
+$(function(){
+	$("#btn").click(function(){
+		$.getJSON("product.txt", function(data){
+			var str = "<table border='1' width='500px'>";
+			
+			str += "<tr><th>Item</th><th>Price</th><th>Date</th></tr>"
+			$.each(data, function(key, value){
+				str += "<tr align='center'>";
+					
+				$.each(value, function(key, val){
+					str += "<td>" + val + "</td>";
+				});
+				str += "</tr>";
+			});
+			str += "</table>";
+			$("#display").html(str);
+		});
+	});
+});
+
+</script></head>
+
+<body>
+<h1>상품 전체보기</h1>
+<button id="btn">데이타 불러오기</button><br><br>
+
+<div id="display"></div>
+</body>
+</html>
+<!-- 상품전체를 테이블에 출력하시오 -->

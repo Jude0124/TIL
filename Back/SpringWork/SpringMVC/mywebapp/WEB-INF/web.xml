@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>SpringMVC</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<!-- application연동시 발생되는 이벤트  -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+<!-- 초기 환경설정 application연동시 제일 먼저 메모리 로드  -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+	
+	<servlet>
+	
+		<servlet-name>mymvc</servlet-name>
+		<!--  1. 서블릿 클래스 선언 -->
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!--  2. 서블릿 초기 파라미터를 이용해서 제일 처음 읽을 수 있도록 <beans/> 설정  -->
+		<!-- <init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/applicationContext.xml</param-value>
+		</init-param> -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mymvc</servlet-name>
+		<url-pattern>*.sp</url-pattern>
+	</servlet-mapping>
+</web-app>

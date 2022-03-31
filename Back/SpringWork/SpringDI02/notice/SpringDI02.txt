@@ -1,0 +1,57 @@
+-com.test01: spring beans 설정 연습
+
+-com.test01.Anno :  Spring Annotation 설정
+
+
+-com.test02 :   Spring Annotation 설정
+
+-com.test03:  Annotation을 이해하고 설명할 수 있다.  
+
+1)초기화. 소멸화 메소드를 명시할 수 있다.   
+    <bean init-method=""   destroy-method=""/>
+    @PostConstruct  :초기화 메소드      
+    @PreDestroy   : 소멸화 메소드
+    
+2)Auto-Detecting 속성 지정 
+<context:component-scan  속성>
+    base-package        
+    *user-default-filters :Stereotype-annotation 등록시 기본 필터를 사용하지 않고자 할때
+                          filter
+                          
+    annotation-config[MVC 지정]:Stereotype-annotation을 제외한 어노테이션을 처리하지 않을때 false 
+    
+    scope-resolver : Bean Scope Annotation 이 아닌 다른 방법으로 정의 시 클래스를 지정
+          ex)  <context:component-scan  scope-resolver="com.test.Rest"/>
+    
+    scoped-proxy : Non-singleton bean을 singleton bean이 참조할 때 사용
+           no|interface (자바의 다형성객체를 만들어서 참조)|targetClass( 또 다른클래스) 
+    
+    *name-generator  : Stereotype-annotation 을 적용한 클래스를 bean으로 등록할때 BeanName을
+            지정하지 않을 경우 자동으로 생성되는 BeanName의 형식을 BeanNameGenerator을 구현하여 사용
+             ex)  <context:component-scan   name-generator="com.test.Controller"/>
+             ex)  vo   -> entity ->  dto    
+
+3) <context:component-scan>  inner tag 
+: 현재 사용되는 지정된 패키지에 추가하거나 빼고 싶은  대상을 지정한다.
+    type : annotaiotn | assignable | regex |  aspectj(AOP)       
+   *<context:exclude-filter type="regex" expression="*.*Stub"/>
+   *<context:include-filter type="annotation" 
+           expression="org.springframework.stereotype.Repository"/>        
+   </context:component-scan>
+   
+ 4)
+  @Resource : 의존하는 빈 객체를 전달할 때 사용한다.
+        ex) @Component("userService")	  
+          <bean  id ="userService"  class ="UserService" />   
+              
+            @Resource(name="myuser") -> MyUser  myuser = new MyUser();             
+            private   MyUser  mytest;     mytest = myuser;	          
+	            
+Stereotype-annotation
+( @Component :자동인식이 되는 일반 컴퍼넌트 <bean/>
+  @Service :   비즈니스 서비스  biz 
+  @Repository : DAO  (DBException 자동처리)  
+  @Controller : MVC콤포넌트 )을 말한다.   
+  
+  
+  

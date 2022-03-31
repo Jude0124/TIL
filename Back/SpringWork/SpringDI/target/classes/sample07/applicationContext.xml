@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+	<bean id ="myparent" class = "sample07.Parent" abstract = "true" >
+	<property name="email">
+		<props>
+			<prop key="admin"> admin@a.com</prop>
+			<prop key="admin02"> admin02@a.com</prop>
+		</props>
+	</property>
+	</bean>
+
+
+<!-- 가상의 하위 구조를 생성한다.  -->
+<bean id = "child" parent="myparent">
+	<property name="email">
+		<props merge="true">
+			<prop key="admin03"> admin03@a.com</prop>
+			<prop key="admin04"> admin04@a.com</prop>
+		</props>
+	</property>
+</bean>
+
+<bean id = "child02" parent="child">
+	<property name="email">
+		<props merge="true">
+			<prop key="admin05"> admin05@a.com</prop>
+			<prop key="admin06"> admin06@a.com</prop>
+		</props>
+	</property>
+</bean>
+
+</beans>

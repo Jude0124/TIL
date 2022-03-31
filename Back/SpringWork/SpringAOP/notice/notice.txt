@@ -1,0 +1,99 @@
+SpringAOP
+
+   AOP(Aspect Oriented Programming) ?  : OOP 의 문제를 개선한  로직
+          -Core concerns  :  해당 시스템의 핵심가치와  고유의 목적이 그대로 들어난  핵심 영역  
+         
+          -Crosscutting Concerns :  로깅, 보안 , 트랜잭션관리 등과 같이 
+                                  여러 모둘간의 공통적으로 적용되는 공통 관심 영역
+                                                                   
+         장점: 기존의 코드를 수정하지 않고 필용한 공통 기능 모듈 적용가능
+         
+======================================================================================                                                                   
+   AOP(Aspect Oriented Programming)의 3가지 툴
+       1) AspectJ  :  자바언어를 확장한 툴  , 제록스에서 개발 ->  Eclipse -> IBM에서 개발 중
+                 (Aspect, PointCut, Advice를 만들수 있다.)
+       
+       2) AspectWerkZ : Eclipse 프로젝트 , xml로 정의 ,(PointCut, Advice)
+       
+       
+       3) SpringAOP, JBossAOP : @을 정의할 수 있다., springDI 패턴적용, <bean>태그를 객체제어
+   
+   ==================================================================
+    Advisor  = AOP advice (action to take at a joinpoint) + advice(such as a pointcut)
+    
+    Pointcut  = A pointcut is composed of a ClassFilter and a MethodMatcher.    
+   
+   ====================================================================    
+   AOP 구성 요소  
+    1. joinpoint : 프로그램의 제어 흐름 중  하나의 시점을 의미한다.  
+        (메소드 호출 시점,  메소드 호출결과가 리턴되는 시점, 예외 던져지는 시점 )
+          각각의 joinpoint들은  전후로  cross- cutting  concerns의 기능이 aop에 
+          자동 으로 추가되서 동작되는 후보지점을 만든다.  
+   
+    2. pointcut : AOP를 선별하는 것  (AOP의 전체 코드에서 실행되는 메소드 유형을 정의한다)
+       ex)  value="execution(public * *(..))
+        
+         기본표현식  
+          -set*(..)   :  메소드 명이 set으로 시작하고  0개이상의 매개인자를 가진 메소드       
+          
+          - * main() : 메소드 명은 main 이고  return type이  any type, 0 more 매개인자 
+       타입 매핑 
+          -org.com.test..* :org.com.test내의 서브패키지에 속한 모든 하위요소
+          
+          -Number+ :  Number 또는 Number 서브 타입의 모든타입  
+          
+          -!(Number+) :   Number 또는 Number 서브 타입의 모든타입의 not
+          
+          -int || Integer :  또는 
+          
+          -org.com.test..*  &&  !Serializable+  : org.com.test내의 서브패키지에 속한 모든 하위요소에
+                            존재하면서      Serializable의 타입이 아닌 요소 
+     접근 지정  
+         -!private * * (..) : 리턴 타입이 모든 타입이고 , 0개 이상의 매개인자를 가진 메소드 중
+            접근 제한자가 private이  아닌 메소드  
+        
+         - * main(*, ..,String ,*)  : public 이고  리턴타입이 모든 타입, 최소 3개 매개인자를 가지면서
+            끝에서 두번째는  반드시 String 타입이어야 한다.  
+         - * main(*, ..) : 최소 한개의 매개인자는 모든 타입이어야 한다.   
+            
+   생성자 형식
+      -new(..) : 0개 이상의 모든 타입을 가진 생성자  
+      -Address.new(..) : 0개 이상의 모든 타입을 가진 Address 클래스의 생성자  
+ 
+ execution | call : 특정 메소드나 실행시점을 정의 
+       - ex)   execution(* main(..))  , call( * main(..)), get(Collection+) ,set(Collection+)
+
+ Exception : handler(RuntimeException+) 
+ within  :  특정 유형의 joinpoint 를 정의하는 시점  
+ withincode :  특정 메소드 또는 생성자 내에 정의된 코드를 정의하는 시점  
+ this  :  해당 joinpoint 를 정의하는 시점 
+ target: 대상 객체의 타입을 정의하는 시점  
+        ex) call(* * (..)) && target(MyTest) : MyTest라는 클래스내의 모든 메소드를 호출 하겠다.
+         
+  3. advice :  각 joinpoint에 삽입되어 동작 할 수 있는 코드  
+  
+  4. Weaving :  공통이랑 핵심로직이랑 엮어서 동작하도록 수행한다는 의미 
+  
+  5. aspect  : 다수의 클래스에서 공통적으로 구현하는 것을 모듈화 한다는 의미 
+      aspect  = pointcut + advice  
+      <!-- Aspect = advice(무엇을 할지 )+ pointcut(어디시점에서): 핵심관심사항 -->     
+      
+      
+   ==================================================
+   -com.test01:  일반클래스를 통해 아웃풋 화면을 핵심, 공통으로 구현한 것을 확인  
+   
+   -com.test02:  핵심코드를 재정의, 공통 코드작성을 MyAspect클래스를 이용해서 
+     메소드 가로채기를 구현한 다음 플로어를 작성했다. 
+     AOP 컨테이너가 구현한 클래스를 이용해서 <bean/>으로 연동 
+       
+       <bean id="myAdvisor"
+		class="org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor"> 
+		 
+       <bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
+		
+    - com.test03: @로 설정하는 방법                
+               
+    - com.test04: <aop:/>           
+ 
+ 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<properties resource="test04/jdbc.properties"/>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/> <!-- JDBC 수동으로 커밋 롤백 /MANAGED(자동)  -->
+      <dataSource type="POOLED"> <!-- 한번만 열고 닫겠다. --><!-- unpooled는 매번 열고 닫겠다(클라이언트 새로들어올때마다 -> 비효율)-->
+        <property name="driver" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <!--  쿼리문  -->
+  <mappers>
+   <!--  SQL 문장이 기술된 Mapper 파일들  -->
+    <mapper resource="test04/goods-mapper.xml"/>
+  </mappers>
+</configuration>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+    	http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+        
+        "><!-- 특정 버전으로 설치하는법 aop/spring-aop-5.3.xsd , schema/context/spring-context-5.3.xsd -->
+
+<!-- 2. g7 , student, myAdvice, myAdvisor  -->
+
+	<bean id="g7" class="com.test02.G7_Class" />
+	<bean id="student" class="com.test02.Student" />
+
+	<!-- 공통사항 : Advice -->
+	<bean id="myAdvice" class="com.test02.MyAspect" />
+
+	<!-- 핵심관심사항 : 무엇을할지(Advise) + 어느시점(pointcut) = Aspect -->
+	<bean id="myAdvisor"
+		class="org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor">
+		
+		<!-- 공통 사항 메소드를 가로 채기 한 다음 전체 실행 중에 proceed()를 호출 한다. -->
+		<property name="advice" ref="myAdvice"></property>
+		<property name="expression" value="execution(public * *(..))"></property>
+	</bean>
+
+	<!-- $6.8.1 -->
+	<!-- 5. 메소드 실행한다 가로채기해서 전달한다. myAdvisor -->
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" />
+</beans>        

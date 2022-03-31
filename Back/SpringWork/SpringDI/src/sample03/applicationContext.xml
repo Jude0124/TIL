@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="userService" class="sample03.UserServiceImpl" />
+
+	<bean id="mdate" class="java.util.Date">
+		<constructor-arg value="2020" />
+		<constructor-arg value="12" />
+		<constructor-arg value="23" />
+	</bean>
+
+	<bean id="mvo" class="sample03.UserVo">
+		<property name="my_date" ref="mdate" />
+		<property name="per">
+			<value>
+				a=1,b=2,c=3
+			</value>
+		</property>
+	</bean>
+	
+</beans>

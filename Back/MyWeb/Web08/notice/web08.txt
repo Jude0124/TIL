@@ -1,0 +1,99 @@
+1. 웹 페이지에 파일 관리를 연동하고 구현할 수 있다. (java.io)
+
+	1) test/* -> java.io 패키지의 파일처리 클래스를 이용해서 선언된
+				 메소드로 파일을 웹에서 관리한다.
+				 
+	2) java.io : byte, char, node(Object)단위로 분류되어 데이터를 처리
+				자바 API 스트림(stream)을 기반으로 입출력의 기능을 가진 패키지 
+				웹 , 네트워크 , 소켓등의 장치를 통해서 파일 입출력을 사용하는 패키지				
+			
+			-java.lang.Object
+							- Reader _char단위로 읽어서 리턴    int read() -2byte
+							- Writer - char단위로 출력 void write(char)
+							- File (탐색기 CRUD)
+							- InputStream - byte 단위로 읽어서 리턴 int read() - 1byte
+ 							- OutputStream - byte단위로 출력 void write(byte)
+ 							- RandomAccessFile
+
+			int a = 100;
+			  is a 관계
+			class AA{ }
+			
+			class BB extends AA { }
+			
+			class DD extends BB { }	
+			-> 동적 바인딩 구현과 클래스 및 메소드의 매개인자로 대입된 선조의 주소를 통해
+				후손의 객체를 지정해서 구현하는 방법을 학습		
+			
+			1) AA a1 = new AA() ; o   → a1 은 AA의 멤버만 호출 , a1.getA()
+			
+			2) BB b1 = new BB() ; o  AA(), BB()→ b1은 AA, BB의 멤버호출 , b1.getA(), b1.getB()
+			
+			3) DD d1 = new DD(); o AA,BB,DD → d1은 AA, BB, DD의 멤버 호출
+			                                                           d1.getA(), d1.getB(), d1.getD()
+			
+			4) BB b2 =new AA(); x AA() → 참조 불가
+			
+			5) AA a2 = new DD(); o   AA,BB,DD → a2는 AA의 멤버호출 
+			
+			                                  a2.getA()
+			
+			6) AA a3 = new BB(); o    AA,BB → a3은 AA의 멤버호출
+			
+			                                        a3.getA()
+			
+			7) BB b3 = new DD();  AA,BB, DD → b3는 AA,BB의 멤버호출
+			
+			(AA,BB = AA, BB, ) DD       b3.getA(), b3.getB()
+			
+			
+			My m1 = new My(new DD());
+			m1.prn02(new DD()); //  AA(), BB(), DD()
+			m1.prn03(new DD());
+			m1.prn03(new AA());
+			m1.prn03(new BB());
+			
+			class My {
+				DD d; //has a
+				public My(DD d){
+					this.d = d;
+				}
+				public void prn(){
+					d.getA(); d.getB(); d.getD();
+				}
+				public void prn02(BB b){ // BB b = new DD();
+					b.getB(); b.getD();
+				}
+				public void prn03(AA a){
+					a = new DD();
+					a =	new AA();
+					a = new BB(); 
+				}
+			}
+						
+2. 파일의 업로드를 구현 해 보자. (servlet -> cos.jar / spring -> common)
+
+3. 필터를 이용해서 웹 프로젝트에 구현되는 보안원형을 살펴보고 설정파일(web.xml)을 구현해 보자.
+Examples that have been identified for this design are
+
+1) Authentication Filters
+
+2) Logging and Auditing Filters
+
+3) Image conversion Filters
+
+4) Data compression Filters
+
+5) Encryption Filters
+
+6) Tokenizing Filters
+
+7) Filters that trigger resource access events
+
+8) XSL/T filters
+
+9) Mime-type chain Filter
+
+	- Filters_가로채기 ; 웹 어플리케이션에서 사용하는 서블릿이나 JSP에 영향을 주지않고
+	request, response를 조작해서 사용자 요청에 따라 특정 servlet 또는 jsp가
+	실행되기 전데 사용할 수 있는 작업을 수행하는 클래스 태그

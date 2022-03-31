@@ -1,0 +1,4 @@
+shine : 빛나다
+pure : 순수한
+melody : 선율
+charming : 매력적인

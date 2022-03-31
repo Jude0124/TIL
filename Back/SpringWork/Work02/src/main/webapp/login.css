@@ -1,0 +1,28 @@
+/* loginStyle.css */
+@charset "UTF-8";
+
+h1 { 
+    text-align: center;  
+}
+label {
+    font-weight: 500;
+    font-size : large;
+}
+button{
+    margin-right: 5px;
+}
+.id_wrap , .pw_wrap {
+    padding-top: 7px;
+}
+.btn_wrap {
+    margin-top: 30px;
+    text-align: center;
+}
+#id , #pw  {
+    position:fixed;
+    left:50%;
+    margin-left:-110px;
+    border : solid 2px lightgray;
+    height : fit-content; 
+    font-size: large;
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 1. Address의 기본 생성자 생성 -->
+	<bean id="myaddr01" class="sample02.Address" />
+
+	<!-- 2. Address의 기본 생성자 생성 홍길동, 서울시, 02-0000 -->
+	<bean id="myaddr02" class="sample02.Address">
+		<constructor-arg index="0" type="String" value="홍길동" />
+		<constructor-arg index="1" type="java.lang.String"
+			value="서울시" />
+		<constructor-arg index="2" value="02-0000" />
+
+	</bean>
+	<!-- 3. Address의 setter로 값전달 최길동, 서초구, 02-1111 -->
+	<bean id="myaddr03" class="sample02.Address">
+		<property name="name" value="최길동" />
+		<property name="addr" value="서초구" />
+		<property name="tel" value="02-1111" />
+	</bean>
+
+	<!-- 4. ListAddress 의 기본 생성자로 객체를 선언 -->
+	<bean id="mylist01" class="sample02.ListAddress" />
+
+	<!-- 5. ListAddress 의 setter를 가지고 최길동객체를 매개인자로 전달하자. -->
+	<bean id="mylist02" class="sample02.ListAddress">
+		<property name="addr" ref="myaddr03"></property>
+	</bean>
+	
+	<!-- 6. ListAddress의 생성자로 Address의 홍길동 객체를 매개인자로 전달하자.  -->
+	<bean id="mylist03" class="sample02.ListAddress">
+		<constructor-arg ref="myaddr02"></constructor-arg>
+	</bean>
+	
+	<!-- 7. ListAddress의 생성자로 Address값을 이너로 내부 선언 후 값 전달  -->
+	<bean id="mylist04" class="sample02.ListAddress">
+		<constructor-arg>
+			<bean id="myaddr04" class="sample02.Address">
+				<property name="name" value ="777"></property>
+				<property name="addr" value ="777"></property>
+				<property name="tel" value ="777"></property>
+			</bean>
+		</constructor-arg>
+	</bean>
+</beans>

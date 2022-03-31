@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="test04" />
+	<bean id="vo01" class="test04.GoodsVo" p:code="p007" p:maker="SDS"
+		p:price="10000" p:name="node.js" />
+
+	<bean id="vo02" class="test04.GoodsVo" p:code="p008"
+		p:maker="SDS02" p:price="30000" p:name="spring-boot" />
+
+	<bean id="vo03" class="test04.GoodsVo" p:code="p009"
+		p:maker="SDS03" p:price="25000" p:name="spring" />
+		
+</beans>

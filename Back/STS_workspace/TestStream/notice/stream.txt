@@ -1,0 +1,21 @@
+
+1) 병렬처리 : 프로그램 내의 계산영역을 여러개로 나누어 각각에 대한 
+		   계산을 여러 프로세서에서 동시에 수행하는 것.
+		   
+2) 집계, 연산, 파일입출력을 Stream API 에서 제공되며 병렬처리를 할 수 있는 클래스와 메소드를 제공한다.
+		java.util.stream -> 배열, Collection (java.util.*)
+		배열, Collection -> 집계 연산 -> java.util.stream
+
+3) 방법 : java.util.stream 의 of(),
+		 java.util.Collection 의 stream() 를 통해서 대상 객체를 스트림으로
+		 바꾸게 되면 Map, Reduce 등의 집계 연산등을 할 수 있다.
+		 
+		
+
+4)주요 출력 메소드  
+   4-1. forEach (Consumer <? super T> consumer) : 
+   Stream의 각 요소를 consumer가 인수로 처리한다.
+   병렬로 사용하면 원래 데이터가 List와 같은 집합체에서 순서를 보장하지 않는다  
+   
+   4-2. forEachOrdered (Consumer <? super T> consumer) : 
+         Stream의 객체요소를 consumer가 순서대로  매개 인수를 처리한다.

@@ -1,0 +1,5 @@
+[{"item":"PC",  "price":"2000000" , "regdate":"2018-01-21"},
+{"item":"TV",  "price":"1000000" , "regdate":"2019-09-31"},
+{"item":"NoteBook",  "price":"250000", "regdate":"2020-11-11"},
+{"item":"Computer",  "price":"500000", "regdate":"2021-01-05"},
+{"item":"DeskTop",  "price":"350000" , "regdate":"2020-12-11"}]

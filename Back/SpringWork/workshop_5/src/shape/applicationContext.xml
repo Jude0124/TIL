@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+	<bean id="sha1" class="shape.Triangle">
+		<constructor-arg index="0" value="7" />
+		<constructor-arg index="1" value="5" />
+		<constructor-arg index="2" value="Blue" />
+	</bean>
+	<bean id="sha2" class="shape.Rectangle">
+		<constructor-arg index="0" value="4" />
+		<constructor-arg index="1" value="6" />
+		<constructor-arg index="2" value="Blue" />
+	</bean>
+	<bean id="sha3" class="shape.Triangle">
+		<constructor-arg index="0" value="6" />
+		<constructor-arg index="1" value="7" />
+		<constructor-arg index="2" value="Red" />
+	</bean>
+	<bean id="sha4" class="shape.Rectangle">
+		<constructor-arg index="0" value="8" />
+		<constructor-arg index="1" value="3" />
+		<constructor-arg index="2" value="Red" />
+	</bean>
+	<bean id="sha5" class="shape.Triangle">
+		<constructor-arg index="0" value="9" />
+		<constructor-arg index="1" value="8" />
+		<constructor-arg index="2" value="White" />
+	</bean>
+	<bean id="sha6" class="shape.Rectangle">
+		<constructor-arg index="0" value="5" />
+		<constructor-arg index="1" value="7" />
+		<constructor-arg index="2" value="White" />
+	</bean>
+
+
+
+</beans>

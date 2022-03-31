@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#submit').click(function() {
+		   var sendData  ="username="+ $(".user").val();	
+			
+			$.ajax({
+				type : "POST",
+				url : "/Work01/test01/ex02.do",//1.값을 요청한다.
+				data: sendData, // username = 홍길동
+				dataType : "html", //응답받을 타입 
+				error : function(data) {
+					alert("실패" +data)
+				},
+				success : function(data) {//2. 리턴받는다. data = ex01.jsp
+					//alert("통신데이터값 : " + data)
+					//내가 원하는 시점으로 받고 싶다.  
+					alert(data);
+					$('#result').html(data)//html(태그)   or text(문자열)로 인식 
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<form>
+		<label> input name</label> 
+		<input type="text" name="username" 		class="user">
+		 <input type="button" id="submit" value="입력">
+	</form>
+	<h1>Ajax랑 통신하기</h1>
+	<div id="result" style="font-size: 1.5em"></div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+
+	<context:annotation-config />
+	<context:component-scan base-package="customer" />
+
+	<!-- Controller에서 View로 연결 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/view/" />
+		<!--/WEB-INF/view/customer/result.jsp -->
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+
+	<!-- DB Connection, dbcp -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.SimpleDriverDataSource"
+		p:driverClass="com.mysql.cj.jdbc.Driver"
+		p:url="jdbc:mysql://localhost:3306/mysql?characterEncoding=UTF-8&amp;serverTimezone=UTC"
+		p:username="root" p:password="mcys1309" />
+
+
+	<!-- myBatis + mysql -->
+	<bean id="" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation"
+			value="classpath:mybatis-config.xml" />
+		<property name="transactionFactory">
+			<bean
+				class="org.mybatis.spring.transaction.SpringManagedTransactionFactory"></bean>
+
+		</property>
+	</bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

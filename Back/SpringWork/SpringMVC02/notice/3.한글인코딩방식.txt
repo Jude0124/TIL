@@ -1,0 +1,31 @@
+1. POST 방식
+ 
+web.xml에 다음 필터를 추가한다
+
+<filter>
+   <filter-name>CharacterEncodingFilter</filter-name>
+   <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+   <init-param>
+        <param-name>encoding</param-name>
+        <param-value>UTF-8</param-value> 
+        <!--<param-value>EUC-KR</param-value>-->
+   </init-param>
+   <init-param>
+        <param-name>forceEncoding</param-name>
+        <param-value>true</param-value>
+   </init-param>
+</filter>
+<filter-mapping>
+   <filter-name>CharacterEncodingFilter</filter-name>
+   <url-pattern>/*</url-pattern>
+</filter-mapping>
+
+ 
+2. GET 방식
+
+GET방식의 경우 주소창으로 파라미터값이 전달되는 경우라 코드상에 해결하기 보다는 WAS 설정을 통하여 해결하는것이 편리하다.
+WAS가 톰켓이라면 다음과 같이 설정하면된다.
+
+Tomcat 설정 파일인 server.xml 수정
+Connector element의 attribute에 URIEncoding="UTF-8" 을 아래와 같이 추가해 주어야 한다.
+<Connector connectionTimeout="20000" port="8989" protocol="HTTP/1.1" redirectPort="8443" URIEncoding="UTF-8"/>

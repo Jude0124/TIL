@@ -1,0 +1,61 @@
+SpringMVC -> MVC -> url 매핑 -> 폼 데이터 처리 -> DB연동 -> ORM 연동
+
+SprignMVC -> MVC -> url 매핑
+[구조]
+src
+  controller
+  	 TestController.java	--class
+mywebapp
+	WEB-INF
+		view
+			test.jsp
+		mvc-servlet.xml		-- beans, context
+		web.xml
+	index.html
+==================================================================================
+[순서		1:		web.xml에 servlet을 등록한다. ]
+<servlet>
+	<servlet-name>mvc</servlet-name>  //Springbeans.xml 을 mvc-servlet.xml로 설정
+	<servlet-class>
+	org.springframework.web.servlet.DispatcherServlet	//Spring의 Servlet클래스
+	</servlet-class>
+	<load-on-startup>1 </load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+	<servlet-name>mymvc</servlet-name>
+	<url-pattern>*.sp</url-pattern>		// servlet url 지정.
+	</servlet-mapping>
+	
+	http://localhost:8787/SpringMVC/test.sp 요청을 하게 되면 mvc-servlet.xml로 이동한다.
+	
+web.xml 설명
+<load-on-startup>1</load-on-startup>
+web.xml에서 servlet을 초기화 하기위한 설정
+음수 - 처음으로 해당 서블릿에 요청이 왔을때(해당 서블릿에 처음으로 접근할때)
+0 or 양수 - context가 초기화 될때 제일 먼저 인식한다.
+
+==================================================================================
+[순서		2:		web.xml에 servlet을 등록한 주소에서 user가 만든 컨트롤러 클래스를 맵핑한다.	]
+mvc-servlet.xml
+		controller.HelloController를 인식하는 코드를 설정한다.
+  <context:component-scan base-package="controller" />
+  
+해당 패키지로 이동해서 web에서 연동하는 bean들을 찾는다.
+
+===================================================================================
+[순서 	3:		해당 패키지의 bean들을 찾아서 주소 이동을 한다.
+
+  @RequestMapping(value ="/hello.sp")	// url 맵핑이 이루어지는 곳
+  		public String hello(Model model) {
+  			return "/WEB-INF/view/hello.jsp";
+  		}
+  		
+@Component : 컴포넌트클래스
+@Controller :  mvc에서 컨트롤러 클래스
+@Service : Service Layer의 클래스
+@Repository : Data Access Object클래스
+@Autowired : Autowired어노테이션이 붙은 인스턴스 변수는 해당 변수타입과 일치하는 컨텍스트 내의
+빈을 찾아 인스턴스 변수에 주입해 준다. 의존성 주입을 위해선 생성자나 setter가 필요한데 이 어노테이션을
+사용할 경우 없어도 가능하다.
+====================================================================================

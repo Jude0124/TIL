@@ -1,0 +1,130 @@
+================================================================
+web03
+
+1. servlet과 jsp를 연동해서 url 맵핑 할 수 있다.
+    
+
+
+    servlet → jsp
+    
+    servlet → servlet
+    
+    jsp → servlet
+    
+2. context, application, session, request, response, page 객체의 원리를 이해하고 속성 및 메시지 전달을 구현할 수 있다.
+      class = 속성 + 메시지
+      class = 필드 + 메시지         → 클래스, 상속, 다형성(동적바인딩) → 오버로드, 오버라이딩
+
+3. 폼데이터를 http를 잉용해서 값 전달 및 리턴하는 구조를 설계할 수 있다. (servlet으로)
+
+4. 객체(servlet, jsp) 의 생명주기를 이해하고 설명할  수 있다.
+================================================================
+
+
+
+================================================================
+
+1. context_root 이름을 바꾸어 보자.
+	(프로젝트이름과 url에 있는 context이름을 다르게 주는것)
+	확인 :  project_name / .settings/ 
+                               org.eclipse.wst.common.component
+
+    
+    http://localhost:8789/myweb/MyTest
+    
+    http://localhost:8789/myweb/MyTest
+    
+2. Web03을 http://localhost:8787/myweb/로 요청해서 url맵핑의
+	GET방식을 확인 해보자.
+    
+http://localhost:8787/myweb/ -> web.xml -> index.jsp -> /myinsert로 이동한다.
+                                                                   (index_jsp.java) -> (MyTest.java)
+    -com.test.MyTest
+    
+    -myweb/index.jsp
+    
+    get 쿼리 스트링이 있어서 주소줄에 데이터가 노출이되어 보안에 취약
+    
+    get →  아이디, page number 같이 유저가 던진것들을 쿼리스트링으로 보여줌
+    
+    post 주소줄에 아무것도 없이 form에 데이터가 binary_hidden으로 들어가서 보안에 강함.
+    
+    장단점을 떠나서  보안의 취약 여부 데이터양 의 많고 적음으로 분류할 수 있다.
+    
+    어노테이션(@WebServlet) url맵핑에  입력하여 추가할 수 있고  /로 시작하지 않으면 주소값이
+    제대로 들어가지 않아 무한루프를 돌게되므로 주의할 것
+    
+3. jsp → sevlet 으로 url 매핑작업
+
+4. servlet객체를 확인하자.
+	Servlet : 서블릿 프로그램이 반드시 구현해야 하는 메소드를 선언하고 있는 인터페이스
+			  서블릿의 생명주기를 가진다.
+    		  init()_서블릿초기화  → service()_ 클라이언트의 요청처리 → destroy() 서블릿 종료
+    		  부모 자식관계 servlet→genericServlet→ HttpServle
+    		  Servlet (생명주기), ServletConfig(환경설정), java.io.Serializable(직렬화,동기화)
+			  직렬화는 객체안의 여러가지 변수가 있는데 tokeninzing을 위해 하나의 클래스 객체마다 끊어서 binarytest를 할때는 직렬화를 해줘야한다.
+
+GenericServlet : Servlet 인터페이스를 상속을 받아 client/servlet환경에서 필요한 기능을 구현하는 추상클래스
+
+HttpServlet : GenericServlet를 상속 받아서 Http 프로토콜에 맞는 동작을 수행하도록 구현된 클래스
+
+HttpServletRequest : 클라이언트가 서버에 요청할 때 생성되는 객체로 요청 정보를 포함하는 기능의 메소드로 멤버를 구성
+
+HttpServletResponse : 서버에 클라이언트에게 응답할 때 생성되는 객체로 응답 정보를 포함하는 기능의 메소드로 멤버를 구성 
+
+
+> session 은 언제 발생하는가?
+클라이언트가 서버에 접속할때 서버는 세션의 객체를 생성해서 클라이언트 정보를 입력을 받아 서버에 기록해서 관리한다.
+
+5.com.test.MyScore.java : 하나의 서블릿에 각각의 url 매핑에 따른 
+                                       기능을 분리하는 연습을 하자.
+하나하나 다 만들면 비효율적이라 Myscore.java에 url맵핑으로 해결
+
+6. jsp정적페이지에서 (input.jsp)파일에서 form data를  get 방식과 post방식으로
+action을 servlet으로 맵핑해서 출력해보자.
+
+action=”/myweb/myres”            :  input.jsp → com.test.MyRes.java → doGet()
+action=”/myweb/myres” method=post    :  input.jsp → com.test.MyRes.java → doPost()
+    
+    
+7. com.test.MyServlet : 서블릿의 생명 주기를 확인 하자.
+@WebServlet({ “/myinsert”, “/mydelete”, “/myupdate”, “/myselect”, “/myview” })
+     init()_서블릿초기화  → 데이터 베이스연결, 파일오픈 , 로그파일에 로딩된 서블릿 이름을 추가
+                                            ServletConfig객체로 넘겨받은 초기값을 설정, 서블릿요청 cnt
+
+     service()_ 클라이언트의 요청처리 → 클라이언트가 path로 요청할 때 호출된다.
+                                            (요철할 때 마다 하나의 스레드를 생성한다.)
+                  
+     destroy() 서블릿 종료 → 서블릿의 초기화에서 할당된 객체들을 명시 소멸한다.
+                        서블릿이 재컴파일될 때 호출된다.
+
+     [ .class → jvm(heap) → 메모리할당 → GC (메모리할당된것을 자동소거) ]
+                         [ 이든이라는 영역에 Young-memory / Old-memory ]
+
+================================================================
+
+
+서블릿 컨테이너와 서블릿 디렉토리를 알아보자.
+
+   - 서블릿 컨테이너란 동적으로 로드되는 자바클래스인 서블릿을 인식할 수 있는 웹 서버의 기능을 말하며, 서블릿 엔진( Servlet Engine ) 이라고도 말한다.
+
+   - 서블릿 컨테이너는 웹 어플리케이션 상에서 서블릿이 존재하는 디렉토리에 작성된 .java 파일을
+     .class로 컴파일 되면서 웹서버의 메모리에 로드되어 실행된다.
+
+   -  서버를 구축방법에 상관없이 서블릿 수행을 요청 받을 때마다 스레드를 병렬로 기동하여 
+       수행하게 되는데 이러한 과정을 구현해 주는 것이 바로 웹서버 기능을 가진 톰캣이다.
+
+   -  톰캣은 웹서버에 서블릿 클래스를 실행시킬 수 있는 자바 가상머신(JVM)을 수행할 수 있게 
+       해주는 일련의 소프트웨어이며 서블릿 컨테이너에 웹서버 기능을 내장해서 지원해주는 독립형 서블릿 엔진이다.
+
+   - 톰캣은 “%CATALINA_HOME%\webapps”을 root로 인식해서 로컬로 웹 어플리케이션을 하나의
+     ServletContext로 매핑하고, 여러개의 서블릿은 각각 하나의 ServletConfig 객체를 생성하며 로딩된다.
+
+   - HTTP상에 작동되는 서블릿은 서블릿 컨테이너의 클라이언트의 요청과 서버 응답에 대한 
+      프로토콜 값을 가지고 동작되며 웹 어플리케이션 단위로 구성된다.
+ 
+   - 하나의 웹 애플리케이션을 만들 때는 컨테이너가 설정된 구조와 위치대로 애플리케이션 
+      디렉토리를 만들어 구현시키는데 , 이러한 컨테이너 구조를 ‘Servlet Directory’ 라고 부른다.
+      
+================================================================ 
+

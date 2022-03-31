@@ -1,0 +1,44 @@
+1. SPRING_JDBC의 API 를 연동하고 이해할 수 있다.
+	
+	1-1) springJDBC : org.springframework.jdbc.datasource.SimpleDriverDataSource
+		 -springJDBC(DAO)			-> http://spring.io/projects/spring-data-jdbc
+		 
+	1-2) spring + ORM (object - relational mapping)
+				  ibatis(ver 2.0, 3.0) , mybatis(5.0) / Hibernate[s]
+
+2. ORM의 태그설정, @기법, 동적쿼리등을 살펴보고 적용할 수 있다. 	
+
+=================================================
+- test01 : DriverManagerDataSource / JDBCTemplate
+
+[$3.3.1]
+JDBCTemplate
+		1)update() / update, insert, delete
+		2)qeury() / select/ update/ insert/ delete 의 쿼리를 받아서 실행
+		3)queryforObject() : select 형 Object -> sql find
+		
+		
+		4)queryforInt()/ query의 return type
+
+- test02 : DB 속성파일에 변수 및 <beans> xml 값 대입
+		   Entity 접목 하기
+
+	2-1) SpringJDBC는 dataSource로 connection을 하고
+		 JDBCTemplate로 CRUD한다.
+		 
+	2-2) JdbcDaoSupport를 상속받아서 dataSource 연결하고 getJdbcTemplate()메소드를
+		 리턴받아서 CRUD메소드를 호출한 코드 FirstJdbcDaoImple
+		 
+- test03 : test02을 @로 설정해서 사용
+=============================================================
+
+- test04 : mybatis 연동해 보자.
+		   
+		   4-1 )환경설정 -> .xml(config)
+		   
+		   4-2 )쿼리    -> .xml(mapper) , @ : interface, 동적쿼리
+		   
+- test05: mybatis 연동해 보자.
+	쿼리  --> @ : interface 매퍼로 구현해 보자.
+	
+			   

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#submit').click(function() {		 
+		  var  strInfo="";
+			$.getJSON("my.txt", function(data){
+				$.each(data, function(key, value){ //key  index / value :객체
+				   $.each(value, function(k,v){  //k :name, addr					   
+					    strInfo += k  + " ,  " + v +"\n";					   
+				   }); //each				   
+			   });//each		   
+			    alert(strInfo);
+			    $('#result').html(strInfo)
+		   });//getJson			
+		});//click
+	});//$(function)		
+		
+</script>
+</head>
+<body>
+	<form>		
+		 <input type="button" id="submit" value="입력">
+	</form>
+	<h1>Ajax랑 통신하기</h1>
+	<div id="result" style="font-size: 1.5em"></div>
+</body>
+</html>

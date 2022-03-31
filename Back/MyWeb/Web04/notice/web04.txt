@@ -1,0 +1,77 @@
+================================================================
+web04
+
+	1. jsp 생명 주기를 이해하고 설명할 수 있다.
+
+	2.  jsp 객체의 속성값을 이해하고 표현식을 사용할 수 있다.
+
+	3.  jsp 액션 태그를 활용할 수 있다. (지시어 / 스크립트 태그 / 내장 객체 / 액션 태그 / 자바빈)
+
+	4. 폼연동을 할 수 있다.
+
+	5. JSP의 EL/JSTL의 구조를 확인 할 수 있다.
+
+================================================================
+
+1)  Java Server Page(JSP) : html과 자바 코드를 분리한 구조
+
+     -<%@ page%> : 클라이언트 요청에 JSP페이지가 실행될 때 필요한 정보를
+
+                                 JSP 컨테이너에게 알려준다.
+
+                                 filename.jsp → filename_jsp.java → filename_jsp.class
+  	 
+  	 - 주석문(comment) : <%— —> 페이지 자체에 대한 참조 정보를 제공
+
+     - 선언문(delcaration) : <%! %> JSP 페이지내에 사용할 변수, 메서드 선언
+
+     - 표현식 ( expression) : <%= %> 웹페이지에 출력문으로 사용
+
+     - 지시자 (directive) : <%@ %> 웹페이지의 처리할 정보를 컨테이너에게 제공
+
+     - 스크립트릿(scriptlet) : <% %> 자바프로그램 작성
+
+2) Jsp 속성 지시자.
+
+- contentType : 어떤 형태로 출력될 것인지를 MIME 타입과 문자형 인코딩 타입을 지정한다.
+
+- extends : extends org.apache.jasper.runtime.HttpJspBase
+
+- session : true - 현재 페이지가 세션유지 , 세션이 존재하지 않으면 새로운 세션을 
+
+                         생성해서 연결하겠다.
+
+               false - 세션이 연결되지 않는다.
+- buffer -none : jsp페이지로 부터 출력되는 내용은 클라이언트의 웹브라우저로 전달한다.
+- autoFlush : true - 지정된 버퍼의 크기가 꽉 찼을 경우 자동으로 지워지고 버퍼의 내용을
+                            브라우저로 전송
+                  false - 지정된 버퍼의 크기가 꽉 찼을 경우 Exception이 발생한다.             
+
+3) 내장 객체 : 내장 객체(Implicit Object)란 변수 선언 및 객체 생성과정 없이 바로
+                       사용할 수 있는 객체를 의미한다.
+                       이들 내장 객체를 사용할 경우 프로그래밍을 최대한 단순화시킬 수 있다.
+
+비트 (0,1) *8 = 8bit = 1byte
+임시기억장소 : 버퍼, 레지스터, 클립보드, 누산기
+
+
+<<입출력 관련 내장 객체>>
+request  : javax.servlet.http.HttpServletRequest (브라우저 → jsp로 요청할 때 전달되는 데이터를 리턴)
+response :javax.servlet.http.HttpServletResponse
+out      :  javax.servlet.jsp.JspWrite (Jsp 페이지의 결과를 브라우저로 리턴하는 출력 스트림)
+
+<<JSP 외부 환경정보관련 내장객체 : 웹 어플리케이션에서 수행되는 웹페이지 등의 환경정보를 구성>>
+session :javax.servlet.http.HttpSession (서버에 클라이언트 정보를 저장하기 위한 객체)
+application: javax.servlet.ServletContext ( 웹 어플리케이션 삭제)
+pageContext: javax.servlet.jsp.PageContext (현재 요청된 JSP의 Context를 의미)
+
+<<page Servlet에 관련된 내장객체>>
+config :javax.servlet.ServletConfig (서블릿의 초기 설정데이터 _ 필터)
+page  :javax.servlet.jsp.JspPage
+
+exception :  java.lang.Throwable
+ (page 지시자 isError=true속성으로 지정된페이지에서만 사용할 수 있는 객체)
+ 
+4) 객체의 범위는 page, request, session, application으로 나누어 진다. 
+
+

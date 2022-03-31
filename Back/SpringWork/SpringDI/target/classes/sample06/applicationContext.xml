@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="date" class="java.util.Date" />
+	<bean id="bar" class="sample06.Bar" />
+	<bean id="fooTest" class="sample06.Foo">
+		<constructor-arg ref="date" />
+		
+		<property name="bar" ref="bar" />
+		
+		<property name="date" ref="date" />
+		
+		<property name="number">
+			<value>25</value>
+		</property>
+		
+		<property name="info">
+			<list>
+				<value>영어</value>
+				<value>수학</value>
+				<value>국어</value>
+			</list>
+		</property>
+		
+		<property name="students">
+			<array>
+				<value>윤희</value>
+				<value>건동</value>
+				<value>은혜</value>
+				<value>지수</value>
+			</array>
+		</property>
+		
+		<property name = "event">
+			<set>
+				
+				<value>둘리</value>
+				<value>고길동</value>
+				<value>또치</value>
+			</set>
+		</property>
+		
+		<property name = "telNumber">
+			<map>
+				<entry key = "1" value = "봄" />
+				<entry key = "2" value = "여름" />
+				<entry key = "3" value = "가을" />
+				<entry key = "4" value = "겨울" />
+			</map>
+		</property>
+
+	</bean>
+
+</beans>

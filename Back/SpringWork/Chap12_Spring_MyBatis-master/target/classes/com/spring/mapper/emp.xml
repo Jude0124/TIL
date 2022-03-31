@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!--  mapper가 여러 개 존재하는 경우 mapper를 구분하기 위한 식별자로 사용됨. -->
+  <mapper namespace="com.spring.dao.EmmpDAO">
+  		<select id="selectAll" resultType="com.spring.dto.EmpDTO">
+  			select * from emp order by empno
+  		</select>
+  		<select id="deptAll" resultType="com.spring.deptdto.DeptDTO">
+  			select * from dept
+  		</select>
+  		
+  		<insert id="insert" parameterType="com.spring.dto.EmpDTO">
+  			insert into emp values(#{empno},#{ename},#{job},#{mgr},sysdate,#{sal},#{comm},#{deptno})
+  		</insert>
+  		
+  		<select id="recode" resultType="com.spring.dto.EmpDTO">
+  			select * from emp where empno=#{empno}
+  		</select>
+  		<update id="update" parameterType="com.spring.dto.EmpDTO">
+  			update emp set job=#{job}, mgr=#{mgr}, sal=#{sal}, comm=#{comm}, deptno=#{deptno} where empno=#{empno}
+  		</update>
+  		
+  		<delete id="delete">
+  			delete from emp where empno=#{empno}
+  		</delete>
+  </mapper>

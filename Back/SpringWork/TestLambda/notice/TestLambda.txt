@@ -1,0 +1,112 @@
+@Documented //@적용위치
+@Retention(value=RUNTIME) //실행시점
+@Target(value=TYPE) // 대상
+public @interface FunctionalInterface
+
+1) Lambda는 SE 8도입된 표기법 -> 코드를 간결화 (중복코드를 단일코드)
+		Thread . run() {} //재정의
+2) 익명함수 사용하는 형식
+	ex) [익명클래스 1.8이전]
+		Button bt = new Button();
+		bt.addActionListener( new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent E){
+				....
+			}
+		}) ;
+		[익명클래스 1.8이후]
+		Button bt = new Button();
+			bt.addActionListener( E-> 실행할 코드 ....);
+			
+3) 클로저 (Closure)라고 한다. = Lambda
+
+4) @FunctionalInterface를 사용한 함수형 인터페이스 , 람다식 표현식,
+	메소드 참조, 생성자 참조 , 클래스 멤버와 로컬변수 사용, 표준 API함수 인터페이스 이다.
+	
+5)람다식 함수형 인터페이스 
+    
+    @FunctionalInterface  ---------  어노테이션 선언 
+	private interface  인터페이스명 {
+		public  void[자료형]   함수명 (매개인수,,,);
+	}
+	
+   람다 식 함수 형 인터페이스는 lambda 표현식을  사용한다.
+ ( 구현하는 메서드의 인수 ) -> { 처리 } 형식을 취하며 기본 문법에 따라 처리 구현을 
+   간결하게 기술 할 수 있으며 복수라도 인수 없이 처리 가능하다.
+   
+lambda 표현식은 Method와 유사하나 다음의 4가지가 다르다.  
+
+5-1.lambda 표현식은 익명으로 처리되어 이름이 없다.
+5-2.lambda 표현식은 compiler가 context에 맞는 타입을 유추하기 때문에 return type이 없다. 
+5-3.lambda 표현식은 compiler가 context에서 유추되어   throws clause가 없다. )
+5-4.lambda 표현식은 람다 표현식은 Generic이 될 수 없어  type 파라미터를 선언할 수 없다.
+
+
+6. 람다식 표현식 ( 구현하는 메서드의 인수 ) -> { 처리 } //괄호, 중괄호, 자료형 생략가능하다.
+	간단한 예문.
+	6-1) 매개인자로 su를 받아서 출력하는 구문
+		(int su)-> {System.out.println(su);}
+		
+	6-2) 자료형 생략
+		(su) -> {System.out.println(su);}
+		
+	6-3) 매개인자 하나일 경우 (), {} 생략이 가능하다. 
+		su -> System.out.println(su);
+		
+	6-4) 매개인자 없는 경우, () 만 사용할 수있다.
+	 () -> {System.out.println(100);}
+	 
+	6-5) 매개인자 2개 이상이면 자료형 생략하여 실행한다.
+		(a,b) -> { return a+b;}
+		
+	6-6) 매개인자 2개 이상이면 {}, return 생략하여 실행한다.
+		(a,b) -> a+b;
+		
+7. 표준 API함수 인터페이스 : java.util.function, 43개가 존재한다.
+	43개의 인터페이스 : 매개인수와 반환결과의 패턴이 크게 
+				4종류(Function, Predicate, Consumer, Supplier)를 기본으로
+				상속구조와 파생클래스로 이루어진다.
+				4개의 주요 인터페이스 하위로 파생된 Operator로 구분되어 진다.
+	4개의 인터페이스는 각각 주요 추상메소드를 가지고 있다.
+	
+8. java.util.function.Function
+	8-1) Function<T,R> : 인수를 T로 받고 R로 리턴하는 함수를 선언
+	8-2) BiFunction<T,U,R> : 인수를 T와 U로 받고 R로 리턴하는 함수를 선언
+
+	<< Function 메소드>>
+	: 메소드 합성을 위한 것
+	default <V> Function<T,V> andThen(Function<? super R, ? extends V> after)
+	 -> 매개인수를 함수(Function)로 지정하고 Function으로 리턴
+	
+	default <V> Function<V,R> compose(Function<? super V, ? extends T> before)
+	
+	static <T> Function<T,T>
+	
+	Function<Integer, Integer> a2 = e-> e*e;
+	
+	a1.compose(a2).apply(2); //8을 리턴 -> 숫자2를 e로 전달한 후 a2, a1순으로 진행
+	a1.andThen(a2.apply(2); //16 -> 숫자 2를 e로 전달한 후 a1, a2순으로 수행
+
+9. java.util.function.Predicate
+	9-1) predicate<T> : 인수를 T로 받고 예측과 같은지 여부를 boolean형태로 리턴, boolean test(T t)
+	9-2) BiPredicate<T,U> : 인수를 T,U로 받고 예측과 같은지 여부를 boolean형태로 리턴, booleantest(T t, U u)
+	
+	<<Predicate 메소드>>
+	default Predicate<T> and (Predicate<? super T> other)
+	default Predicate<T> negate()
+	defautl Predicate<T>
+	
+	
+	
+10. java.util.function.Consumer
+	10-1) Consumer<T> : 인수를 T로 받아 결과값이 없는 경우 (side effect만 발생) , void accept(T t)
+	10-2) BiConsumer<T,U> : 인수를 T, U로 받아 결과값이 없는 경우(side effect만 발생),
+							void accept(T t, U  u)
+							
+11. java.util.function.Supplier
+	Supplier<T> : T타입으로 리턴 T get()
+	
+
+
+	 
+	 	
