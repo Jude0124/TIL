@@ -2,6 +2,15 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,java,intellij,eclipse,visualstudiocode,react,vue
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,java,intellij,eclipse,visualstudiocode,react,vue
 
+
+### Json ###
+pacage-lock.json
+
+### Jude ###
+.idea
+.classpath
+.project
+
 ### Eclipse ###
 .metadata
 bin/
@@ -220,11 +229,11 @@ sketch
 
 ### VisualStudioCode ###
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
+# !.vscode/*.code-snippets
 
 # Local History for Visual Studio Code
 .history/
