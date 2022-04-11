@@ -1,0 +1,12 @@
+    https://www.hrd.go.kr/jsp/HRDP/HRDPO00/HRDOA60/HRDOA60_1.jsp?
+    authKey=[인증키]
+    &returnType=XML
+    &outType=1
+    &pageNum=1000
+    &pageSize=20
+    &srchTraStDt=20210101
+    &srchTraEndDt=20221231
+    &srchTraArea1=11
+    &srchKeco1=20
+    &sort=ASC
+    &sortCol=TR_NM_i
